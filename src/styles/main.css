@@ -2,7 +2,25 @@ body {
     font-family: sans-serif;
     width:100%;
     margin: 0;
-    padding: 0;
+    padding: 80px 0 0 0;
+}
+
+p {
+    margin: 0;
+}
+
+#header {
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    width:100%;
+    box-sizing: border-box;
+    height: 80px;
+    background: white;
+    border-width: 0 0 1px 0;
+    border-color: lightgray;
+    border-style: solid;
 }
 
 #services {
@@ -11,8 +29,26 @@ body {
     flex-wrap: wrap;
     box-sizing: border-box;
     padding: 0;
-    margin: 0;
+    margin: 50px;
+    border-width: 1px 0 0 1px;
+    border-color: lightgray;
+    border-style: solid;
 }
+
+#status-header {
+    width: 100%;
+    box-sizing: border-box;
+    border-width: 0 1px 1px 0;
+    border-color: lightgray;
+    border-style: solid;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5F5F5;
+}
+
 .status-item {
     width: 100%;
     box-sizing: border-box;
@@ -20,13 +56,48 @@ body {
     border-color: lightgray;
     border-style: solid;
     padding: 20px;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
+.status-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-name {
+    font-weight: bold;
+}
+
+.status-icon {
+    display: flex;
+    flex-direction: column;
+
+}
+
 @media (min-width: 802px) {
     .status-item {
         width: 50%;
+    }
+}
+
+.loading-indicator {
+    width: 40px;
+    animation-name: spin;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    // should be good for all supported browsers:
+    // https://caniuse.com/#feat=css-animation
+       from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
     }
 }
