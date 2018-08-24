@@ -17,5 +17,5 @@ A lightweight dashboard for displaying the status and performance of SearchWorks
 1. `./bin/publish.sh` from the project root - This will install dependencies, build the static assets, and edit and push to the gh-pages branch.
 1. visit https://sul-dlss.github.io/searchworks-status/
 
-## Adding Checks and Graphs
+## Adding or Changing Checks, Graphs, and Feeds
 The items to be displayed here are listed in [`config.js`](https://github.com/sul-dlss/searchworks-status/blob/master/src/config.js)
