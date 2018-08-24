@@ -11,23 +11,17 @@ export const statusEndpoints = {
     status: 'pending',
     position: 2
   },
-  bitly: {
-    displayName: 'Shortlink Redirects',
-    endpointUrl: 'http://status.bitly.com/?format=json',
-    status: 'pending',
-    position: 3
-  },
   embed: {
     displayName: 'SUL Embed',
     endpointUrl: 'http://embed-stage.stanford.edu/status/all.json',
     status: 'pending',
-    position: 4
+    position: 3
   },
   libraryDrupal: {
     displayName: 'Library.stanford.edu',
     endpointUrl: 'http://library.stanford.edu/healthcheck.php',
     status: 'pending',
-    position: 5
+    position: 4
   }
 }
 
