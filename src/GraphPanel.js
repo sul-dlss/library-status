@@ -1,12 +1,10 @@
-
 import React from 'react'
 
-class GraphPanel extends React.Component {
-  render() {
-    return <div id="graph-panel">
-      <iframe src="https://rpm.newrelic.com/public/charts/8Y9tUx8BZ5j" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+const GraphPanel = props => (
+    <div>
+    <h3>Graphs</h3>
+    <iframe src="https://rpm.newrelic.com/public/charts/9kReJWHRXyt" width="500" height="300" scrolling="no" frameBorder="no"></iframe>
     </div>
-  }
-}
+)
 
 export default GraphPanel
