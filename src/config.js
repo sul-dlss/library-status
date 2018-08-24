@@ -13,13 +13,13 @@ export const statusEndpoints = {
   },
   embed: {
     displayName: 'SUL Embed',
-    endpointUrl: 'http://embed-stage.stanford.edu/status/all.json',
+    endpointUrl: 'https://embed-stage.stanford.edu/status/all.json',
     status: 'pending',
     position: 3
   },
   libraryDrupal: {
     displayName: 'Library.stanford.edu',
-    endpointUrl: 'http://library.stanford.edu/healthcheck.php',
+    endpointUrl: 'https://library.stanford.edu/healthcheck.php',
     status: 'pending',
     position: 4
   }
