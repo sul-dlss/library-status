@@ -1,5 +1,5 @@
 # SearchWorks Status Dashboard
-This dashboard provides a lightweight way to display the status and performance of SearchWorks and related SUL services.
+A lightweight dashboard for displaying the status and performance of SearchWorks and related SUL services.
 
 ## Run Locally
 1. git clone this repository
