@@ -3,7 +3,7 @@ import React from 'react'
 const Header = props => (
     <div id="header">
       <div className="title">
-        <span>Searchworks Status</span>
+        <h1>Searchworks Status</h1>
       </div>
       <div className="nav-menu">
         <a href="/">Dashboard</a>
