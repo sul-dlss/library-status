@@ -15,12 +15,26 @@ p {
     right:0;
     top:0;
     width:100%;
-    box-sizing: border-box;
     height: 80px;
+    box-sizing: border-box;
+    padding: 0 30px;
     background: white;
     border-width: 0 0 1px 0;
     border-color: lightgray;
     border-style: solid;
+}
+
+.nav-menu {
+    position: absolute;
+    right: 30px;
+    top: 0;
+    margin: 30px 0;
+}
+
+.nav-menu a {
+    margin: 15px;
+    text-decoration: none;
+    color: gray;
 }
 
 #services {
