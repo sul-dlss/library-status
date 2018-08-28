@@ -92,8 +92,9 @@ class Dashboard extends React.Component {
   render() {
     return <div>
       <div id="services">
-
-        <StatusHeader />
+      <StatusHeader
+        statuses={statuses}
+      />
         {Object.keys(this.state.statusEndpoints).map((endpointName, i) => {
           statusEndpoints[endpointName].key = i;
           // Return the element. Also pass key
