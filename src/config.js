@@ -37,7 +37,7 @@ export const statuses = {
     message: 'This service is currently down for scheduled maintenance.'
   },
   issue: {
-    icon: '⚠',
+    icon: '⚠️',
     legend: 'Issue',
     message: 'There is currently a performance issue with this service.'
   },

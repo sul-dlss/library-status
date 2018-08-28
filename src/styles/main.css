@@ -49,6 +49,14 @@ p {
     background-color: #F5F5F5;
 }
 
+.status-legend {
+    display: flex;
+}
+
+.status-legend-item p {
+    margin-right: 15px;
+}
+
 .status-item {
     width: 100%;
     box-sizing: border-box;
@@ -95,12 +103,34 @@ p {
     }
 }
 
-.loading-indicator {
-    width: 40px;
+.pending .status-message {
+    font-style: italic;
+    animation-name: fade;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.pending .status-icon {
     animation-name: spin;
     animation-duration: 2000ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+}
+
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes spin {
