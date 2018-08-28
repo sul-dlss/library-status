@@ -23,8 +23,7 @@ class Dashboard extends React.Component {
   componentDidMount() {
     Object.keys(statusEndpoints).forEach((key) => {
       fetch(statusEndpoints[key].endpointUrl, {
-        mode: 'cors',
-        credentials: 'omit'
+        mode: "cors"
       }).then((response) => {
         if (response.status !== 200) {
           return;
@@ -32,27 +31,27 @@ class Dashboard extends React.Component {
 
         console.log(key);
         switch (key) {
+        case 'searchworksApplication':
+          processLibraryHours(response)
+            .then((status) => {
+              console.log(status)
+              var newState = this.state.statusEndpoints
+              newState.searchworksApplication.status = status
+              this.setState(prevState => ({newState}))
+            });
+          break
         case 'libraryHours':
           processLibraryHours(response)
             .then((status) => {
               console.log(status)
               var newState = this.state.statusEndpoints
-              newState.bitly.status = status
+              newState.libraryHours.status = status
               this.setState(prevState => ({newState}))
             });
           break
         case 'requests':
           console.log('requests requested')
           processRequests(response)
-            .then((status) => {
-              console.log(status)
-              var newState = this.state.statusEndpoints
-              newState.bitly.status = status
-              this.setState(prevState => ({newState}))
-            });
-          break
-        case 'bitly':
-          processBitly(response)
             .then((status) => {
               console.log(status)
               var newState = this.state.statusEndpoints
@@ -113,7 +112,6 @@ class Dashboard extends React.Component {
       </div>
 
       <GraphPanel graphs={this.state.graphs}/>
-      <a className="twitter-timeline" href="https://twitter.com/SULSystemStatus?ref_src=twsrc%5Etfw">Tweets by SULSystemStatus</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
   }
 }
