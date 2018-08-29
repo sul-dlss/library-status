@@ -1,11 +1,12 @@
 import React from 'react'
 import {statusEndpoints, statuses, graphs, feeds} from './config'
 import {
+  processSearchworks,
+  processSwSolr,
   processLibraryHours,
   processRequests,
   processEmbed,
   processLibraryDrupal,
-  processBitly
 } from './endpointParsers'
 import Header from './Header'
 import StatusHeader from './StatusHeader'
@@ -25,14 +26,17 @@ class Dashboard extends React.Component {
       fetch(statusEndpoints[key].endpointUrl, {
         mode: "cors"
       }).then((response) => {
+        console.log(response.status)
         if (response.status !== 200) {
+          var newState = this.state.statusEndpoints
+          newState[key].status = 'issue'
+          this.setState(prevState => ({newState}))
           return;
         }
 
-        console.log(key);
         switch (key) {
         case 'searchworksApplication':
-          processLibraryHours(response)
+          processSearchworks(response)
             .then((status) => {
               console.log(status)
               var newState = this.state.statusEndpoints
@@ -40,32 +44,36 @@ class Dashboard extends React.Component {
               this.setState(prevState => ({newState}))
             });
           break
+        case 'swSolr':
+          processSwSolr(response)
+            .then((status) => {
+              console.log(status)
+              var newState = this.state.statusEndpoints
+              newState.swSolr.status = status
+              this.setState(prevState => ({newState}))
+            });
+          break
         case 'libraryHours':
           processLibraryHours(response)
             .then((status) => {
-              console.log(status)
               var newState = this.state.statusEndpoints
               newState.libraryHours.status = status
               this.setState(prevState => ({newState}))
             });
           break
         case 'requests':
-          console.log('requests requested')
           processRequests(response)
             .then((status) => {
-              console.log(status)
               var newState = this.state.statusEndpoints
-              newState.bitly.status = status
+              newState.requests.status = status
               this.setState(prevState => ({newState}))
             });
           break
         case 'embed':
-          console.log('embedrequested')
           processEmbed(response)
             .then((status) => {
-              console.log(status)
               var newState = this.state.statusEndpoints
-              newState.bitly.status = status
+              newState.embed.status = status
               this.setState(prevState => ({newState}))
             });
           break
@@ -79,10 +87,15 @@ class Dashboard extends React.Component {
             });
           break
         default:
-          console.log('unknown')
+          console.log('unknown endpoint')
           return
         }
       }).catch((err) => {
+        var newState = this.state.statusEndpoints
+        newState[key].status = 'outage'
+        this.setState(prevState => ({newState}))
+        return;
+        console.log('Request for ' + key + ' did not complete.')
         console.log(err)
       });
     });
