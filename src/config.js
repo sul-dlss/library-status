@@ -1,27 +1,39 @@
 export const statusEndpoints = {
-  libraryHours: {
-    displayName: 'Library Hours',
-    endpointUrl: 'https://library-hours.stanford.edu/is_it_working',
+  searchworksApplication: {
+    displayName: 'SearchWorks Website',
+    endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
     position: 1
+  },
+  swSolr: {
+    displayName: 'SearchWorks Solr',
+    endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
+    status: 'pending',
+    position: 2
+  },
+  libraryHours: {
+    displayName: 'Library Hours',
+    endpointUrl: 'https://library-hours.stanford.edu/status/all.json',
+    status: 'pending',
+    position: 3
   },
   requests: {
     displayName: 'SUL Requests',
     endpointUrl: 'https://requests-dev.stanford.edu/status/all.json',
     status: 'pending',
-    position: 2
+    position: 4
   },
   embed: {
     displayName: 'SUL Embed',
     endpointUrl: 'https://embed-stage.stanford.edu/status/all.json',
     status: 'pending',
-    position: 3
+    position: 5
   },
   libraryDrupal: {
     displayName: 'Library.stanford.edu',
     endpointUrl: 'https://library.stanford.edu/healthcheck.php',
     status: 'pending',
-    position: 4
+    position: 6
   }
 }
 

@@ -6,9 +6,9 @@ const GraphPanel = props => (
     <h2>Searchworks Page Load Time</h2>
     <iframe src="https://rpm.newrelic.com/public/charts/9kReJWHRXyt" width="100%" height="300" scrolling="no" frameBorder="no"></iframe>
     <h2>SOLR Response Time</h2>
-    <iframe src="https://rpm.newrelic.com/public/charts/tAPstSMLa7" width="100%" height="300" scrolling="no" frameborder="no"></iframe>
+    <iframe src="https://rpm.newrelic.com/public/charts/tAPstSMLa7" width="100%" height="300" scrolling="no" frameBorder="no"></iframe>
     <h2>Ebsco Response Time</h2>
-  <iframe src="https://rpm.newrelic.com/public/charts/gaCwQOqamfZ" width="100%" height="300" scrolling="no" frameborder="no"></iframe>
+  <iframe src="https://rpm.newrelic.com/public/charts/gaCwQOqamfZ" width="100%" height="300" scrolling="no" frameBorder="no"></iframe>
     </div>
 )
 
