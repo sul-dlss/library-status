@@ -45,3 +45,21 @@ export function processLibraryDrupal(response) {
       return data.components[1].status === 'operational' ? 'up' : 'outage';
     });
 }
+export function processOclcEzproxy(response) {
+  console.log(response.body)
+  return response.body.getReader()
+    .read()
+    .then((data) => {
+      console.log(data);
+      return data.components[1].status === 'operational' ? 'up' : 'outage';
+    });
+}
+export function processOclcWorldcatSearch(response) {
+  console.log(response.body)
+  return response.body.getReader()
+    .read()
+    .then((data) => {
+      console.log(data);
+      return data.components[1].status === 'operational' ? 'up' : 'outage';
+    });
+}

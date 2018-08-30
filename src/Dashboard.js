@@ -8,6 +8,8 @@ import {
   processRequests,
   processEmbed,
   processLibraryDrupal,
+  processOclcEzproxy,
+  processOclcWorldcatSearch
 } from './endpointParsers'
 import Header from './Header'
 import StatusHeader from './StatusHeader'
@@ -96,6 +98,24 @@ class Dashboard extends React.Component {
               this.setState(prevState => ({newState}))
             });
           break
+          case 'oclcEzproxy':
+            processOclcEzproxy(response)
+              .then((status) => {
+                console.log(status)
+                var newState = this.state.statusEndpoints
+                newState.bitly.status = status
+                this.setState(prevState => ({newState}))
+              });
+            break
+            case 'oclcWorldcatSearch':
+              processOclcWorldcatSearch(response)
+                .then((status) => {
+                  console.log(status)
+                  var newState = this.state.statusEndpoints
+                  newState.bitly.status = status
+                  this.setState(prevState => ({newState}))
+                });
+              break
         default:
           console.log('unknown endpoint')
           return

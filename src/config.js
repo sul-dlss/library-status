@@ -40,6 +40,18 @@ export const statusEndpoints = {
     endpointUrl: 'https://library.stanford.edu/healthcheck.php',
     status: 'pending',
     position: 7
+  },
+  oclcEzproxy: {
+    displayName: 'EZproxy',
+    endpointUrl: 'https://oclc.service-now.com/status?id=service&sys_id=a135f987139f6e40250a36722244b098',
+    status: 'pending',
+    position: 8
+  },
+  oclcWorldcat: {
+    displayName: 'Worldcat Search & Citations',
+    endpointUrl: 'https://oclc.service-now.com/status?id=service&sys_id=3b1c847a4ff6e684a5832cee0210c759',
+    status: 'pending',
+    position: 9
   }
 }
 
