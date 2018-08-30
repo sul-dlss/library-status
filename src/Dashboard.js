@@ -3,6 +3,7 @@ import {statusEndpoints, statuses, graphs, feeds} from './config'
 import {
   processSearchworks,
   processSwSolr,
+  processEbsco,
   processLibraryHours,
   processRequests,
   processEmbed,
@@ -52,6 +53,15 @@ class Dashboard extends React.Component {
               newState.swSolr.status = status
               this.setState(prevState => ({newState}))
             });
+          break
+        case 'ebsco':
+          processEbsco(response)
+          .then((status) => {
+            console.log(status)
+            var newState = this.state.statusEndpoints
+            newState.ebsco.status = status
+            this.setState(prevState => ({newState}))
+          });
           break
         case 'libraryHours':
           processLibraryHours(response)
