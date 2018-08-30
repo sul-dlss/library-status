@@ -11,29 +11,35 @@ export const statusEndpoints = {
     status: 'pending',
     position: 2
   },
+  ebsco: {
+    displayName: 'Articles+',
+    endpointUrl: 'https://status.ebsco.com/index.json',
+    status: 'pending',
+    position: 3
+  },
   libraryHours: {
     displayName: 'Library Hours',
     endpointUrl: 'https://library-hours.stanford.edu/status/all.json',
     status: 'pending',
-    position: 3
+    position: 4
   },
   requests: {
     displayName: 'SUL Requests',
     endpointUrl: 'https://requests-dev.stanford.edu/status/all.json',
     status: 'pending',
-    position: 4
+    position: 5
   },
   embed: {
     displayName: 'SUL Embed',
     endpointUrl: 'https://embed-stage.stanford.edu/status/all.json',
     status: 'pending',
-    position: 5
+    position: 6
   },
   libraryDrupal: {
     displayName: 'Library.stanford.edu',
     endpointUrl: 'https://library.stanford.edu/healthcheck.php',
     status: 'pending',
-    position: 6
+    position: 7
   }
 }
 
