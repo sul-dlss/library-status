@@ -49,7 +49,7 @@ export const statuses = {
     legend: 'No Issues',
     message: 'No Issues'
   },
-  maintainance: {
+  maintenance: {
     icon: '🛠',
     legend: 'Maintenance',
     message: 'This service is currently down for scheduled maintenance.'
@@ -70,14 +70,10 @@ export const statuses = {
   }
 }
 
-export const maintananceWindows = [
+// SUL Maintenance windows in PST
+export const maintenanceWindows = [
   {
     day: 0,
-    startHour: 4,
-    endHour: 8
-  },
-  {
-    day: 6,
     startHour: 4,
     endHour: 8
   },
@@ -88,6 +84,11 @@ export const maintananceWindows = [
   },
   {
     day: 4,
+    startHour: 4,
+    endHour: 8
+  },
+  {
+    day: 6,
     startHour: 4,
     endHour: 8
   }

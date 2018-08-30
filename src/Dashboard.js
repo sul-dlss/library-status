@@ -1,5 +1,5 @@
 import React from 'react'
-import {statusEndpoints, statuses, graphs, feeds} from './config'
+import {statusEndpoints, statuses, graphs, feeds, maintenanceWindows} from './config'
 import {
   processSearchworks,
   processSwSolr,
@@ -13,13 +13,15 @@ import Header from './Header'
 import StatusHeader from './StatusHeader'
 import StatusItem from './StatusItem'
 import GraphPanel from './GraphPanel'
+import areBeingMaintained from './maintenanceUtils'
 
 class Dashboard extends React.Component {
   state = {
     statusEndpoints: statusEndpoints,
     statuses: statuses,
     graphs: graphs,
-    feeds: feeds
+    feeds: feeds,
+    intervals: maintenanceWindows
   }
 
   componentDidMount() {
@@ -119,6 +121,9 @@ class Dashboard extends React.Component {
       />
         {Object.keys(this.state.statusEndpoints).map((endpointName, i) => {
           statusEndpoints[endpointName].key = i;
+          if (areBeingMaintained(maintenanceWindows)) {
+            Object.keys(this.state.statusEndpoints).forEach((endpointName) => statusEndpoints[endpointName].status = 'maintenance')
+          }
           // Return the element. Also pass key
           let endpoint = statusEndpoints[endpointName];
           return (
