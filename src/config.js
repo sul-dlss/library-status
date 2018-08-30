@@ -70,6 +70,29 @@ export const statuses = {
   }
 }
 
+export const maintananceWindows = [
+  {
+    day: 0,
+    startHour: 4,
+    endHour: 8
+  },
+  {
+    day: 6,
+    startHour: 4,
+    endHour: 8
+  },
+  {
+    day: 2,
+    startHour: 4,
+    endHour: 8
+  },
+  {
+    day: 4,
+    startHour: 4,
+    endHour: 8
+  }
+]
+
 export const graphs = {
   swResponseTime: {
     title: 'Searchworks Response Time',
