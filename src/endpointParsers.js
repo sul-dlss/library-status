@@ -7,7 +7,7 @@ export function processSearchworks(response) {
 export function processSwSolr(response) {
   return response.json().then(function(data) {
     if (typeof data.default === 'undefined') return 'outage';
-    return data.default.success ? 'up' : 'outage';
+    return data.sw_solr.success ? 'up' : 'outage';
   });
 }
 export function processEbsco(response) {
