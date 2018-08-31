@@ -25,13 +25,13 @@ export const statusEndpoints = {
   },
   requests: {
     displayName: 'SUL Requests',
-    endpointUrl: 'https://requests-dev.stanford.edu/status/all.json',
+    endpointUrl: 'https://requests.stanford.edu/status/all.json',
     status: 'pending',
     position: 5
   },
   embed: {
     displayName: 'SUL Embed',
-    endpointUrl: 'https://embed-stage.stanford.edu/status/all.json',
+    endpointUrl: 'https://embed.stanford.edu/status/all.json',
     status: 'pending',
     position: 6
   },
