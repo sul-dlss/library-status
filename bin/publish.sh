@@ -1,19 +1,19 @@
-npm i
+npm i &&
 
-npm run build
+npm run build &&
 
 # checkout to the gh-pages branch
-git checkout gh-pages
+git checkout gh-pages &&
 
 # pull the latest updates
-git pull origin gh-pages --rebase
+git pull origin gh-pages --rebase &&
 
-cp dist/* ./
+cp dist/* ./ &&
 
-git add index.html bundle.js
+git add index.html bundle.js &&
 
-git commit -m 'Update sites'
+git commit -m 'Update sites' &&
 
-git push origin gh-pages
+git push origin gh-pages &&
 
 git checkout master
