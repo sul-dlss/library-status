@@ -7,8 +7,8 @@ const Header = props => (
       </div>
       <div className="nav-menu">
         <a href="/">Dashboard</a>
-        <a href="/">Graphs</a>
-        <a href="/">Updates</a>
+        <a href="#graphs">Graphs</a>
+        <a href="#">Updates</a>
       </div>
     </div>
 )
