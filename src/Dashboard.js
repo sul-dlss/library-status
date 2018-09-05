@@ -8,6 +8,7 @@ import {
   processRequests,
   processEmbed,
   processLibraryDrupal,
+  processLiveAvailability,
 } from './endpointParsers'
 import Header from './Header'
 import StatusHeader from './StatusHeader'
@@ -95,6 +96,15 @@ class Dashboard extends React.Component {
               console.log(status)
               var newState = this.state.statusEndpoints
               newState.bitly.status = status
+              this.setState(prevState => ({newState}))
+            });
+          break
+        case 'liveAvailability':
+          processLiveAvailability(response)
+            .then((status) => {
+              console.log(status)
+              var newState = this.state.statusEndpoints
+              newState.liveAvailability.status = status
               this.setState(prevState => ({newState}))
             });
           break
