@@ -94,7 +94,7 @@ class Dashboard extends React.Component {
             .then((status) => {
               console.log(status)
               var newState = this.state.statusEndpoints
-              newState.bitly.status = status
+              newState.libraryDrupal.status = status
               this.setState(prevState => ({newState}))
             });
           break
