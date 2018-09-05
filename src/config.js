@@ -40,6 +40,12 @@ export const statusEndpoints = {
     endpointUrl: 'https://library.stanford.edu/healthcheck.php',
     status: 'pending',
     position: 7
+  },
+  liveAvailability: {
+    displayName: 'Live Availability Lookups',
+    endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
+    status: 'pending',
+    position: 8
   }
 }
 
