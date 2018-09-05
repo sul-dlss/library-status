@@ -26,5 +26,11 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin(), new webpack.NamedModulesPlugin()],
+  plugins: [
+    new webpack.NamedModulesPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve('./', 'index.html'),
+      filename: 'index.html',
+      hash: true
+    })],
 }
