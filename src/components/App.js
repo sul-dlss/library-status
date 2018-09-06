@@ -4,7 +4,7 @@ import Header from './Header'
 import StatusHeader from './StatusHeader'
 import StatusItem from './StatusItem'
 import Dashboard from './Dashboard'
-import './styles/main.css'
+import '../styles/main.css'
 
 const App = () => (
   <div>
