@@ -42,12 +42,14 @@ export function processLiveAvailability(response) {
     if (typeof data.default === 'undefined') return 'outage';
     return data.live_lookups.success ? 'up' : 'outage';
   });
-};
+}
 export function processLibraryDrupal(response) {
-  return response.body.getReader()
-    .read()
-    .then((data) => {
-      console.log(data);
-      return data.components[1].status === 'operational' ? 'up' : 'outage';
-    });
+  return response.text().then(function(data) {
+    let lastLine = data.split("\n").pop();
+    if (lastLine.match(/^all health checks successfull/i)) {
+      return 'up';
+    } else {
+      return 'outage';
+    }
+  });
 }
