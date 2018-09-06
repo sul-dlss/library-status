@@ -46,6 +46,12 @@ export const statusEndpoints = {
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
     position: 8
+  },
+  citationService: {
+    displayName: 'OCLC Citation Service',
+    endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
+    status: 'pending',
+    position: 9
   }
 }
 

@@ -9,6 +9,7 @@ import {
   processEmbed,
   processLibraryDrupal,
   processLiveAvailability,
+  processCitationService,
 } from './endpointParsers'
 import Header from './Header'
 import StatusHeader from './StatusHeader'
@@ -105,6 +106,15 @@ class Dashboard extends React.Component {
               console.log(status)
               var newState = this.state.statusEndpoints
               newState.liveAvailability.status = status
+              this.setState(prevState => ({newState}))
+            });
+          break
+        case 'citationService':
+          processCitationService(response)
+            .then((status) => {
+              console.log(status)
+              var newState = this.state.statusEndpoints
+              newState.citationService.status = status
               this.setState(prevState => ({newState}))
             });
           break
