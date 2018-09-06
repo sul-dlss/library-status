@@ -53,3 +53,9 @@ export function processLibraryDrupal(response) {
     }
   });
 }
+export function processCitationService(response) {
+  return response.json().then(function(data) {
+    if (typeof data.default === 'undefined') return 'outage';
+    return data.oclc_citation_service.success ? 'up' : 'outage';
+  });
+}
