@@ -62,7 +62,8 @@ export const statuses = {
   up: {
     icon: '✅',
     legend: 'No Issues',
-    message: 'No Issues'
+    message: 'No Issues',
+    global_message: 'All systems are operational'
   },
   maintenance: {
     icon: '🛠',
@@ -72,7 +73,8 @@ export const statuses = {
   issue: {
     icon: '⚠️',
     legend: 'Issue',
-    message: 'There is currently a performance issue with this service.'
+    message: 'There is currently a performance issue with this service.',
+    global_message: 'There is currently an issue with SearchWorks or a related service. Please see below for more details.'
   },
   pending: {
     icon: '🔄',

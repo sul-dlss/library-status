@@ -27,7 +27,7 @@ const GlobalStatusSummary = props => (
      <h1>{props.statuses[statusReducer(props.endpoints)].icon}</h1>
      <h3>{props.statuses[statusReducer(props.endpoints)].legend}</h3>
      <p>
-       {props.statuses[statusReducer(props.endpoints)].message}
+       {props.statuses[statusReducer(props.endpoints)].global_message || props.statuses[statusReducer(props.endpoints)].message}
       </p>
    </div>
 )
