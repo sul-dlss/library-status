@@ -38,6 +38,11 @@ p {
     color: gray;
 }
 
+#GlobalStatusSummary h1 {
+  font-size: 5em;
+  margin: 0;
+}
+
 #services {
     display: flex;
     flex-direction: row;

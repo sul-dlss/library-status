@@ -23,7 +23,7 @@ const statusReducer = (endpointStatuses) => {
 }
 
 const GlobalStatusSummary = props => (
-   <div id="GlobalStatusSummary">
+   <div id="GlobalStatusSummary" className="section">
      <h1>{props.statuses[statusReducer(props.endpoints)].icon}</h1>
      <h3>{props.statuses[statusReducer(props.endpoints)].legend}</h3>
      <p>
