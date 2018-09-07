@@ -3,18 +3,21 @@ export const statusEndpoints = {
     displayName: 'SearchWorks Website',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
+    critical: true,
     position: 1
   },
   swSolr: {
     displayName: 'SearchWorks Solr',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
+    critical: true,
     position: 2
   },
   ebsco: {
     displayName: 'Articles+',
     endpointUrl: 'https://status.ebsco.com/index.json',
     status: 'pending',
+    critical: true,
     position: 3
   },
   libraryHours: {
@@ -59,7 +62,8 @@ export const statuses = {
   up: {
     icon: '✅',
     legend: 'No Issues',
-    message: 'No Issues'
+    message: 'No Issues',
+    global_message: 'All systems are operational'
   },
   maintenance: {
     icon: '🛠',
@@ -69,7 +73,8 @@ export const statuses = {
   issue: {
     icon: '⚠️',
     legend: 'Issue',
-    message: 'There is currently a performance issue with this service.'
+    message: 'There is currently a performance issue with this service.',
+    global_message: 'There is currently an issue with SearchWorks or a related service. Please see below for more details.'
   },
   pending: {
     icon: '🔄',

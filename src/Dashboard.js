@@ -12,6 +12,7 @@ import {
   processCitationService,
 } from './endpointParsers'
 import Header from './Header'
+import GlobalStatusSummary from './GlobalStatusSummary'
 import StatusHeader from './StatusHeader'
 import StatusItem from './StatusItem'
 import GraphPanel from './GraphPanel'
@@ -128,6 +129,10 @@ class Dashboard extends React.Component {
 
   render() {
     return <div>
+      <GlobalStatusSummary
+        endpoints={this.state.statusEndpoints}
+        statuses={statuses}
+      />
       <div id="services">
       <StatusHeader
         statuses={statuses}
