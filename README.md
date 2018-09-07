@@ -10,7 +10,7 @@ A lightweight dashboard for displaying the status and performance of SearchWorks
 1. visit `localhost:8080` in your browser
 
 ### Static Build
-1. `npm run build`
+1. `npm run build:dev` # For Development build
 1. visit `dist/` using an http server
 
 ## Deploy to GH Pages
