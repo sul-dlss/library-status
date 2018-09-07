@@ -1,6 +1,6 @@
 npm i &&
 
-npm run build &&
+npm run build:prod &&
 
 # checkout to the gh-pages branch
 git checkout gh-pages &&
