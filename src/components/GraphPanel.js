@@ -1,5 +1,5 @@
-import React from 'react'
-import Graph from './Graph'
+import React from 'react';
+import Graph from './Graph';
 
 const GraphPanel = props => (
   <div className="section">
@@ -12,4 +12,4 @@ const GraphPanel = props => (
   </div>
 )
 
-export default GraphPanel
+export default GraphPanel;
