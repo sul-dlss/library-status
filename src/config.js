@@ -3,18 +3,21 @@ export const statusEndpoints = {
     displayName: 'SearchWorks Website',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
+    critical: true,
     position: 1
   },
   swSolr: {
     displayName: 'SearchWorks Solr',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
+    critical: true,
     position: 2
   },
   ebsco: {
     displayName: 'Articles+',
     endpointUrl: 'https://status.ebsco.com/index.json',
     status: 'pending',
+    critical: true,
     position: 3
   },
   libraryHours: {
