@@ -31,7 +31,6 @@ class Dashboard extends React.Component {
       fetch(statusEndpoints[key].endpointUrl, {
         mode: "cors"
       }).then((response) => {
-        console.log(response.status)
         if (response.status !== 200) {
           var newState = this.state.statusEndpoints
           newState[key].status = 'issue'
@@ -43,7 +42,6 @@ class Dashboard extends React.Component {
         case 'searchworksApplication':
           processSearchworks(response)
             .then((status) => {
-              console.log(status)
               var newState = this.state.statusEndpoints
               newState.searchworksApplication.status = status
               this.setState(prevState => ({newState}))
@@ -52,7 +50,6 @@ class Dashboard extends React.Component {
         case 'swSolr':
           processSwSolr(response)
             .then((status) => {
-              console.log(status)
               var newState = this.state.statusEndpoints
               newState.swSolr.status = status
               this.setState(prevState => ({newState}))
@@ -61,7 +58,6 @@ class Dashboard extends React.Component {
         case 'ebsco':
           processEbsco(response)
           .then((status) => {
-            console.log(status)
             var newState = this.state.statusEndpoints
             newState.ebsco.status = status
             this.setState(prevState => ({newState}))
@@ -94,7 +90,6 @@ class Dashboard extends React.Component {
         case 'libraryDrupal':
           processLibraryDrupal(response)
             .then((status) => {
-              console.log(status)
               var newState = this.state.statusEndpoints
               newState.libraryDrupal.status = status
               this.setState(prevState => ({newState}))
@@ -103,7 +98,6 @@ class Dashboard extends React.Component {
         case 'liveAvailability':
           processLiveAvailability(response)
             .then((status) => {
-              console.log(status)
               var newState = this.state.statusEndpoints
               newState.liveAvailability.status = status
               this.setState(prevState => ({newState}))
@@ -112,7 +106,6 @@ class Dashboard extends React.Component {
         case 'citationService':
           processCitationService(response)
             .then((status) => {
-              console.log(status)
               var newState = this.state.statusEndpoints
               newState.citationService.status = status
               this.setState(prevState => ({newState}))
