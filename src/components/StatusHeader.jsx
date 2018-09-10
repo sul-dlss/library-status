@@ -6,11 +6,11 @@ const StatusHeader = ({ statuses }) => (
     <h3>Current Service Status</h3>
     <div className="status-legend">
       {Object.keys(statuses)
-        .map((status, i) => {
+        .map((status) => {
           const currentStatus = statuses[status];
           if (status !== 'pending') {
             return (
-              <div key={i} className="status-legend-item">
+              <div key={status} className="status-legend-item">
                 <p>
                   <span>{currentStatus.icon}</span>
                   {currentStatus.legend}
@@ -18,6 +18,7 @@ const StatusHeader = ({ statuses }) => (
               </div>
             );
           }
+          return '';
         })}
     </div>
   </div>
