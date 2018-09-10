@@ -1,5 +1,5 @@
 import React from 'react'
-import {statusEndpoints, statuses, graphs, feeds, maintenanceWindows} from './config'
+import {statusEndpoints, statuses, graphs, feeds, maintenanceWindows} from '../config'
 import {
   processSearchworks,
   processSwSolr,
@@ -10,13 +10,13 @@ import {
   processLibraryDrupal,
   processLiveAvailability,
   processCitationService,
-} from './endpointParsers'
+} from '../utils/endpointParsers'
 import Header from './Header'
 import GlobalStatusSummary from './GlobalStatusSummary'
 import StatusHeader from './StatusHeader'
 import StatusItem from './StatusItem'
 import GraphPanel from './GraphPanel'
-import areBeingMaintained from './maintenanceUtils'
+import areBeingMaintained from '../utils/maintenanceUtils'
 
 class Dashboard extends React.Component {
   state = {
