@@ -6,7 +6,7 @@ const GraphPanel = ({ graphs }) => (
   <div className="section">
     <h1 id="graphs">Graphs</h1>
     {
-      Object.keys(graphs).map(graphKey => (<Graph graph={graphs[graphKey]} />))
+      Object.keys(graphs).map(graphKey => (<Graph graph={graphs[graphKey]} key={graphKey} />))
     }
   </div>
 );
