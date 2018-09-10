@@ -33,7 +33,7 @@ class Dashboard extends React.Component {
         if (response.status !== 200) {
           const newState = this.state.statusEndpoints;
           newState[key].status = 'issue';
-          this.setState(prevState => ({ newState }));
+          this.setState(newState);
           return;
         }
 
@@ -43,7 +43,7 @@ class Dashboard extends React.Component {
               .then((status) => {
                 const newState = this.state.statusEndpoints;
                 newState.searchworksApplication.status = status;
-                this.setState(prevState => ({ newState }));
+                this.setState(newState);
               });
             break;
           case 'swSolr':
@@ -51,7 +51,7 @@ class Dashboard extends React.Component {
               .then((status) => {
                 const newState = this.state.statusEndpoints;
                 newState.swSolr.status = status;
-                this.setState(prevState => ({ newState }));
+                this.setState(newState);
               });
             break;
           case 'ebsco':
@@ -59,7 +59,7 @@ class Dashboard extends React.Component {
               .then((status) => {
                 const newState = this.state.statusEndpoints;
                 newState.ebsco.status = status;
-                this.setState(prevState => ({ newState }));
+                this.setState(newState);
               });
             break;
           case 'libraryHours':
@@ -67,7 +67,7 @@ class Dashboard extends React.Component {
               .then((status) => {
                 const newState = this.state.statusEndpoints;
                 newState.libraryHours.status = status;
-                this.setState(prevState => ({ newState }));
+                this.setState(newState);
               });
             break;
           case 'requests':
@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
               .then((status) => {
                 const newState = this.state.statusEndpoints;
                 newState.requests.status = status;
-                this.setState(prevState => ({ newState }));
+                this.setState(newState);
               });
             break;
           case 'embed':
@@ -83,7 +83,7 @@ class Dashboard extends React.Component {
               .then((status) => {
                 const newState = this.state.statusEndpoints;
                 newState.embed.status = status;
-                this.setState(prevState => ({ newState }));
+                this.setState(newState);
               });
             break;
           case 'libraryDrupal':
@@ -91,7 +91,7 @@ class Dashboard extends React.Component {
               .then((status) => {
                 const newState = this.state.statusEndpoints;
                 newState.libraryDrupal.status = status;
-                this.setState(prevState => ({ newState }));
+                this.setState(newState);
               });
             break;
           case 'liveAvailability':
@@ -99,7 +99,7 @@ class Dashboard extends React.Component {
               .then((status) => {
                 const newState = this.state.statusEndpoints;
                 newState.liveAvailability.status = status;
-                this.setState(prevState => ({ newState }));
+                this.setState(newState);
               });
             break;
           case 'citationService':
@@ -107,7 +107,7 @@ class Dashboard extends React.Component {
               .then((status) => {
                 const newState = this.state.statusEndpoints;
                 newState.citationService.status = status;
-                this.setState(prevState => ({ newState }));
+                this.setState(newState);
               });
             break;
           default:
@@ -116,7 +116,7 @@ class Dashboard extends React.Component {
       }).catch((err) => {
         const newState = this.state.statusEndpoints;
         newState[key].status = 'outage';
-        this.setState(prevState => ({ newState }));
+        this.setState(newState);
         return;
         console.log(`Request for ${key} did not complete.`);
         console.log(err);
