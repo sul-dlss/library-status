@@ -22,16 +22,17 @@ import areBeingMaintained from '../utils/maintenanceUtils';
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { statusEndpoints };
+    this.state = { endpoints: statusEndpoints };
   }
 
   componentDidMount() {
-    Object.keys(statusEndpoints).forEach((key) => {
-      fetch(statusEndpoints[key].endpointUrl, {
+    const { endpoints } = this.state;
+    Object.keys(endpoints).forEach((key) => {
+      fetch(endpoints[key].endpointUrl, {
         mode: 'cors',
       }).then((response) => {
         if (response.status !== 200) {
-          const newState = this.state.statusEndpoints;
+          const newState = endpoints;
           newState[key].status = 'issue';
           this.setState(newState);
           return;
@@ -41,7 +42,7 @@ class Dashboard extends React.Component {
           case 'searchworksApplication':
             processSearchworks(response)
               .then((status) => {
-                const newState = this.state.statusEndpoints;
+                const newState = endpoints;
                 newState.searchworksApplication.status = status;
                 this.setState(newState);
               });
@@ -49,7 +50,7 @@ class Dashboard extends React.Component {
           case 'swSolr':
             processSwSolr(response)
               .then((status) => {
-                const newState = this.state.statusEndpoints;
+                const newState = endpoints;
                 newState.swSolr.status = status;
                 this.setState(newState);
               });
@@ -57,7 +58,7 @@ class Dashboard extends React.Component {
           case 'ebsco':
             processEbsco(response)
               .then((status) => {
-                const newState = this.state.statusEndpoints;
+                const newState = endpoints;
                 newState.ebsco.status = status;
                 this.setState(newState);
               });
@@ -65,7 +66,7 @@ class Dashboard extends React.Component {
           case 'libraryHours':
             processLibraryHours(response)
               .then((status) => {
-                const newState = this.state.statusEndpoints;
+                const newState = endpoints;
                 newState.libraryHours.status = status;
                 this.setState(newState);
               });
@@ -73,7 +74,7 @@ class Dashboard extends React.Component {
           case 'requests':
             processRequests(response)
               .then((status) => {
-                const newState = this.state.statusEndpoints;
+                const newState = endpoints;
                 newState.requests.status = status;
                 this.setState(newState);
               });
@@ -81,7 +82,7 @@ class Dashboard extends React.Component {
           case 'embed':
             processEmbed(response)
               .then((status) => {
-                const newState = this.state.statusEndpoints;
+                const newState = endpoints;
                 newState.embed.status = status;
                 this.setState(newState);
               });
@@ -89,7 +90,7 @@ class Dashboard extends React.Component {
           case 'libraryDrupal':
             processLibraryDrupal(response)
               .then((status) => {
-                const newState = this.state.statusEndpoints;
+                const newState = endpoints;
                 newState.libraryDrupal.status = status;
                 this.setState(newState);
               });
@@ -97,7 +98,7 @@ class Dashboard extends React.Component {
           case 'liveAvailability':
             processLiveAvailability(response)
               .then((status) => {
-                const newState = this.state.statusEndpoints;
+                const newState = endpoints;
                 newState.liveAvailability.status = status;
                 this.setState(newState);
               });
@@ -105,7 +106,7 @@ class Dashboard extends React.Component {
           case 'citationService':
             processCitationService(response)
               .then((status) => {
-                const newState = this.state.statusEndpoints;
+                const newState = endpoints;
                 newState.citationService.status = status;
                 this.setState(newState);
               });
@@ -114,7 +115,7 @@ class Dashboard extends React.Component {
             console.log('unknown endpoint');
         }
       }).catch((err) => {
-        const newState = this.state.statusEndpoints;
+        const newState = endpoints;
         newState[key].status = 'outage';
         this.setState(newState);
         return;
@@ -125,23 +126,24 @@ class Dashboard extends React.Component {
   }
 
   render() {
+    const { endpoints } = this.state;
     return (
       <div>
         <GlobalStatusSummary
-          endpoints={this.state.statusEndpoints}
+          endpoints={endpoints}
           statuses={statuses}
         />
         <div id="services">
           <StatusHeader
             statuses={statuses}
           />
-          {Object.keys(this.state.statusEndpoints).map((endpointName, i) => {
-            statusEndpoints[endpointName].key = i;
+          {Object.keys(endpoints).map((endpointName, i) => {
+            endpoints[endpointName].key = i;
             if (areBeingMaintained(new Date(), maintenanceWindows)) {
-              Object.keys(this.state.statusEndpoints).forEach(endpointName => statusEndpoints[endpointName].status = 'maintenance');
+              Object.keys(endpoints).forEach(endpointName => endpoints[endpointName].status = 'maintenance');
             }
             // Return the element. Also pass key
-            const endpoint = statusEndpoints[endpointName];
+            const endpoint = endpoints[endpointName];
             return (
               <StatusItem
                 key={endpoint.key}

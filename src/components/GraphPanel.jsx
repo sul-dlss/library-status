@@ -1,11 +1,11 @@
 import React from 'react';
 import Graph from './Graph';
 
-const GraphPanel = props => (
+const GraphPanel = ({ graphs }) => (
   <div className="section">
     <h1 id="graphs">Graphs</h1>
     {
-      Object.keys(props.graphs).map(graphKey => (<Graph graph={props.graphs[graphKey]} />))
+      Object.keys(graphs).map(graphKey => (<Graph graph={graphs[graphKey]} />))
     }
   </div>
 );

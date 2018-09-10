@@ -21,12 +21,14 @@ const statusReducer = (endpointStatuses) => {
   return 'pending';
 };
 
-const GlobalStatusSummary = props => (
+const GlobalStatusSummary = ({
+  statuses, endpoints
+}) => (
   <div id="GlobalStatusSummary" className="section">
-    <h1>{props.statuses[statusReducer(props.endpoints)].icon}</h1>
-    <h3>{props.statuses[statusReducer(props.endpoints)].legend}</h3>
+    <h1>{statuses[statusReducer(endpoints)].icon}</h1>
+    <h3>{statuses[statusReducer(endpoints)].legend}</h3>
     <p>
-      {props.statuses[statusReducer(props.endpoints)].global_message || props.statuses[statusReducer(props.endpoints)].message}
+      {statuses[statusReducer(endpoints)].global_message || statuses[statusReducer(endpoints)].message}
     </p>
   </div>
 );
