@@ -27,13 +27,18 @@ class Dashboard extends React.Component {
 
   componentDidMount() {
     const { endpoints } = this.state;
+    const maintenanceWindow = areBeingMaintained(new Date(), maintenanceWindows);
     Object.keys(endpoints).forEach((key) => {
       fetch(endpoints[key].endpointUrl, {
         mode: 'cors',
       }).then((response) => {
         if (response.status !== 200) {
           const newState = endpoints;
-          newState[key].status = 'issue';
+          if (maintenanceWindow) {
+            newState[key].status = 'maintenance';
+          } else {
+            newState[key].status = 'issue';
+          }
           this.setState(newState);
           return;
         }
@@ -134,16 +139,12 @@ class Dashboard extends React.Component {
           <StatusHeader
             statuses={statuses}
           />
-          {Object.keys(endpoints).map((endpointName, i) => {
-            endpoints[endpointName].key = i;
-            if (areBeingMaintained(new Date(), maintenanceWindows)) {
-              Object.keys(endpoints).forEach(endpointName => endpoints[endpointName].status = 'maintenance');
-            }
+          {Object.keys(endpoints).map((endpointName) => {
             // Return the element. Also pass key
             const endpoint = endpoints[endpointName];
             return (
               <StatusItem
-                key={endpoint.key}
+                key={endpointName}
                 serviceName={endpoint.displayName}
                 serviceStatus={endpoint.status}
                 statusMessage={statuses[endpoint.status].message}
