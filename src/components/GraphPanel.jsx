@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Graph from './Graph';
 
 const GraphPanel = ({ graphs }) => (
@@ -9,5 +10,10 @@ const GraphPanel = ({ graphs }) => (
     }
   </div>
 );
+
+GraphPanel.propTypes = {
+  graphs: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
+
 
 export default GraphPanel;

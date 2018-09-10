@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const StatusHeader = ({ statuses }) => (
   <div id="status-header">
@@ -21,5 +22,9 @@ const StatusHeader = ({ statuses }) => (
     </div>
   </div>
 );
+
+StatusHeader.propTypes = {
+  statuses: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
 
 export default StatusHeader;

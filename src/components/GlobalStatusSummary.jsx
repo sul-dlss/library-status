@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const statusReducer = (endpointStatuses) => {
   const allAreUp = Object.keys(endpointStatuses).every(e => endpointStatuses[e].status === 'up');
@@ -36,5 +37,10 @@ const GlobalStatusSummary = ({
     </p>
   </div>
 );
+
+GlobalStatusSummary.propTypes = {
+  statuses: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  endpoints: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
 
 export default GlobalStatusSummary;
