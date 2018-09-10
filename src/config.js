@@ -114,17 +114,17 @@ export const maintenanceWindows = [
 export const graphs = {
   swResponseTime: {
     title: 'Searchworks Response Time',
-    tag: '<iframe src="https://rpm.newrelic.com/public/charts/9kReJWHRXyt" width="500" height="300" scrolling="no" frameborder="no"></iframe>',
+    tag: '<iframe src="https://rpm.newrelic.com/public/charts/5f3weQre01n" width="500" height="300" scrolling="no" frameborder="no"></iframe>',
     position: 1
   },
   solr: {
     title: 'Solr Response Time',
-    tag: '<iframe src="https://rpm.newrelic.com/public/charts/tAPstSMLa7" width="500" height="300" scrolling="no" frameborder="no"></iframe>',
+    tag: '<iframe src="https://rpm.newrelic.com/public/charts/iM3aQqmT3Yt" width="500" height="300" scrolling="no" frameborder="no"></iframe>',
     position: 1
   },
   ebsco: {
     title: 'Ebsco Response Time',
-    tag: '<iframe src="https://rpm.newrelic.com/public/charts/gaCwQOqamfZ" width="500" height="300" scrolling="no" frameborder="no"></iframe>',
+    tag: '<iframe src="https://rpm.newrelic.com/public/charts/lFCu4RDWoE2" width="500" height="300" scrolling="no" frameborder="no"></iframe>',
     position: 2
   }
 }
