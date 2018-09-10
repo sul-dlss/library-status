@@ -20,7 +20,7 @@ module.exports = {
       },
       {
         exclude: /node_modules|packages/,
-        test: /\.js$/,
+        test: /\.jsx?$/,
         use: 'babel-loader'
       },
     ],
@@ -34,4 +34,7 @@ module.exports = {
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
 }
