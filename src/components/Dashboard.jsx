@@ -18,8 +18,9 @@ import GraphPanel from './GraphPanel'
 import areBeingMaintained from '../utils/maintenanceUtils'
 
 class Dashboard extends React.Component {
-  state = {
-    statusEndpoints: statusEndpoints,
+  constructor(props) {
+    super(props);
+    this.state = { statusEndpoints };
   }
 
   componentDidMount() {
