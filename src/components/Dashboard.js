@@ -139,7 +139,7 @@ class Dashboard extends React.Component {
       />
         {Object.keys(this.state.statusEndpoints).map((endpointName, i) => {
           statusEndpoints[endpointName].key = i;
-          if (areBeingMaintained(maintenanceWindows)) {
+          if (areBeingMaintained(new Date, maintenanceWindows)) {
             Object.keys(this.state.statusEndpoints).forEach((endpointName) => statusEndpoints[endpointName].status = 'maintenance')
           }
           // Return the element. Also pass key

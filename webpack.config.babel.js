@@ -31,5 +31,7 @@ module.exports = {
       template: path.resolve('./', 'index.html'),
       filename: 'index.html',
       hash: true
-    })],
+    }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+  ],
 }
