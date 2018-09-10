@@ -1,5 +1,5 @@
 import moment from 'moment';
-import momentTimezone from 'moment-timezone';
+import 'moment-timezone';
 
 function isBeingMaintained(currentTime, interval) {
   // Given a maintenance interval, return whether
