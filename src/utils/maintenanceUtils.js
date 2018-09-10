@@ -9,8 +9,8 @@ function isBeingMaintained(currentTime, interval) {
   const currentDate = moment(currentTime).tz('America/Los_Angeles');
   const currentHour = currentDate.hour();
   const maintenanceDay = (interval.day === currentDate.day());
-  const maintenanceInterval = (currentHour >= interval.startHour) &&
-    (currentHour < interval.endHour);
+  const maintenanceInterval = (currentHour >= interval.startHour)
+    && (currentHour < interval.endHour);
   return (maintenanceDay && maintenanceInterval);
 }
 
