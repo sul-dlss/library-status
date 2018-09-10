@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --hot --mode development",
     "build:dev": "webpack --mode development",
     "build:prod": "webpack --mode production",
-    "lint": "npx eslint src",
+    "lint": "npx eslint src/ --ext jsx --ext js",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -38,6 +38,7 @@
   "dependencies": {
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.21",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.2.0",
     "react-hot-loader": "^4.3.3"
