@@ -1,4 +1,5 @@
 # SearchWorks Status Dashboard
+[![Build Status](https://travis-ci.org/sul-dlss/searchworks-status.svg?branch=master)](https://travis-ci.org/sul-dlss/searchworks-status)
 A lightweight dashboard for displaying the status and performance of SearchWorks and related SUL services.
 
 ## Run Locally
