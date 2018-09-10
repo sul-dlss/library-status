@@ -21,10 +21,6 @@ import areBeingMaintained from '../utils/maintenanceUtils'
 class Dashboard extends React.Component {
   state = {
     statusEndpoints: statusEndpoints,
-    statuses: statuses,
-    graphs: graphs,
-    feeds: feeds,
-    intervals: maintenanceWindows
   }
 
   componentDidMount() {
@@ -157,7 +153,7 @@ class Dashboard extends React.Component {
 
       </div>
 
-      <GraphPanel graphs={this.state.graphs}/>
+      <GraphPanel graphs={graphs}/>
     </div>
   }
 }
