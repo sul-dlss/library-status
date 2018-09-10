@@ -114,13 +114,10 @@ class Dashboard extends React.Component {
           default:
             console.log('unknown endpoint');
         }
-      }).catch((err) => {
+      }).catch(() => {
         const newState = endpoints;
         newState[key].status = 'outage';
         this.setState(newState);
-        return;
-        console.log(`Request for ${key} did not complete.`);
-        console.log(err);
       });
     });
   }
