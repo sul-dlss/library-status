@@ -1,5 +1,5 @@
 import React from 'react'
-import {statusEndpoints, statuses, graphs, feeds, maintenanceWindows} from '../config'
+import {statusEndpoints, statuses, graphs, maintenanceWindows} from '../config'
 import {
   processSearchworks,
   processSwSolr,
@@ -11,7 +11,6 @@ import {
   processLiveAvailability,
   processCitationService,
 } from '../utils/endpointParsers'
-import Header from './Header'
 import GlobalStatusSummary from './GlobalStatusSummary'
 import StatusHeader from './StatusHeader'
 import StatusItem from './StatusItem'
