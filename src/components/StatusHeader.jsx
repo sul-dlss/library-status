@@ -1,15 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const StatusHeader = props => (
+const StatusHeader = ({ statuses }) => (
   <div id="status-header">
     <h3>Current Service Status</h3>
     <div className="status-legend">
-      {Object.keys(props.statuses)
-        .map((status, i) => {
-          const currentStatus = props.statuses[status];
+      {Object.keys(statuses)
+        .map((status) => {
+          const currentStatus = statuses[status];
           if (status !== 'pending') {
             return (
-              <div key={i} className="status-legend-item">
+              <div key={status} className="status-legend-item">
                 <p>
                   <span>{currentStatus.icon}</span>
                   {currentStatus.legend}
@@ -17,9 +18,14 @@ const StatusHeader = props => (
               </div>
             );
           }
+          return '';
         })}
     </div>
   </div>
 );
+
+StatusHeader.propTypes = {
+  statuses: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
 
 export default StatusHeader;
