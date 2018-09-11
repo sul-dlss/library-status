@@ -128,7 +128,3 @@ export const graphs = {
     position: 3,
   },
 };
-
-export const feeds = {
-  sulSystemStatus: '<a class="twitter-timeline" href="https://twitter.com/SULSystemStatus?ref_src=twsrc%5Etfw">Tweets by SULSystemStatus</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>',
-};

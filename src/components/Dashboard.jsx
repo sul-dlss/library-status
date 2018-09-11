@@ -1,4 +1,5 @@
 import React from 'react';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import {
   statusEndpoints, statuses, graphs, maintenanceWindows,
 } from '../config';
@@ -154,7 +155,15 @@ class Dashboard extends React.Component {
           })}
 
         </div>
-
+        <div className="section">
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName="searchworks"
+            options={{
+              chrome: 'noheader nofooter',
+            }}
+          />
+        </div>
         <GraphPanel graphs={graphs} />
       </div>
     );
