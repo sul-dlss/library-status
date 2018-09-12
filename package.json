@@ -2,6 +2,9 @@
   "name": "searchworks-status",
   "version": "1.0.0",
   "description": "A dashboard for searchworks status checks.",
+  "engines": {
+    "npm": ">=6"
+  },
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --mode development",
