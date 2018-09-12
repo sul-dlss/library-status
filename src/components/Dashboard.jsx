@@ -30,100 +30,118 @@ class Dashboard extends React.Component {
   componentDidMount() {
     const { endpoints } = this.state;
     const maintenanceWindow = areBeingMaintained(new Date(), maintenanceWindows);
-    Object.keys(endpoints).forEach((key) => {
-      fetch(endpoints[key].endpointUrl, {
+    const uniqueEndpointUrls = [...new Set(
+      Object.keys(endpoints).map(key => endpoints[key].endpointUrl),
+    )];
+
+    uniqueEndpointUrls.forEach((endpointUrl) => {
+      fetch(endpointUrl, {
         mode: 'cors',
       }).then((response) => {
-        if (response.status !== 200) {
-          const newState = endpoints;
-          if (maintenanceWindow) {
-            newState[key].status = 'maintenance';
-          } else {
-            newState[key].status = 'issue';
-          }
-          this.setState(newState);
-          return;
-        }
+        // Find all service keys corresponding to the
+        // endpoint url of this response
+        Object.keys(endpoints)
+          .filter(key => endpoints[key].endpointUrl === endpointUrl)
+          .forEach((key) => {
+            if (response.status !== 200) {
+              const newState = endpoints;
+              if (maintenanceWindow) {
+                newState[key].status = 'maintenance';
+              } else {
+                newState[key].status = 'issue';
+              }
+              this.setState(newState);
+              return;
+            }
 
-        switch (key) {
-          case 'searchworksApplication':
-            processSearchworks(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.searchworksApplication.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'swSolr':
-            processSwSolr(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.swSolr.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'ebsco':
-            processEbsco(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.ebsco.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'libraryHours':
-            processLibraryHours(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.libraryHours.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'requests':
-            processRequests(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.requests.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'embed':
-            processEmbed(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.embed.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'libraryDrupal':
-            processLibraryDrupal(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.libraryDrupal.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'liveAvailability':
-            processLiveAvailability(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.liveAvailability.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'citationService':
-            processCitationService(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.citationService.status = status;
-                this.setState(newState);
-              });
-            break;
-          default:
-            console.log('unknown endpoint');
-        }
+            switch (key) {
+              case 'searchworksApplication':
+                // use .clone() for response bodies that will be read multiple times
+                // https://developer.mozilla.org/en-US/docs/Web/API/Response/clone
+                processSearchworks(response.clone())
+                  .then((status) => {
+                    const newState = endpoints;
+                    newState.searchworksApplication.status = status;
+                    this.setState(newState);
+                  });
+                break;
+              case 'swSolr':
+                processSwSolr(response.clone())
+                  .then((status) => {
+                    const newState = endpoints;
+                    newState.swSolr.status = status;
+                    this.setState(newState);
+                  });
+                break;
+              case 'ebsco':
+                processEbsco(response.clone())
+                  .then((status) => {
+                    const newState = endpoints;
+                    newState.ebsco.status = status;
+                    this.setState(newState);
+                  });
+                break;
+              case 'libraryHours':
+                processLibraryHours(response)
+                  .then((status) => {
+                    const newState = endpoints;
+                    newState.libraryHours.status = status;
+                    this.setState(newState);
+                  });
+                break;
+              case 'requests':
+                processRequests(response)
+                  .then((status) => {
+                    const newState = endpoints;
+                    newState.requests.status = status;
+                    this.setState(newState);
+                  });
+                break;
+              case 'embed':
+                processEmbed(response)
+                  .then((status) => {
+                    const newState = endpoints;
+                    newState.embed.status = status;
+                    this.setState(newState);
+                  });
+                break;
+              case 'libraryDrupal':
+                processLibraryDrupal(response)
+                  .then((status) => {
+                    const newState = endpoints;
+                    newState.libraryDrupal.status = status;
+                    this.setState(newState);
+                  });
+                break;
+              case 'liveAvailability':
+                processLiveAvailability(response.clone())
+                  .then((status) => {
+                    const newState = endpoints;
+                    newState.liveAvailability.status = status;
+                    this.setState(newState);
+                  });
+                break;
+              case 'citationService':
+                processCitationService(response.clone())
+                  .then((status) => {
+                    const newState = endpoints;
+                    newState.citationService.status = status;
+                    this.setState(newState);
+                  });
+                break;
+              default:
+                console.error('unknown endpoint');
+            }
+          });
       }).catch(() => {
         const newState = endpoints;
-        newState[key].status = 'outage';
+
+        // set status for all endpoints that depend on this same request
+        Object.keys(endpoints)
+          .filter(key => endpoints[key].endpointUrl === endpointUrl)
+          .forEach((key) => {
+            newState[key].status = 'outage';
+          });
         this.setState(newState);
       });
     });
