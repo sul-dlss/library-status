@@ -14,6 +14,7 @@ import {
   processLiveAvailability,
   processCitationService,
 } from '../utils/endpointParsers';
+import GlobalStatus from '../utils/globalStatus';
 import GlobalStatusSummary from './GlobalStatusSummary';
 import StatusHeader from './StatusHeader';
 import StatusItem from './StatusItem';
@@ -133,8 +134,7 @@ class Dashboard extends React.Component {
     return (
       <div>
         <GlobalStatusSummary
-          endpoints={endpoints}
-          statuses={statuses}
+          status={new GlobalStatus(statuses, endpoints).status}
         />
         <div id="services">
           <StatusHeader

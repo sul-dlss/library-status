@@ -8,7 +8,7 @@ const StatusHeader = ({ statuses }) => (
       {Object.keys(statuses)
         .map((status) => {
           const currentStatus = statuses[status];
-          if (status !== 'pending') {
+          if (status !== 'pending' && status !== 'fatal') {
             return (
               <div key={status} className="status-legend-item">
                 <p>
