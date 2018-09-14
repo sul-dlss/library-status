@@ -6,7 +6,7 @@ const Header = () => (
       <h1>Searchworks Status</h1>
     </div>
     <div className="nav-menu">
-      <a href="/">Dashboard</a>
+      <a href="#top">Dashboard</a>
       <a href="#updates">Updates</a>
       <a href="#graphs">Graphs</a>
     </div>
