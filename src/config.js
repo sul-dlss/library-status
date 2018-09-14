@@ -3,7 +3,7 @@ export const statusEndpoints = {
     displayName: 'SearchWorks Website',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
-    critical: true,
+    critical: true, // While this is technically critical, it will actually trigger a fatal status
     position: 1,
   },
   swSolr: {
@@ -84,6 +84,11 @@ export const statuses = {
     icon: '🚫',
     legend: 'Outage',
     message: 'This service is currently unavailable due to an outage.',
+  },
+  fatal: {
+    icon: '🚫',
+    legend: 'Outage',
+    global_message: 'SearchWorks is experiencing a complete outage.',
   },
 };
 
