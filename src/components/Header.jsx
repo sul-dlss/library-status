@@ -7,8 +7,8 @@ const Header = () => (
     </div>
     <div className="nav-menu">
       <a href="/">Dashboard</a>
-      <a href="#graphs">Graphs</a>
       <a href="#updates">Updates</a>
+      <a href="#graphs">Graphs</a>
     </div>
   </div>
 );

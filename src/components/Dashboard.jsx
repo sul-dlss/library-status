@@ -155,7 +155,7 @@ class Dashboard extends React.Component {
           })}
 
         </div>
-        <div className="section">
+        <div id="updates" className="section anchored">
           <TwitterTimelineEmbed
             sourceType="profile"
             screenName="searchworks"
