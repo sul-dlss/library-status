@@ -12,7 +12,8 @@
     "build:prod": "webpack --mode production",
     "lint": "npx eslint src/ --ext jsx --ext js",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "report-coverage": "node_modules/.bin/jest --coverage | codecov"
   },
   "author": "aeschylus",
   "license": "ISC",
@@ -22,6 +23,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "codecov": "^3.1.0",
     "css-loader": "^1.0.0",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
@@ -48,6 +50,13 @@
     "react-twitter-embed": "^1.1.3"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/setupEnzyme.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/setupEnzyme.js",
+    "roots": ["./__tests__/", "src/"],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**"
+    ]
   }
 }
