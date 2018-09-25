@@ -6,7 +6,7 @@ const StatusItem = ({
 }) => (
   <div className={`status-item ${serviceStatus}`}>
     <div className="status-text">
-      <p className="service-name">{serviceName}</p>
+      <h3 className="service-name">{serviceName}</h3>
       <p className="status-message">{statusMessage}</p>
     </div>
     <div className="status-icon">{statusIcon}</div>

@@ -12,7 +12,7 @@ describe('<StatusItem />', () => {
     expect(wrapper.contains(
       <div className="status-item">
         <div className="status-text">
-          <p className="service-name"></p>
+          <h3 className="service-name"></h3>
           <p className="status-message"></p>
         </div>
         <div className="status-icon"></div>

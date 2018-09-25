@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 const GlobalStatusSummary = ({ status }) => (
 
   <div id="GlobalStatusSummary" className="section">
-    <h1>{status.icon}</h1>
-    <h3>{status.legend}</h3>
+    <div className="status-icon">{status.icon}</div>
+    <div className="status-legend">{status.legend}</div>
     <p>
       {status.global_message || status.message}
     </p>

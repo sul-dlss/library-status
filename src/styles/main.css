@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     width:100%;
     margin: 0;
     padding: 80px 0 0 0;
@@ -8,6 +8,47 @@ body {
 p {
     margin: 0;
 }
+
+h1 {
+  font-size: 2.441em;
+  font-weight: 300;
+  color: #3f3c30;
+}
+h2 {
+  font-size: 1.953em;
+  font-weight: 300;
+  color: #544948;
+}
+h3 {
+  font-size: 1.563em;
+  font-weight: normal;
+  color: #544948;
+}
+h3.service-name {
+  font-size: 1.25em;
+}
+
+@media (max-width: 768px) {
+  {
+    padding: 0 15px;
+  }
+}
+@media (min-width: 768px) {
+  {
+    width: 750px;
+  }
+}
+@media (min-width: 980px) {
+  {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  {
+    width: 1170px;
+  }
+}
+
 
 #header {
     position: fixed;
@@ -23,13 +64,24 @@ p {
     border-color: lightgray;
     border-style: solid;
     z-index: 5;
+    display: flex;
+}
+
+.title {
+  flex: 1;
+  margin: -15px 0;
+  text-align: center;
+}
+
+.brand-logo {
+  flex: 1;
+  padding-top: 20px;
 }
 
 .nav-menu {
-    position: absolute;
-    right: 30px;
-    top: 0;
-    margin: 30px 0;
+  flex: 1;
+  margin: 30px 0;
+  text-align: right;
 }
 
 .nav-menu a {
@@ -117,6 +169,17 @@ p {
         border: 1px solid lightgray;
     }
 }
+.section .status-legend {
+  display: block;
+  font-size: 1.563em;
+  font-weight: normal;
+  color: #544948;
+}
+.section .status-icon {
+  font-size: 2.441em;
+  font-weight: 300;
+}
+
 
 .anchored {
   padding-top: 80px;

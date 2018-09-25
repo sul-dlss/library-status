@@ -4,7 +4,7 @@ import Graph from './Graph';
 
 const GraphPanel = ({ graphs }) => (
   <div id="graphs" className="section anchored">
-    <h1>Graphs</h1>
+    <h2>Performance metrics</h2>
     {
       Object.keys(graphs).map(graphKey => (<Graph graph={graphs[graphKey]} key={graphKey} />))
     }

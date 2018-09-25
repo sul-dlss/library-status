@@ -11,8 +11,8 @@ describe('<GlobalStatusSummary />', () => {
   it('renders the given status', () => {
     const wrapper = shallow(<GlobalStatusSummary status={statuses.outage} />);
 
-    expect(wrapper.find('h1').text()).toEqual('🚫')
-    expect(wrapper.find('h3').text()).toEqual('Outage')
+    expect(wrapper.find('.status-icon').text()).toEqual('🚫')
+    expect(wrapper.find('.status-legend').text()).toEqual('Outage')
     expect(wrapper.find('p').text()).toEqual('Not responding. SearchWorks team has been notified.')
   });
 
