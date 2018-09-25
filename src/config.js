@@ -1,57 +1,57 @@
 export const statusEndpoints = {
   searchworksApplication: {
-    displayName: 'SearchWorks Website',
+    displayName: 'SearchWorks website',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
     critical: true, // While this is technically critical, it will actually trigger a fatal status
     position: 1,
   },
   swSolr: {
-    displayName: 'SearchWorks Solr',
+    displayName: 'Catalog index (Solr)',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
     critical: true,
     position: 2,
   },
   ebsco: {
-    displayName: 'Articles+',
+    displayName: 'Articles+ (EDS)',
     endpointUrl: 'https://status.ebsco.com/index.json',
     status: 'pending',
     critical: true,
     position: 3,
   },
   libraryHours: {
-    displayName: 'Library Hours',
+    displayName: 'Library hours',
     endpointUrl: 'https://library-hours.stanford.edu/status/all.json',
     status: 'pending',
     position: 4,
   },
   requests: {
-    displayName: 'SUL Requests',
+    displayName: 'Requests',
     endpointUrl: 'https://requests.stanford.edu/status/all.json',
     status: 'pending',
     position: 5,
   },
   embed: {
-    displayName: 'SUL Embed',
+    displayName: 'SDR embedded content',
     endpointUrl: 'https://embed.stanford.edu/status/all.json',
     status: 'pending',
     position: 6,
   },
   libraryDrupal: {
-    displayName: 'Library.stanford.edu',
+    displayName: 'Library website',
     endpointUrl: 'https://library.stanford.edu/healthcheck.php',
     status: 'pending',
     position: 7,
   },
   liveAvailability: {
-    displayName: 'Live Availability Lookups',
+    displayName: 'Live availability lookups',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
     position: 8,
   },
   citationService: {
-    displayName: 'OCLC Citation Service',
+    displayName: 'OCLC citation service',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
     position: 9,
@@ -61,34 +61,34 @@ export const statusEndpoints = {
 export const statuses = {
   up: {
     icon: '✅',
-    legend: 'No Issues',
-    message: 'No Issues',
-    global_message: 'All systems are operational',
+    legend: 'No issues',
+    message: 'No issues',
+    global_message: 'All services are operating normally.',
   },
   maintenance: {
     icon: '🛠',
     legend: 'Maintenance',
-    message: 'This service is currently down for scheduled maintenance.',
+    message: 'Unavailable during scheduled maintenance.',
   },
   issue: {
     icon: '⚠️',
     legend: 'Issue',
-    message: 'There is currently a performance issue with this service.',
-    global_message: 'There is currently an issue with SearchWorks or a related service. Please see below for more details.',
+    message: 'Performance issue.',
+    global_message: 'There is an issue with SearchWorks or a related service.',
   },
   pending: {
     icon: '🔄',
-    message: 'Retrieving status information...',
+    message: 'Checking status ...',
   },
   outage: {
     icon: '🚫',
     legend: 'Outage',
-    message: 'This service is currently unavailable due to an outage.',
+    message: 'Not responding. SearchWorks team has been notified.',
   },
   fatal: {
     icon: '🚫',
     legend: 'Outage',
-    global_message: 'SearchWorks is experiencing a complete outage.',
+    global_message: 'SearchWorks is unavailable. Tech team has been notified.',
   },
 };
 
@@ -118,17 +118,17 @@ export const maintenanceWindows = [
 
 export const graphs = {
   swResponseTime: {
-    title: 'Searchworks Page Load Time',
+    title: 'SearchWorks page load time',
     iframeSrc: 'https://rpm.newrelic.com/public/charts/5f3weQre01n',
     position: 1,
   },
   solr: {
-    title: 'SOLR Response Time',
+    title: 'Catalog index (Solr) response time',
     iframeSrc: 'https://rpm.newrelic.com/public/charts/iM3aQqmT3Yt',
     position: 2,
   },
   ebsco: {
-    title: 'Ebsco Response Time',
+    title: 'Articles+ (EDS) response time',
     iframeSrc: 'https://rpm.newrelic.com/public/charts/lFCu4RDWoE2',
     position: 3,
   },
