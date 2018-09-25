@@ -28,6 +28,27 @@ h3.service-name {
   font-size: 1.25em;
 }
 
+@media (max-width: 768px) {
+  {
+    padding: 0 15px;
+  }
+}
+@media (min-width: 768px) {
+  {
+    width: 750px;
+  }
+}
+@media (min-width: 980px) {
+  {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  {
+    width: 1170px;
+  }
+}
+
 
 #header {
     position: fixed;
