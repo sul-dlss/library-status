@@ -23,6 +23,12 @@ module.exports = {
         test: /\.jsx?$/,
         use: 'babel-loader'
       },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+        ],
+      }
     ],
   },
   plugins: [
