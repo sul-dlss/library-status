@@ -55,7 +55,7 @@ describe('<GlobalStatus />', () => {
         const status = new GlobalStatus(statuses, statusEndpoints).status;
 
         expect(status.icon).toEqual('🚫');
-        expect(status.global_message).toEqual('SearchWorks is experiencing a complete outage.');
+        expect(status.global_message).toEqual('SearchWorks is unavailable. Tech team has been notified.');
       });
     });
 
@@ -70,7 +70,7 @@ describe('<GlobalStatus />', () => {
         const status = new GlobalStatus(statuses, statusEndpoints).status;
 
         expect(status.icon).toEqual('🚫');
-        expect(status.global_message).toEqual('SearchWorks is experiencing a complete outage.');
+        expect(status.global_message).toEqual('SearchWorks is unavailable. Tech team has been notified.');
       });
     });
   });
@@ -87,7 +87,7 @@ describe('<GlobalStatus />', () => {
         const status = new GlobalStatus(statuses, statusEndpoints).status;
 
         expect(status.icon).toEqual('🚫');
-        expect(status.message).toEqual('This service is currently unavailable due to an outage.');
+        expect(status.message).toEqual('Not responding. SearchWorks team has been notified.');
       });
     });
   });
@@ -103,7 +103,7 @@ describe('<GlobalStatus />', () => {
 
         expect(status.icon).toEqual('⚠️');
         expect(status.global_message).toEqual(
-          'There is currently an issue with SearchWorks or a related service. Please see below for more details.'
+          'There is an issue with SearchWorks or a related service.'
         );
       });
     });
@@ -118,7 +118,7 @@ describe('<GlobalStatus />', () => {
 
         expect(status.icon).toEqual('⚠️');
         expect(status.global_message).toEqual(
-          'There is currently an issue with SearchWorks or a related service. Please see below for more details.'
+          'There is an issue with SearchWorks or a related service.'
         );
       });
     });

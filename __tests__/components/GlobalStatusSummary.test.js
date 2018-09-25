@@ -13,12 +13,12 @@ describe('<GlobalStatusSummary />', () => {
 
     expect(wrapper.find('h1').text()).toEqual('🚫')
     expect(wrapper.find('h3').text()).toEqual('Outage')
-    expect(wrapper.find('p').text()).toEqual('This service is currently unavailable due to an outage.')
+    expect(wrapper.find('p').text()).toEqual('Not responding. SearchWorks team has been notified.')
   });
 
   it('renders a global status message if present', () => {
     const wrapper = shallow(<GlobalStatusSummary status={statuses.issue} />);
 
-    expect(wrapper.find('p').text()).toMatch(/There is currently an issue with SearchWorks or a related service/)
+    expect(wrapper.find('p').text()).toMatch(/There is an issue with SearchWorks or a related service/)
   });
 });
