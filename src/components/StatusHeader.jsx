@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const StatusHeader = ({ statuses }) => (
   <div id="status-header">
-    <h2>Current Service Status</h2>
+    <h2>Current service status</h2>
     <div className="status-legend">
       {Object.keys(statuses)
         .map((status) => {
