@@ -10,7 +10,7 @@ git pull origin gh-pages --rebase &&
 
 cp dist/* ./ &&
 
-git add index.html bundle.js &&
+git add index.html bundle.js *.svg &&
 
 git commit -m 'Update sites' &&
 
