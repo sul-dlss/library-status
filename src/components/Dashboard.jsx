@@ -167,6 +167,19 @@ class Dashboard extends React.Component {
           />
         </div>
         <GraphPanel graphs={graphs} />
+        <div id="feedback" className="section">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfO_IAoIZI28vSxAErtIwquqpUm7EqJtIj3DP14xQFa2M4-Wg/viewform?embedded=true"
+            width="100%"
+            height="748"
+            frameBorder="0"
+            marginHeight="0"
+            marginWidth="0"
+            title="Submit feedback for this status page"
+          >
+            Loading...
+          </iframe>
+        </div>
       </div>
     );
   }
