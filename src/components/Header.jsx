@@ -12,7 +12,7 @@ const Header = () => (
       <h1>SearchWorks status</h1>
     </div>
     <div className="nav-menu">
-      <a href="#top">Current status</a>
+      <a href="#GlobalStatusSummary">Current status</a>
       <a href="#updates">Updates</a>
       <a href="#graphs">Performance</a>
     </div>
