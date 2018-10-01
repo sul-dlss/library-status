@@ -161,7 +161,7 @@ h3.service-name {
     border-style: solid;
     padding: 20px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
 }
