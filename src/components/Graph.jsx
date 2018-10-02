@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 const Graph = ({ graph }) => (
   <div>
     <h3>{ graph.title }</h3>
-    <iframe src={graph.iframeSrc} title={graph.title} width="100%" height="300" scrolling="no" frameBorder="no" />
+    {/* eslint-disable jsx-a11y/iframe-has-title */}
+    <iframe src={graph.iframeSrc} width="100%" height="300" scrolling="no" frameBorder="no" />
+    {/* eslint-enable jsx-a11y/iframe-has-title */}
   </div>
 );
 

@@ -168,6 +168,7 @@ class Dashboard extends React.Component {
         </div>
         <GraphPanel graphs={graphs} />
         <div id="feedback" className="section">
+          {/* eslint-disable jsx-a11y/iframe-has-title */}
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSfO_IAoIZI28vSxAErtIwquqpUm7EqJtIj3DP14xQFa2M4-Wg/viewform?embedded=true"
             width="100%"
@@ -175,10 +176,10 @@ class Dashboard extends React.Component {
             frameBorder="0"
             marginHeight="0"
             marginWidth="0"
-            title="Submit feedback for this status page"
           >
             Loading...
           </iframe>
+          {/* eslint-enable jsx-a11y/iframe-has-title */}
         </div>
       </div>
     );
