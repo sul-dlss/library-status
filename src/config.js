@@ -119,17 +119,27 @@ export const maintenanceWindows = [
 export const graphs = {
   swResponseTime: {
     title: 'SearchWorks page load time',
-    iframeSrc: 'https://rpm.newrelic.com/public/charts/5f3weQre01n',
     position: 1,
+    horizons: [
+      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/9ALOIQ1o17Q' },
+      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/c6qFHIdWFdG' },
+      { label: '30 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/9dxzdf4V71h' },
+    ],
   },
   solr: {
     title: 'Catalog index (Solr) response time',
-    iframeSrc: 'https://rpm.newrelic.com/public/charts/iM3aQqmT3Yt',
     position: 2,
+    horizons: [
+      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/80xp1hfSf6h' },
+      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/biAaCaONpRC' },
+    ],
   },
   ebsco: {
     title: 'Articles+ (EDS) response time',
-    iframeSrc: 'https://rpm.newrelic.com/public/charts/lFCu4RDWoE2',
     position: 3,
+    horizons: [
+      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/6ABMvs3291C' },
+      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/hp7j1A6VZmj' },
+    ],
   },
 };
