@@ -163,6 +163,7 @@ class Dashboard extends React.Component {
             screenName="searchworks"
             options={{
               chrome: 'noheader nofooter',
+              width: 600,
             }}
           />
         </div>
