@@ -160,7 +160,7 @@ class Dashboard extends React.Component {
           <p>The SearchWorks team will tweet updates about notable service interruptions.</p>
           <TwitterTimelineEmbed
             sourceType="profile"
-            screenName="searchworks"
+            screenName="sulsystemstatus"
             options={{
               chrome: 'noheader nofooter',
               width: 600,
