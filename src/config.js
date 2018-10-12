@@ -138,8 +138,8 @@ export const graphs = {
     title: 'Articles+ (EDS) response time',
     position: 3,
     horizons: [
-      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/6ABMvs3291C' },
-      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/hp7j1A6VZmj' },
+      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/cfcfetW1YGr' },
+      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/bgq3iP9fhSo' },
     ],
   },
 };
