@@ -5,6 +5,10 @@ body {
     padding: 90px 0 0 0;
 }
 
+#app {
+  margin: 0 auto;
+}
+
 p {
     margin: 0;
 }
@@ -34,7 +38,7 @@ h3.service-name {
 }
 
 @media (max-width: 768px) {
-  {
+  #app {
     padding: 0 10px;
   }
   h1 {
@@ -56,8 +60,12 @@ h3.service-name {
   }
 }
 @media (min-width: 768px) {
-  {
+  #app {
     width: 750px;
+  }
+  #header {
+    width: 750px;
+    margin: 0 auto;
   }
   .display-large {
     display: inherit;
@@ -67,34 +75,45 @@ h3.service-name {
   }
 }
 @media (min-width: 980px) {
-  {
+  #app {
     width: 970px;
+  }
+  #header {
+    width: 970px;
+    margin: 0 auto;
   }
 }
 @media (min-width: 1200px) {
-  {
+  #app {
     width: 1170px;
+  }
+  #header {
+    width: 1170px;
+    margin: 0 auto;
   }
 }
 
 
 #header {
-    position: fixed;
-    left:0;
-    right:0;
-    top:0;
-    width:100%;
-    min-height: 80px;
-    max-height: 130px;
-    box-sizing: border-box;
-    padding: 0 30px;
-    background: white;
-    border-width: 0 0 1px 0;
-    border-color: lightgray;
-    border-style: solid;
-    z-index: 5;
     display: flex;
     align-items: center;
+}
+
+#header-container {
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+  width:100%;
+  min-height: 80px;
+  max-height: 130px;
+  box-sizing: border-box;
+  padding: 0 30px;
+  background: white;
+  border-width: 0 0 1px 0;
+  border-color: lightgray;
+  border-style: solid;
+  z-index: 5;
 }
 
 .title {
