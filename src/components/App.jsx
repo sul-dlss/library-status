@@ -5,7 +5,7 @@ import Dashboard from './Dashboard';
 import '../styles/main.css';
 
 const App = () => (
-  <div>
+  <div id="app">
     <Header />
     <Dashboard />
   </div>
