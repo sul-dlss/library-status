@@ -12,11 +12,11 @@ const Header = () => (
         </a>
       </div>
       <div className="title">
-        <h1>SearchWorks status</h1>
+        <h1>System Status</h1>
       </div>
       <div className="nav-menu">
-        <a href="#GlobalStatusSummary">Current status</a>
-        <a href="#updates">Updates</a>
+        <a href="#GlobalStatusSummary">Current</a>
+        <a href="#updates">Incidents</a>
         <a href="#graphs">Performance</a>
       </div>
     </div>
