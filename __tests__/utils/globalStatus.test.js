@@ -87,7 +87,7 @@ describe('<GlobalStatus />', () => {
         const status = new GlobalStatus(statuses, statusEndpoints).status;
 
         expect(status.icon).toEqual('🚫');
-        expect(status.message).toEqual('Not responding. SearchWorks team has been notified.');
+        expect(status.message).toEqual('Service is down; operations team is aware');
       });
     });
   });

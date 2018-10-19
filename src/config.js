@@ -68,12 +68,12 @@ export const statuses = {
   maintenance: {
     icon: '🛠',
     legend: 'Maintenance',
-    message: 'Unavailable during scheduled maintenance.',
+    message: 'Scheduled maintenance',
   },
   issue: {
     icon: '⚠️',
     legend: 'Issue',
-    message: 'Performance issue.',
+    message: 'Performance is slower than normal',
     global_message: 'There is an issue with SearchWorks or a related service.',
   },
   pending: {
@@ -83,7 +83,7 @@ export const statuses = {
   outage: {
     icon: '🚫',
     legend: 'Outage',
-    message: 'Not responding. SearchWorks team has been notified.',
+    message: 'Service is down; operations team is aware',
   },
   fatal: {
     icon: '🚫',
