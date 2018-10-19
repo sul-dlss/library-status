@@ -118,7 +118,7 @@ export const maintenanceWindows = [
 
 export const graphs = {
   swResponseTime: {
-    title: 'SearchWorks page load time',
+    title: 'Page load time',
     position: 1,
     horizons: [
       { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/9ALOIQ1o17Q' },
