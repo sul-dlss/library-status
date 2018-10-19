@@ -1,5 +1,4 @@
 import React from 'react';
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import {
   statusEndpoints, statuses, graphs, maintenanceWindows,
 } from '../config';
@@ -19,6 +18,7 @@ import GlobalStatusSummary from './GlobalStatusSummary';
 import StatusHeader from './StatusHeader';
 import StatusItem from './StatusItem';
 import GraphPanel from './GraphPanel';
+import TabbedTwitterFeeds from './TabbedTwitterFeeds';
 import areBeingMaintained from '../utils/maintenanceUtils';
 
 class Dashboard extends React.Component {
@@ -131,6 +131,9 @@ class Dashboard extends React.Component {
 
   render() {
     const { endpoints } = this.state;
+    const feeds = [
+      { feedId: 'sulsystemstatus', label: 'Library systems' },
+      { feedId: 'suleresources', label: 'Databases & e-resources' }];
     return (
       <div>
         <GlobalStatusSummary
@@ -156,16 +159,9 @@ class Dashboard extends React.Component {
 
         </div>
         <div id="updates" className="section anchored">
-          <h2>Updates</h2>
-          <p>The SearchWorks team will tweet updates about notable service interruptions.</p>
-          <TwitterTimelineEmbed
-            sourceType="profile"
-            screenName="sulsystemstatus"
-            options={{
-              chrome: 'noheader nofooter',
-              width: 600,
-            }}
-          />
+          <h2>Incidents</h2>
+          <p>Updates about planned and unplanned service interruptions.</p>
+          <TabbedTwitterFeeds feeds={feeds} />
         </div>
         <GraphPanel graphs={graphs} />
       </div>
