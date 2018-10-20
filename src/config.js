@@ -7,7 +7,7 @@ export const statusEndpoints = {
     position: 1,
   },
   swSolr: {
-    displayName: 'Catalog index (Solr)',
+    displayName: 'SearchWorks catalog (Solr)',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
     critical: true,
