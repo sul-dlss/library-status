@@ -2,6 +2,7 @@ export const statusEndpoints = {
   swSolr: {
     displayName: 'SearchWorks catalog (Solr)',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
+    serviceUrl: 'https://searchworks.stanford.edu',
     status: 'pending',
     critical: true,
     position: 1,
@@ -9,6 +10,7 @@ export const statusEndpoints = {
   ebsco: {
     displayName: 'Articles+ (EDS)',
     endpointUrl: 'https://status.ebsco.com/index.json',
+    serviceUrl: 'https://searchworks.stanford.edu/articles',
     status: 'pending',
     critical: true,
     position: 2,
@@ -16,12 +18,14 @@ export const statusEndpoints = {
   libraryDrupal: {
     displayName: 'Library website',
     endpointUrl: 'https://library.stanford.edu/healthcheck.php',
+    serviceUrl: 'https://library.stanford.edu/',
     status: 'pending',
     position: 3,
   },
   libraryHours: {
     displayName: 'Library hours',
     endpointUrl: 'https://library-hours.stanford.edu/status/all.json',
+    serviceUrl: 'https://library-hours.stanford.edu',
     status: 'pending',
     position: 4,
   },

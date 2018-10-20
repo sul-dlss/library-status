@@ -141,6 +141,7 @@ class Dashboard extends React.Component {
               <StatusItem
                 key={endpointName}
                 serviceName={endpoint.displayName}
+                serviceUrl={endpoint.serviceUrl}
                 serviceStatus={endpoint.status}
                 statusMessage={statuses[endpoint.status].message}
                 statusIcon={statuses[endpoint.status].icon}

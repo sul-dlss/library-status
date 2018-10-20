@@ -29,6 +29,11 @@ describe('<StatusItem />', () => {
 
     expect(wrapper.find('.service-name').text()).toEqual('Great Service!')
   });
+  it('adds a link to the service name if URL is provided', () => {
+    const wrapper = shallow(<StatusItem serviceName={ 'Great Service!' } serviceUrl={'https://searchworks.stanford.edu'}/>)
+    expect(wrapper.find('.service-name').text()).toEqual('Great Service!')
+    expect(wrapper.find('.status-text a').prop('href')).toEqual('https://searchworks.stanford.edu')
+  });
   it('displays the status message', () => {
     const wrapper = shallow(<StatusItem statusMessage={ 'up' }/>)
 
