@@ -1,9 +1,3 @@
-export function processSearchworks(response) {
-  return response.json().then((data) => {
-    if (typeof data.default === 'undefined') return 'outage';
-    return data.default.success ? 'up' : 'outage';
-  });
-}
 export function processSwSolr(response) {
   return response.json().then((data) => {
     if (typeof data.default === 'undefined') return 'outage';

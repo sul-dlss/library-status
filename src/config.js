@@ -1,60 +1,53 @@
 export const statusEndpoints = {
-  searchworksApplication: {
-    displayName: 'SearchWorks website',
-    endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
-    status: 'pending',
-    critical: true, // While this is technically critical, it will actually trigger a fatal status
-    position: 1,
-  },
   swSolr: {
     displayName: 'SearchWorks catalog (Solr)',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
     critical: true,
-    position: 2,
+    position: 1,
   },
   ebsco: {
     displayName: 'Articles+ (EDS)',
     endpointUrl: 'https://status.ebsco.com/index.json',
     status: 'pending',
     critical: true,
-    position: 3,
+    position: 2,
   },
   libraryHours: {
     displayName: 'Library hours',
     endpointUrl: 'https://library-hours.stanford.edu/status/all.json',
     status: 'pending',
-    position: 4,
+    position: 3,
   },
   requests: {
     displayName: 'Requests',
     endpointUrl: 'https://requests.stanford.edu/status/all.json',
     status: 'pending',
-    position: 5,
+    position: 4,
   },
   embed: {
     displayName: 'SDR embedded content',
     endpointUrl: 'https://embed.stanford.edu/status/all.json',
     status: 'pending',
-    position: 6,
+    position: 5,
   },
   libraryDrupal: {
     displayName: 'Library website',
     endpointUrl: 'https://library.stanford.edu/healthcheck.php',
     status: 'pending',
-    position: 7,
+    position: 6,
   },
   liveAvailability: {
     displayName: 'Live availability lookups',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
-    position: 8,
+    position: 7,
   },
   citationService: {
     displayName: 'OCLC citation service',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
-    position: 9,
+    position: 8,
   },
 };
 

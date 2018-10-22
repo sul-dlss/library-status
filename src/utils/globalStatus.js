@@ -45,11 +45,10 @@ class GlobalStatus {
   }
 
   anyFatalOutages() {
-    const appStatus = this.endpointStatuses.searchworksApplication.status;
     const solrStatus = this.endpointStatuses.swSolr.status;
     const articleStatus = this.endpointStatuses.ebsco.status;
 
-    if (appStatus === 'outage' || (solrStatus === 'outage' && articleStatus === 'outage')) {
+    if (solrStatus === 'outage' && articleStatus === 'outage') {
       return true;
     }
     return false;
