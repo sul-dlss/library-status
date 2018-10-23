@@ -46,22 +46,8 @@ describe('<GlobalStatus />', () => {
   });
 
   describe('Fatal', () => {
-    describe('when just the SearchWorks web app is down', () => {
-      beforeEach(() => {
-        statusEndpoints.searchworksApplication.status = 'outage';
-      });
-
-      it('renders the component as fatal', () => {
-        const status = new GlobalStatus(statuses, statusEndpoints).status;
-
-        expect(status.icon).toEqual('🚫');
-        expect(status.global_message).toEqual('SearchWorks is unavailable. Tech team has been notified.');
-      });
-    });
-
     describe('when the SearchWorks web app is up but solr and the Aricle API is down', () => {
       beforeEach(() => {
-        statusEndpoints.searchworksApplication.status = 'up';
         statusEndpoints.swSolr.status = 'outage';
         statusEndpoints.ebsco.status = 'outage';
       });
@@ -78,7 +64,6 @@ describe('<GlobalStatus />', () => {
   describe('Outage', () => {
     describe('when a critical service has an outage', () => {
       beforeEach(() => {
-        statusEndpoints.searchworksApplication.status = 'up';
         statusEndpoints.swSolr.status = 'up';
         statusEndpoints.ebsco.status = 'outage';
       });
@@ -87,7 +72,7 @@ describe('<GlobalStatus />', () => {
         const status = new GlobalStatus(statuses, statusEndpoints).status;
 
         expect(status.icon).toEqual('🚫');
-        expect(status.message).toEqual('Not responding. SearchWorks team has been notified.');
+        expect(status.message).toEqual('Service is down; operations team is aware');
       });
     });
   });

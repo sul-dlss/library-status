@@ -3,7 +3,6 @@ import {
   statusEndpoints, statuses, graphs, maintenanceWindows,
 } from '../config';
 import {
-  processSearchworks,
   processSwSolr,
   processEbsco,
   processLibraryHours,
@@ -46,14 +45,6 @@ class Dashboard extends React.Component {
         }
 
         switch (key) {
-          case 'searchworksApplication':
-            processSearchworks(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.searchworksApplication.status = status;
-                this.setState(newState);
-              });
-            break;
           case 'swSolr':
             processSwSolr(response)
               .then((status) => {

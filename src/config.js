@@ -1,23 +1,22 @@
 export const statusEndpoints = {
-  searchworksApplication: {
-    displayName: 'SearchWorks website',
-    endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
-    status: 'pending',
-    critical: true, // While this is technically critical, it will actually trigger a fatal status
-    position: 1,
-  },
   swSolr: {
-    displayName: 'Catalog index (Solr)',
+    displayName: 'SearchWorks catalog (Solr)',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
     critical: true,
-    position: 2,
+    position: 1,
   },
   ebsco: {
     displayName: 'Articles+ (EDS)',
     endpointUrl: 'https://status.ebsco.com/index.json',
     status: 'pending',
     critical: true,
+    position: 2,
+  },
+  libraryDrupal: {
+    displayName: 'Library website',
+    endpointUrl: 'https://library.stanford.edu/healthcheck.php',
+    status: 'pending',
     position: 3,
   },
   libraryHours: {
@@ -38,23 +37,17 @@ export const statusEndpoints = {
     status: 'pending',
     position: 6,
   },
-  libraryDrupal: {
-    displayName: 'Library website',
-    endpointUrl: 'https://library.stanford.edu/healthcheck.php',
-    status: 'pending',
-    position: 7,
-  },
   liveAvailability: {
     displayName: 'Live availability lookups',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
-    position: 8,
+    position: 7,
   },
   citationService: {
     displayName: 'OCLC citation service',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
-    position: 9,
+    position: 8,
   },
 };
 
@@ -68,12 +61,12 @@ export const statuses = {
   maintenance: {
     icon: '🛠',
     legend: 'Maintenance',
-    message: 'Unavailable during scheduled maintenance.',
+    message: 'Scheduled maintenance',
   },
   issue: {
     icon: '⚠️',
     legend: 'Issue',
-    message: 'Performance issue.',
+    message: 'Performance is slower than normal',
     global_message: 'There is an issue with SearchWorks or a related service.',
   },
   pending: {
@@ -83,7 +76,7 @@ export const statuses = {
   outage: {
     icon: '🚫',
     legend: 'Outage',
-    message: 'Not responding. SearchWorks team has been notified.',
+    message: 'Service is down; operations team is aware',
   },
   fatal: {
     icon: '🚫',

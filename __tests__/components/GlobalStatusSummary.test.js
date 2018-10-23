@@ -13,7 +13,7 @@ describe('<GlobalStatusSummary />', () => {
 
     expect(wrapper.find('.status-icon').text()).toEqual('🚫')
     expect(wrapper.find('.status-legend').text()).toEqual('Outage')
-    expect(wrapper.find('p').text()).toEqual('Not responding. SearchWorks team has been notified.')
+    expect(wrapper.find('p').text()).toEqual('Service is down; operations team is aware')
   });
 
   it('renders a global status message if present', () => {
