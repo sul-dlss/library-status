@@ -130,10 +130,10 @@ class Dashboard extends React.Component {
         <GlobalStatusSummary
           status={new GlobalStatus(statuses, endpoints).status}
         />
+        <StatusHeader
+          statuses={statuses}
+        />
         <div id="services">
-          <StatusHeader
-            statuses={statuses}
-          />
           {Object.keys(endpoints).map((endpointName) => {
             // Return the element. Also pass key
             const endpoint = endpoints[endpointName];
