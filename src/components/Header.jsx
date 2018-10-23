@@ -12,7 +12,7 @@ const Header = () => (
         </a>
       </div>
       <div className="title">
-        <h1>System Status</h1>
+        <h1>System status</h1>
       </div>
       <div className="nav-menu">
         <a href="#GlobalStatusSummary">Current</a>
