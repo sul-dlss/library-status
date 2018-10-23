@@ -175,14 +175,19 @@ h3.service-name {
 }
 
 #status-header {
-  width: 100%;
-  box-sizing: border-box;
-  border-width: 0 1px 1px 0;
-  border-color: lightgray;
-  border-style: solid;
-  padding: 0 20px;
-  background-color: #F5F5F5;
   text-align: center;
+}
+
+#status-header p {
+  padding: 0 0 10px 0;
+  width: 60%;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  #status-header p {
+    max-width: 750px;
+  }
 }
 
 .graphTabs {
