@@ -12,9 +12,9 @@ class GlobalStatus {
     } if (this.anyFatalOutages()) {
       return this.statuses.fatal;
     } if (this.anyCriticalOutages()) {
-      return this.statuses.outage;
+      return this.statuses.critical;
     } if (this.anyIssues() || this.anyNonCriticalOutages()) {
-      return this.statuses.issue;
+      return this.statuses.nonCritical;
     }
     return this.statuses.pending;
   }

@@ -56,7 +56,7 @@ describe('<GlobalStatus />', () => {
         const status = new GlobalStatus(statuses, statusEndpoints).status;
 
         expect(status.icon).toEqual('🚫');
-        expect(status.global_message).toEqual('SearchWorks is unavailable. Tech team has been notified.');
+        expect(status.global_message).toEqual("We're on it. Check incidents for updates.");
       });
     });
   });
@@ -77,7 +77,7 @@ describe('<GlobalStatus />', () => {
     });
   });
 
-  describe('Issue', () => {
+  describe('non-critical outages or issues', () => {
     describe('when a non-critical service has an outage', () => {
       beforeEach(() => {
         statusEndpoints.requests.status = 'outage';
@@ -88,7 +88,7 @@ describe('<GlobalStatus />', () => {
 
         expect(status.icon).toEqual('⚠️');
         expect(status.global_message).toEqual(
-          'There is an issue with SearchWorks or a related service.'
+          'One of its supporting services is affected.'
         );
       });
     });
@@ -103,7 +103,7 @@ describe('<GlobalStatus />', () => {
 
         expect(status.icon).toEqual('⚠️');
         expect(status.global_message).toEqual(
-          'There is an issue with SearchWorks or a related service.'
+          'One of its supporting services is affected.'
         );
       });
     });
