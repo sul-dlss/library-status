@@ -206,10 +206,13 @@ h3.service-name {
 
 .graphTabs button {
   border: 1px solid black;
+  border-color: #737373;
   border-right: none;
   cursor: pointer;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
   margin: 0;
-  padding: 10px 50px;
+  padding: 10px 20px;
 }
 
 .graphTabs button.active {
