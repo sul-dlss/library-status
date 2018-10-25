@@ -5,10 +5,24 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed';
 class TabbedTwitterFeeds extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0 };
+
+    this.setInitialActiveIndex();
 
     // This binding is necessary to make 'this' work in the callback
     this.updateActiveIndex = this.updateActiveIndex.bind(this);
+  }
+
+  setInitialActiveIndex() {
+    const { feeds } = this.props;
+    const location = window.location.toString();
+    const anchor = location.substring(location.indexOf('#') + 1);
+    const activeFeed = feeds.find(feed => feed.feedId === anchor);
+
+    if (activeFeed) {
+      this.state = { activeIndex: feeds.indexOf(activeFeed) };
+    } else {
+      this.state = { activeIndex: 0 };
+    }
   }
 
   updateActiveIndex(index) {
@@ -45,6 +59,7 @@ class TabbedTwitterFeeds extends React.Component {
               <button
                 type="button"
                 role="tab"
+                id={feed.feedId}
                 className={this.activeButtonClass(i)}
                 aria-selected={this.ariaSelected(i)}
                 key={JSON.stringify(feed.label)}
