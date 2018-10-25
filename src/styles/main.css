@@ -178,6 +178,7 @@ h3.service-name {
     box-sizing: border-box;
     padding: 0;
     margin: 50px;
+    margin-bottom: 0;
     border-width: 1px 0 0 1px;
     border-color: lightgray;
     border-style: solid;
