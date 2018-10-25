@@ -21,7 +21,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.953em;
+  font-size: 2.441em;
   font-weight: 300;
   color: #544948;
 }
@@ -178,6 +178,7 @@ h3.service-name {
     box-sizing: border-box;
     padding: 0;
     margin: 50px;
+    margin-bottom: 0;
     border-width: 1px 0 0 1px;
     border-color: lightgray;
     border-style: solid;
@@ -205,10 +206,13 @@ h3.service-name {
 
 .graphTabs button {
   border: 1px solid black;
+  border-color: #737373;
   border-right: none;
   cursor: pointer;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
   margin: 0;
-  padding: 10px 50px;
+  padding: 10px 20px;
 }
 
 .graphTabs button.active {
@@ -265,7 +269,6 @@ h3.service-name {
 .section {
     width: 100%;
     box-sizing: border-box;
-    padding: 50px;
     text-align: center;
 
     iframe {
