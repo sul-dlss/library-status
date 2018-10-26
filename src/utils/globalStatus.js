@@ -13,6 +13,8 @@ class GlobalStatus {
       return this.statuses.fatal;
     } if (this.anyCriticalOutages()) {
       return this.statuses.critical;
+    } if (this.performanceIssue()) {
+      return this.statuses.performanceIssue;
     } if (this.anyIssues() || this.anyNonCriticalOutages()) {
       return this.statuses.nonCritical;
     }
@@ -60,6 +62,10 @@ class GlobalStatus {
 
   anyCriticalOutages() {
     return this.criticalEndpoints().some(e => this.endpointStatuses[e].status === 'outage');
+  }
+
+  performanceIssue() {
+    return this.endpointStatuses.swSolr.status === 'performanceIssue';
   }
 }
 

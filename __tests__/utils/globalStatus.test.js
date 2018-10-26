@@ -61,7 +61,7 @@ describe('<GlobalStatus />', () => {
     });
   });
 
-  describe('Outage', () => {
+  describe('Critical', () => {
     describe('when a critical service has an outage', () => {
       beforeEach(() => {
         statusEndpoints.swSolr.status = 'up';
@@ -73,6 +73,23 @@ describe('<GlobalStatus />', () => {
 
         expect(status.icon).toEqual('🚫');
         expect(status.message).toEqual('Service is down; operations team is aware');
+      });
+    });
+  });
+
+  describe('Performance', () => {
+    describe('when the new relic APM falls beneath its threshold', () => {
+      beforeEach(() => {
+        statusEndpoints.swSolr.status = 'performanceIssue';
+        statusEndpoints.requests.status = 'outage';
+      });
+
+      it('renders the component as a performance issue', () => {
+        const status = new GlobalStatus(statuses, statusEndpoints).status;
+
+        expect(status.icon).toEqual('⚠️');
+        expect(status.message).toEqual('Performance is slower than normal');
+        expect(status.global_message).toEqual('The operations team has been alerted.');
       });
     });
   });
