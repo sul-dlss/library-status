@@ -56,12 +56,12 @@ describe('<GlobalStatus />', () => {
         const status = new GlobalStatus(statuses, statusEndpoints).status;
 
         expect(status.icon).toEqual('🚫');
-        expect(status.global_message).toEqual('SearchWorks is unavailable. Tech team has been notified.');
+        expect(status.global_message).toEqual("We're on it. Check incidents for updates.");
       });
     });
   });
 
-  describe('Outage', () => {
+  describe('Critical', () => {
     describe('when a critical service has an outage', () => {
       beforeEach(() => {
         statusEndpoints.swSolr.status = 'up';
@@ -77,7 +77,24 @@ describe('<GlobalStatus />', () => {
     });
   });
 
-  describe('Issue', () => {
+  describe('Performance', () => {
+    describe('when the new relic APM falls beneath its threshold', () => {
+      beforeEach(() => {
+        statusEndpoints.swSolr.status = 'performanceIssue';
+        statusEndpoints.requests.status = 'outage';
+      });
+
+      it('renders the component as a performance issue', () => {
+        const status = new GlobalStatus(statuses, statusEndpoints).status;
+
+        expect(status.icon).toEqual('⚠️');
+        expect(status.message).toEqual('Performance is slower than normal');
+        expect(status.global_message).toEqual('The operations team has been alerted.');
+      });
+    });
+  });
+
+  describe('non-critical outages or issues', () => {
     describe('when a non-critical service has an outage', () => {
       beforeEach(() => {
         statusEndpoints.requests.status = 'outage';
@@ -88,7 +105,7 @@ describe('<GlobalStatus />', () => {
 
         expect(status.icon).toEqual('⚠️');
         expect(status.global_message).toEqual(
-          'There is an issue with SearchWorks or a related service.'
+          'One of its supporting services is affected.'
         );
       });
     });
@@ -103,7 +120,7 @@ describe('<GlobalStatus />', () => {
 
         expect(status.icon).toEqual('⚠️');
         expect(status.global_message).toEqual(
-          'There is an issue with SearchWorks or a related service.'
+          'One of its supporting services is affected.'
         );
       });
     });

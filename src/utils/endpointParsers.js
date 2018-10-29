@@ -1,7 +1,10 @@
 export function processSwSolr(response) {
   return response.json().then((data) => {
     if (typeof data.default === 'undefined') return 'outage';
-    return data.sw_solr.success ? 'up' : 'outage';
+    if (data.sw_solr.success) {
+      return data.low_app_apdex_alert.success ? 'up' : 'performanceIssue';
+    }
+    return 'outage';
   });
 }
 export function processEbsco(response) {

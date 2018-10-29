@@ -56,36 +56,53 @@ export const statusEndpoints = {
 };
 
 export const statuses = {
+  pending: {
+    icon: '🔄',
+    message: 'Checking status ...',
+  },
   up: {
     icon: '✅',
-    legend: 'No issues',
+    legend: 'Searchworks is up',
     message: 'No issues',
-    global_message: 'All services are operating normally.',
+    global_message: 'Indexes and supporting services are responding normally.',
   },
   maintenance: {
     icon: '🛠',
-    legend: 'Maintenance',
+    legend: 'Scheduled maintenance',
     message: 'Scheduled maintenance',
+    global_message: 'Services may encounter slowness or brief outages.',
+  },
+  performanceIssue: {
+    icon: '⚠️',
+    legend: 'Searchworks is slow',
+    message: 'Performance is slower than normal',
+    global_message: 'The operations team has been alerted.',
   },
   issue: {
     icon: '⚠️',
     legend: 'Issue',
     message: 'Performance is slower than normal',
-    global_message: 'There is an issue with SearchWorks or a related service.',
-  },
-  pending: {
-    icon: '🔄',
-    message: 'Checking status ...',
   },
   outage: {
     icon: '🚫',
     legend: 'Outage',
     message: 'Service is down; operations team is aware',
   },
+  nonCritical: {
+    icon: '⚠️',
+    legend: 'Searchworks may have an issue',
+    global_message: 'One of its supporting services is affected.',
+  },
+  critical: {
+    icon: '🚫',
+    legend: 'Searchworks is partly down',
+    message: 'Service is down; operations team is aware',
+    global_message: "One of its indexes is not responding. We're on it.",
+  },
   fatal: {
     icon: '🚫',
-    legend: 'Outage',
-    global_message: 'SearchWorks is unavailable. Tech team has been notified.',
+    legend: 'Searchworks is down',
+    global_message: "We're on it. Check incidents for updates.",
   },
 };
 
