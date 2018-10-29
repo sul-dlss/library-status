@@ -68,7 +68,7 @@ export const statuses = {
   },
   maintenance: {
     icon: '🛠',
-    legend: 'Scheduled Maintenance',
+    legend: 'Scheduled maintenance',
     message: 'Scheduled maintenance',
     global_message: 'Services may encounter slowness or brief outages.',
   },
