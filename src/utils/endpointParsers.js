@@ -55,9 +55,3 @@ export function processCitationService(response) {
     return data.oclc_citation_service.success ? 'up' : 'outage';
   });
 }
-export function processSfx(response) {
-  return response.text().then((data) => {
-    if (typeof data === 'undefined') return 'outage';
-    return response.ok ? 'up' : 'outage';
-  });
-}
