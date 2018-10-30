@@ -35,29 +35,23 @@ export const statusEndpoints = {
     status: 'pending',
     position: 5,
   },
-  sfx: {
-    displayName: 'Find it @ Stanford / eJournals & eBooks',
-    endpointUrl: 'https://sul-sfx.stanford.edu/sfxlcl41?rfr_id=info:sid/sfxit.com:site_up_check',
-    status: 'pending',
-    position: 6,
-  },
   embed: {
     displayName: 'SDR embedded content',
     endpointUrl: 'https://embed.stanford.edu/status/all.json',
     status: 'pending',
-    position: 7,
+    position: 6,
   },
   liveAvailability: {
     displayName: 'Live availability lookups',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
-    position: 8,
+    position: 7,
   },
   citationService: {
     displayName: 'OCLC citation service',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
-    position: 9,
+    position: 8,
   },
 };
 
