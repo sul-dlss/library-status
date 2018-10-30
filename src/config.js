@@ -37,7 +37,7 @@ export const statusEndpoints = {
   },
   sfx: {
     displayName: 'Find it @ Stanford / eJournals & eBooks',
-    endpointUrl: 'http://sul-sfx.stanford.edu/sfxlcl41?rfr_id=info:sid/sfxit.com:site_up_check',
+    endpointUrl: 'https://sul-sfx.stanford.edu/sfxlcl41?rfr_id=info:sid/sfxit.com:site_up_check',
     status: 'pending',
     position: 6,
   },
