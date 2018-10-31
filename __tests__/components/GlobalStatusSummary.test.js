@@ -12,7 +12,7 @@ describe('<GlobalStatusSummary />', () => {
     const wrapper = shallow(<GlobalStatusSummary status={statuses.nonCritical} />);
 
     expect(wrapper.find('.status-icon').text()).toEqual('⚠️')
-    expect(wrapper.find('.status-legend').text()).toEqual('Searchworks may have an issue')
+    expect(wrapper.find('.status-legend').text()).toEqual('SearchWorks may have an issue')
     expect(wrapper.find('p').text()).toEqual('One of its supporting services is affected.')
   });
 
