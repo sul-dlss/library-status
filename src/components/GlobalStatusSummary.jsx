@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const GlobalStatusSummary = ({ status }) => (
 
-  <div id="GlobalStatusSummary" className="section">
+  <div id="GlobalStatusSummary" className="section anchored">
     <div className="status-icon">{status.icon}</div>
     <div className="status-legend">{status.legend}</div>
     <p>
