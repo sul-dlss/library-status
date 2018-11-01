@@ -62,7 +62,7 @@ export const statuses = {
   },
   up: {
     icon: '✅',
-    legend: 'Searchworks is up',
+    legend: 'SearchWorks is up',
     message: 'No issues',
     global_message: 'Indexes and supporting services are responding normally.',
   },
@@ -74,7 +74,7 @@ export const statuses = {
   },
   performanceIssue: {
     icon: '⚠️',
-    legend: 'Searchworks is slow',
+    legend: 'SearchWorks is slow',
     message: 'Performance is slower than normal',
     global_message: 'The operations team has been alerted.',
   },
@@ -90,18 +90,18 @@ export const statuses = {
   },
   nonCritical: {
     icon: '⚠️',
-    legend: 'Searchworks may have an issue',
+    legend: 'SearchWorks may have an issue',
     global_message: 'One of its supporting services is affected.',
   },
   critical: {
     icon: '🚫',
-    legend: 'Searchworks is partly down',
+    legend: 'SearchWorks is partly down',
     message: 'Service is down; operations team is aware',
     global_message: "One of its indexes is not responding. We're on it.",
   },
   fatal: {
     icon: '🚫',
-    legend: 'Searchworks is down',
+    legend: 'SearchWorks is down',
     global_message: "We're on it. Check incidents for updates.",
   },
 };
