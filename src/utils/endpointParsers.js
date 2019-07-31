@@ -22,6 +22,12 @@ export function processEmbed(response) {
     return data.default.success ? 'up' : 'outage';
   });
 }
+export function processGenericOkComputer(response) {
+  return response.json().then((data) => {
+    if (typeof data.default === 'undefined') return 'outage';
+    return data.default.success ? 'up' : 'outage';
+  });
+}
 export function processLibraryHours(response) {
   return response.json().then((data) => {
     if (typeof data.default === 'undefined') return 'outage';

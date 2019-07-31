@@ -53,6 +53,13 @@ export const statusEndpoints = {
     status: 'pending',
     position: 8,
   },
+  myLibrary: {
+    displayName: 'My Library Account',
+    endpointUrl: 'https://mylibrary.stanford.edu/status/all.json',
+    serviceUrl: 'https://mylibrary.stanford.edu',
+    status: 'pending',
+    position: 9,
+  },
 };
 
 export const statuses = {

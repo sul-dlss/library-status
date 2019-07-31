@@ -11,6 +11,7 @@ import {
   processLibraryDrupal,
   processLiveAvailability,
   processCitationService,
+  processGenericOkComputer,
 } from '../utils/endpointParsers';
 import GlobalStatus from '../utils/globalStatus';
 import GlobalStatusSummary from './GlobalStatusSummary';
@@ -106,6 +107,14 @@ class Dashboard extends React.Component {
               .then((status) => {
                 const newState = endpoints;
                 newState.citationService.status = status;
+                this.setState(newState);
+              });
+            break;
+          case 'myLibrary':
+            processGenericOkComputer(response)
+              .then((status) => {
+                const newState = endpoints;
+                newState.myLibrary.status = status;
                 this.setState(newState);
               });
             break;
