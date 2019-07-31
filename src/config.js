@@ -6,6 +6,7 @@ export const statusEndpoints = {
     status: 'pending',
     critical: true,
     position: 1,
+    processor: 'processSwSolr',
   },
   ebsco: {
     displayName: 'Articles+ (EDS)',
@@ -14,6 +15,7 @@ export const statusEndpoints = {
     status: 'pending',
     critical: true,
     position: 2,
+    processor: 'processEbsco',
   },
   libraryDrupal: {
     displayName: 'Library website',
@@ -21,6 +23,7 @@ export const statusEndpoints = {
     serviceUrl: 'https://library.stanford.edu/',
     status: 'pending',
     position: 3,
+    processor: 'processLibraryDrupal',
   },
   libraryHours: {
     displayName: 'Library hours',
@@ -28,30 +31,35 @@ export const statusEndpoints = {
     serviceUrl: 'https://library-hours.stanford.edu',
     status: 'pending',
     position: 4,
+    processor: 'processGenericOkComputer',
   },
   requests: {
     displayName: 'Requests',
     endpointUrl: 'https://requests.stanford.edu/status/all.json',
     status: 'pending',
     position: 5,
+    processor: 'processGenericOkComputer',
   },
   embed: {
     displayName: 'SDR embedded content',
     endpointUrl: 'https://embed.stanford.edu/status/all.json',
     status: 'pending',
     position: 6,
+    processor: 'processGenericOkComputer',
   },
   liveAvailability: {
     displayName: 'Live availability lookups',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
     position: 7,
+    processor: 'processLiveAvailability',
   },
   citationService: {
     displayName: 'OCLC citation service',
     endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     status: 'pending',
     position: 8,
+    processor: 'processCitationService',
   },
   myLibrary: {
     displayName: 'My Library Account',
@@ -59,6 +67,7 @@ export const statusEndpoints = {
     serviceUrl: 'https://mylibrary.stanford.edu',
     status: 'pending',
     position: 9,
+    processor: 'processGenericOkComputer',
   },
 };
 
