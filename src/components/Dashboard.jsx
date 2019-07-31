@@ -2,16 +2,7 @@ import React from 'react';
 import {
   statusEndpoints, statuses, graphs, maintenanceWindows,
 } from '../config';
-import {
-  processSwSolr,
-  processEbsco,
-  processLibraryHours,
-  processRequests,
-  processEmbed,
-  processLibraryDrupal,
-  processLiveAvailability,
-  processCitationService,
-} from '../utils/endpointParsers';
+import * as processors from '../utils/endpointParsers';
 import GlobalStatus from '../utils/globalStatus';
 import GlobalStatusSummary from './GlobalStatusSummary';
 import StatusHeader from './StatusHeader';
@@ -43,75 +34,12 @@ class Dashboard extends React.Component {
           this.setState(newState);
           return;
         }
-
-        switch (key) {
-          case 'swSolr':
-            processSwSolr(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.swSolr.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'ebsco':
-            processEbsco(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.ebsco.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'libraryHours':
-            processLibraryHours(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.libraryHours.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'requests':
-            processRequests(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.requests.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'embed':
-            processEmbed(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.embed.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'libraryDrupal':
-            processLibraryDrupal(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.libraryDrupal.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'liveAvailability':
-            processLiveAvailability(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.liveAvailability.status = status;
-                this.setState(newState);
-              });
-            break;
-          case 'citationService':
-            processCitationService(response)
-              .then((status) => {
-                const newState = endpoints;
-                newState.citationService.status = status;
-                this.setState(newState);
-              });
-            break;
-          default:
-            console.log('unknown endpoint');
-        }
+        processors[endpoints[key].processor](response)
+          .then((status) => {
+            const newState = endpoints;
+            newState[key].status = status;
+            this.setState(newState);
+          });
       }).catch(() => {
         const newState = endpoints;
         newState[key].status = 'outage';

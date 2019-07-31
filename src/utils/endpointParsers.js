@@ -16,19 +16,7 @@ export function processEbsco(response) {
     return operationalServices.length === 2 ? 'up' : 'outage';
   });
 }
-export function processEmbed(response) {
-  return response.json().then((data) => {
-    if (typeof data.default === 'undefined') return 'outage';
-    return data.default.success ? 'up' : 'outage';
-  });
-}
-export function processLibraryHours(response) {
-  return response.json().then((data) => {
-    if (typeof data.default === 'undefined') return 'outage';
-    return data.default.success ? 'up' : 'outage';
-  });
-}
-export function processRequests(response) {
+export function processGenericOkComputer(response) {
   return response.json().then((data) => {
     if (typeof data.default === 'undefined') return 'outage';
     return data.default.success ? 'up' : 'outage';
