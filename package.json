@@ -21,7 +21,7 @@
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "acorn": "^6.2.1",
+    "acorn": "^6.3.0",
     "acorn-jsx": "^5.0.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -37,11 +37,11 @@
     "espree": "^4.1.0",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
-    "jest": "^24.8.0",
+    "jest": "^24.9.0",
     "redux-mock-store": "^1.5.3",
     "style-loader": "^0.22.1",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
