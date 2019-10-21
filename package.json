@@ -40,14 +40,14 @@
     "jest": "^24.9.0",
     "redux-mock-store": "^1.5.3",
     "style-loader": "^0.22.1",
-    "webpack": "^4.41.1",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.26",
+    "moment-timezone": "^0.5.27",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
