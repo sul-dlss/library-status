@@ -18,9 +18,9 @@
   "author": "aeschylus",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-react": "^7.7.0",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
     "acorn": "^6.3.0",
     "acorn-jsx": "^5.1.0",
     "babel-loader": "^8.0.6",
@@ -49,9 +49,9 @@
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
     "prop-types": "^15.7.2",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-hot-loader": "^4.12.16",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-hot-loader": "^4.12.18",
     "react-twitter-embed": "^1.1.3"
   },
   "jest": {
