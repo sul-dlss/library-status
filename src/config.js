@@ -151,25 +151,25 @@ export const graphs = {
     title: 'Page load time',
     position: 1,
     horizons: [
-      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/9ALOIQ1o17Q' },
-      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/c6qFHIdWFdG' },
-      { label: '30 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/9dxzdf4V71h' },
+      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/47JE5FsWnMD' },
+      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/bTisUaCTW3z' },
+      { label: '30 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/8RpiSIXjRBF' },
     ],
   },
   solr: {
     title: 'Catalog index (Solr) response time',
     position: 2,
     horizons: [
-      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/80xp1hfSf6h' },
-      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/biAaCaONpRC' },
+      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/fL0sJurf9eZ' },
+      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/4zYnObHnQij' },
     ],
   },
   ebsco: {
     title: 'Articles+ (EDS) response time',
     position: 3,
     horizons: [
-      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/cfcfetW1YGr' },
-      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/bgq3iP9fhSo' },
+      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/eZp3HEze2w8' },
+      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/9GsYfLT6hlr' },
     ],
   },
 };

@@ -55,13 +55,13 @@ describe('<TabbedGraphs />', () => {
       const wrapper = shallow(<TabbedGraphs graph={graphs.swResponseTime} />);
 
       expect(wrapper.find('Graph').prop('graph').iframeSrc).toEqual(
-        'https://rpm.newrelic.com/public/charts/9ALOIQ1o17Q'
+        'https://rpm.newrelic.com/public/charts/47JE5FsWnMD'
       );
 
       wrapper.setState({ activeIndex: 2 });
 
       expect(wrapper.find('Graph').prop('graph').iframeSrc).toEqual(
-        'https://rpm.newrelic.com/public/charts/9dxzdf4V71h'
+        'https://rpm.newrelic.com/public/charts/8RpiSIXjRBF'
       );
     });
   });
