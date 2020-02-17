@@ -40,8 +40,8 @@
     "jest": "^24.9.0",
     "redux-mock-store": "^1.5.4",
     "style-loader": "^0.22.1",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
