@@ -20,32 +20,56 @@ class Dashboard extends React.Component {
   componentDidMount() {
     const { endpoints } = this.state;
     const maintenanceWindow = areBeingMaintained(new Date(), maintenanceWindows);
-    Object.keys(endpoints).forEach((key) => {
-      fetch(endpoints[key].endpointUrl, {
+    const groupedEndpoints = this.groupedEndpoints();
+
+    Object.keys(groupedEndpoints).forEach((endpointUrl) => {
+      fetch(endpointUrl, {
         mode: 'cors',
       }).then((response) => {
-        if (response.status !== 200) {
-          const newState = endpoints;
-          if (maintenanceWindow) {
-            newState[key].status = 'maintenance';
-          } else {
-            newState[key].status = 'issue';
-          }
-          this.setState(newState);
-          return;
-        }
-        processors[endpoints[key].processor](response)
-          .then((status) => {
+        Object.keys(groupedEndpoints[endpointUrl]).forEach((key) => {
+          if (response.status !== 200) {
             const newState = endpoints;
-            newState[key].status = status;
+            if (maintenanceWindow) {
+              newState[key].status = 'maintenance';
+            } else {
+              newState[key].status = 'issue';
+            }
             this.setState(newState);
-          });
+            return;
+          }
+
+          processors[endpoints[key].processor](response.clone())
+            .then((status) => {
+              const newState = endpoints;
+              newState[key].status = status;
+              this.setState(newState);
+            });
+        });
       }).catch(() => {
-        const newState = endpoints;
-        newState[key].status = 'outage';
-        this.setState(newState);
+        Object.keys(groupedEndpoints[endpointUrl]).forEach((key) => {
+          const newState = endpoints;
+          newState[key].status = 'outage';
+          this.setState(newState);
+        });
       });
     });
+  }
+
+  groupedEndpoints() {
+    const { endpoints } = this.state;
+    const endpointCache = {};
+
+    Object.keys(endpoints).forEach((key) => {
+      const current = endpoints[key];
+      const { endpointUrl } = current;
+
+      if (endpointCache[endpointUrl]) {
+        endpointCache[endpointUrl][key] = current;
+      } else {
+        endpointCache[endpointUrl] = { [key]: current };
+      }
+    });
+    return endpointCache;
   }
 
   render() {
