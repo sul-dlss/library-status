@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  statusEndpoints, statuses, graphs, maintenanceWindows,
+  statusEndpoints, statuses, maintenanceWindows,
 } from '../config';
 import * as processors from '../utils/endpointParsers';
 import GlobalStatus from '../utils/globalStatus';
@@ -107,7 +107,7 @@ class Dashboard extends React.Component {
           <p>Updates about planned and unplanned service interruptions.</p>
           <TabbedTwitterFeeds feeds={feeds} />
         </div>
-        <GraphPanel graphs={graphs} />
+        <GraphPanel />
       </div>
     );
   }
