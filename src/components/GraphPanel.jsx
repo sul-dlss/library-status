@@ -1,8 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { graphs } from '../config';
 import TabbedGraphs from './TabbedGraphs';
 
-const GraphPanel = ({ graphs }) => (
+
+const GraphPanel = () => (
   <div id="graphs" className="section anchored">
     <h2>SearchWorks performance metrics</h2>
     <p>These graphs show response times of the SearchWorks application and its indexes.</p>
@@ -16,10 +17,5 @@ const GraphPanel = ({ graphs }) => (
     }
   </div>
 );
-
-GraphPanel.propTypes = {
-  graphs: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-};
-
 
 export default GraphPanel;

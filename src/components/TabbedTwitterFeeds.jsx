@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import { twitterFeeds } from '../config';
 
 class TabbedTwitterFeeds extends React.Component {
   constructor(props) {
@@ -13,13 +13,12 @@ class TabbedTwitterFeeds extends React.Component {
   }
 
   setInitialActiveIndex() {
-    const { feeds } = this.props;
     const location = window.location.toString();
     const anchor = location.substring(location.indexOf('#') + 1);
-    const activeFeed = feeds.find(feed => feed.feedId === anchor);
+    const activeFeed = twitterFeeds.find(feed => feed.feedId === anchor);
 
     if (activeFeed) {
-      this.state = { activeIndex: feeds.indexOf(activeFeed) };
+      this.state = { activeIndex: twitterFeeds.indexOf(activeFeed) };
     } else {
       this.state = { activeIndex: 0 };
     }
@@ -50,12 +49,11 @@ class TabbedTwitterFeeds extends React.Component {
   }
 
   render() {
-    const { feeds } = this.props;
     return (
       <div>
         <div className="graphTabs">
           {
-            feeds.map((feed, i) => (
+            twitterFeeds.map((feed, i) => (
               <button
                 type="button"
                 role="tab"
@@ -72,7 +70,7 @@ class TabbedTwitterFeeds extends React.Component {
         </div>
         <div aria-live="polite">
           {
-            feeds.filter((feed, i) => (this.indexIsActive(i))).map(feed => (
+            twitterFeeds.filter((feed, i) => (this.indexIsActive(i))).map(feed => (
               <TwitterTimelineEmbed
                 sourceType="profile"
                 key={feed.feedId}
@@ -90,10 +88,5 @@ class TabbedTwitterFeeds extends React.Component {
     );
   }
 }
-
-TabbedTwitterFeeds.propTypes = {
-  feeds: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
-};
-
 
 export default TabbedTwitterFeeds;
