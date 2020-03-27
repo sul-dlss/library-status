@@ -8,7 +8,7 @@ import GlobalStatusSummary from './GlobalStatusSummary';
 import StatusHeader from './StatusHeader';
 import StatusItem from './StatusItem';
 import GraphPanel from './GraphPanel';
-import TabbedTwitterFeeds from './TabbedTwitterFeeds';
+import UpdatesPanel from './UpdatesPanel';
 import areBeingMaintained from '../utils/maintenanceUtils';
 
 class Dashboard extends React.Component {
@@ -74,9 +74,6 @@ class Dashboard extends React.Component {
 
   render() {
     const { endpoints } = this.state;
-    const feeds = [
-      { feedId: 'sulsystemstatus', label: 'Library systems' },
-      { feedId: 'suleresources', label: 'Databases & e-resources' }];
     return (
       <div>
         <GlobalStatusSummary
@@ -102,11 +99,8 @@ class Dashboard extends React.Component {
           })}
 
         </div>
-        <div id="updates" className="section anchored">
-          <h2>Incidents</h2>
-          <p>Updates about planned and unplanned service interruptions.</p>
-          <TabbedTwitterFeeds feeds={feeds} />
-        </div>
+
+        <UpdatesPanel />
         <GraphPanel />
       </div>
     );

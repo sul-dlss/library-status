@@ -57,10 +57,10 @@ describe('Dashboard', () => {
     expect(wrapper.find('div#services StatusItem').length).toEqual(expectedItems);
   });
 
-  it('renders the TabbedTwitterFeeds', () => {
+  it('renders the UpdatesPanel', () => {
     const wrapper = shallow(<Dashboard />);
 
-    expect(wrapper.find('TabbedTwitterFeeds').length).toEqual(1);
+    expect(wrapper.find('UpdatesPanel').length).toEqual(1);
   });
 
   it('renders the GraphPanel', () => {

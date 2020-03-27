@@ -173,3 +173,8 @@ export const graphs = {
     ],
   },
 };
+
+export const twitterFeeds = [
+  { feedId: 'sulsystemstatus', label: 'Library systems' },
+  { feedId: 'suleresources', label: 'Databases & e-resources' },
+];
