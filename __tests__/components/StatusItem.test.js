@@ -5,9 +5,21 @@ import { shallow } from 'enzyme';
 // Component to be tested
 import StatusItem from '../../src/components/StatusItem';
 
+function shallowWrapper(props) {
+  return shallow(
+    <StatusItem
+      serviceStatus="up"
+      serviceName="SearchWorks catalog (Solr)"
+      statusMessage="No issues"
+      statusIcon="✅"
+      {...props}
+    />
+  );
+}
+
 describe('<StatusItem />', () => {
   it('renders the StatusItem component', () => {
-    const wrapper = shallow(<StatusItem />);
+    const wrapper = shallowWrapper();
 
     expect(wrapper.contains(
       <div className="status-item">
@@ -20,28 +32,28 @@ describe('<StatusItem />', () => {
     ))
   });
   it('adds the service status class', () => {
-    const wrapper = shallow(<StatusItem serviceStatus={ 'test-class' }/>)
+    const wrapper = shallowWrapper({ serviceStatus: 'test-class' });
 
-    expect(wrapper.contains(<div className="status-item test-class"></div>))
+    expect(wrapper.contains(<div className="status-item test-class"></div>));
   });
   it('displays the service name', () => {
-    const wrapper = shallow(<StatusItem serviceName={ 'Great Service!' }/>)
+    const wrapper = shallowWrapper({ serviceName:  'Great Service!' });
 
-    expect(wrapper.find('.service-name').text()).toEqual('Great Service!')
+    expect(wrapper.find('.service-name').text()).toEqual('Great Service!');
   });
   it('adds a link to the service name if URL is provided', () => {
-    const wrapper = shallow(<StatusItem serviceName={ 'Great Service!' } serviceUrl={'https://searchworks.stanford.edu'}/>)
+    const wrapper = shallowWrapper({ serviceName: 'Great Service!', serviceUrl: 'https://searchworks.stanford.edu' });
     expect(wrapper.find('.service-name').text()).toEqual('Great Service!')
     expect(wrapper.find('.status-text a').prop('href')).toEqual('https://searchworks.stanford.edu')
   });
   it('displays the status message', () => {
-    const wrapper = shallow(<StatusItem statusMessage={ 'up' }/>)
+    const wrapper = shallowWrapper({ statusMessage: 'up' });
 
-    expect(wrapper.find('.status-message').text()).toEqual('up')
+    expect(wrapper.find('.status-message').text()).toEqual('up');
   });
   it('displays the status icon', () => {
-    const wrapper = shallow(<StatusItem statusIcon={ '✅' }/>)
+    const wrapper = shallowWrapper({ statusIcon: '✅' });
 
-    expect(wrapper.find('.status-icon').text()).toEqual('✅')
+    expect(wrapper.find('.status-icon').text()).toEqual('✅');
   });
 });

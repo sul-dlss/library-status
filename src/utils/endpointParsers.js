@@ -5,7 +5,7 @@ export function processSwSolr(response) {
       return data.low_app_apdex_alert.success ? 'up' : 'performanceIssue';
     }
     return 'outage';
-  });
+  }).catch(() => 'outage');
 }
 export function processEbsco(response) {
   return response.json().then((data) => {
@@ -14,19 +14,19 @@ export function processEbsco(response) {
     operationalServices = operationalServices.filter(service => service.status === 'operational');
     // Check that both EDS and EDS API are operational
     return operationalServices.length === 2 ? 'up' : 'outage';
-  });
+  }).catch(() => 'outage');
 }
 export function processGenericOkComputer(response) {
   return response.json().then((data) => {
     if (typeof data.default === 'undefined') return 'outage';
     return data.default.success ? 'up' : 'outage';
-  });
+  }).catch(() => 'outage');
 }
 export function processLiveAvailability(response) {
   return response.json().then((data) => {
     if (typeof data.default === 'undefined') return 'outage';
     return data.live_lookups.success ? 'up' : 'outage';
-  });
+  }).catch(() => 'outage');
 }
 export function processLibraryDrupal(response) {
   return response.text().then((data) => {
@@ -35,11 +35,11 @@ export function processLibraryDrupal(response) {
       return 'up';
     }
     return 'outage';
-  });
+  }).catch(() => 'outage');
 }
 export function processCitationService(response) {
   return response.json().then((data) => {
     if (typeof data.default === 'undefined') return 'outage';
     return data.oclc_citation_service.success ? 'up' : 'outage';
-  });
+  }).catch(() => 'outage');
 }
