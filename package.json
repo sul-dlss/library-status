@@ -19,7 +19,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "acorn": "^6.4.1",
     "acorn-jsx": "^5.2.0",
