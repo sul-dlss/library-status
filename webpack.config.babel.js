@@ -38,7 +38,6 @@ module.exports = {
       filename: 'index.html',
       hash: true
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ],
   resolve: {
     extensions: ['.js', '.jsx']
