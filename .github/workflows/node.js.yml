@@ -22,6 +22,6 @@ jobs:
     - run: npm install
     - run: npm run lint
     - run: npm run test
-    - run: report-coverage
+    - run: npm run report-coverage
       env:
         CODECOV_TOKEN: f4e536ee-7ad3-4192-ab82-d8336e15dc0b
