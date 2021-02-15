@@ -18,8 +18,8 @@
   "author": "aeschylus",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.12.13",
-    "@babel/preset-env": "^7.12.13",
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
     "@babel/preset-react": "^7.12.13",
     "acorn": "^6.4.2",
     "acorn-jsx": "^5.3.1",
