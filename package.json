@@ -18,8 +18,8 @@
   "author": "aeschylus",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/preset-env": "^7.12.16",
+    "@babel/core": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
     "@babel/preset-react": "^7.12.13",
     "acorn": "^6.4.2",
     "acorn-jsx": "^5.3.1",
@@ -45,7 +45,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
