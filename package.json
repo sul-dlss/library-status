@@ -18,7 +18,7 @@
   "author": "aeschylus",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.13.13",
+    "@babel/core": "^7.13.14",
     "@babel/preset-env": "^7.13.12",
     "@babel/preset-react": "^7.13.13",
     "acorn": "^6.4.2",
