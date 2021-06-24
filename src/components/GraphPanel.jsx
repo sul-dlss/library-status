@@ -2,7 +2,6 @@ import React from 'react';
 import { graphs } from '../config';
 import TabbedGraphs from './TabbedGraphs';
 
-
 const GraphPanel = () => (
   <div id="graphs" className="section anchored">
     <h2>SearchWorks performance metrics</h2>

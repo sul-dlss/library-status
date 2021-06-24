@@ -40,5 +40,4 @@ StatusItem.defaultProps = {
   serviceUrl: null,
 };
 
-
 export default StatusItem;
