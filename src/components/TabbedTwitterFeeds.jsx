@@ -1,5 +1,5 @@
 import React from 'react';
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import { Timeline } from 'react-twitter-widgets';
 import { twitterFeeds } from '../config';
 
 class TabbedTwitterFeeds extends React.Component {
@@ -71,10 +71,12 @@ class TabbedTwitterFeeds extends React.Component {
         <div aria-live="polite">
           {
             twitterFeeds.filter((feed, i) => (this.indexIsActive(i))).map(feed => (
-              <TwitterTimelineEmbed
-                sourceType="profile"
+              <Timeline
+                dataSource={{
+                  sourceType: 'profile',
+                  screenName: feed.feedId,
+                }}
                 key={feed.feedId}
-                screenName={feed.feedId}
                 options={{
                   chrome: 'noheader nofooter',
                   width: 600,

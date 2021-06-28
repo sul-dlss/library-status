@@ -31,8 +31,10 @@ module.exports = {
       }
     ],
   },
+  optimization: {
+    moduleIds: 'named',
+  },
   plugins: [
-    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve('./', 'index.html'),
       filename: 'index.html',

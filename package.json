@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --mode development",
+    "start": "webpack serve --hot --mode development",
     "build:dev": "webpack --mode development",
     "build:prod": "webpack --mode production",
     "lint": "npx eslint src/ --ext jsx --ext js",
@@ -18,30 +18,33 @@
   "author": "aeschylus",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.14.5",
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
-    "acorn": "^6.4.2",
+    "@babel/register": "^7.14.5",
+    "acorn": "^8.4.1",
     "acorn-jsx": "^5.3.1",
     "babel-loader": "^8.2.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "codecov": "^3.8.2",
-    "css-loader": "^1.0.1",
+    "css-loader": "^5.2.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^17.1.1",
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
-    "espree": "^4.1.0",
-    "file-loader": "^2.0.0",
-    "html-webpack-plugin": "^3.2.0",
-    "jest": "^24.9.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "espree": "^7.3.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.0.5",
     "redux-mock-store": "^1.5.4",
-    "style-loader": "^0.22.1",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.40.0",
+    "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
@@ -50,7 +53,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-hot-loader": "^4.13.0",
-    "react-twitter-embed": "^1.1.3"
+    "react-twitter-widgets": "^1.10.0"
   },
   "jest": {
     "setupFilesAfterEnv": [
@@ -65,6 +68,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!**/node_modules/**"
-    ]
+    ],
+    "testEnvironment": "jsdom"
   }
 }

@@ -72,5 +72,4 @@ TabbedGraphs.propTypes = {
   graph: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
-
 export default TabbedGraphs;
