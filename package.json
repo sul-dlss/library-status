@@ -34,8 +34,8 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "espree": "^7.3.1",
     "file-loader": "^6.2.0",
@@ -53,7 +53,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-hot-loader": "^4.13.0",
-    "react-twitter-widgets": "^1.10.0"
+    "react-twitter-widgets": "^1.11.0"
   },
   "jest": {
     "setupFilesAfterEnv": [
