@@ -68,7 +68,7 @@ class TabbedTwitterFeeds extends React.Component {
             ))
           }
         </div>
-        <div aria-live="polite">
+        <div className="twitterFeed" aria-live="polite">
           {
             twitterFeeds.filter((feed, i) => (this.indexIsActive(i))).map(feed => (
               <Timeline
