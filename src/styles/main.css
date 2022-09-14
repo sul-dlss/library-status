@@ -345,3 +345,8 @@ p.status-message {
   margin: 90px 0 50px 0;
   text-align: center;
 }
+
+.twitterFeed {
+  display: flex;
+  justify-content: center;
+}
