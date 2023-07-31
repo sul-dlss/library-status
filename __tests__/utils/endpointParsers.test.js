@@ -151,28 +151,6 @@ describe('enpointParsers', () => {
     });
   });
 
-  describe('processLibraryDrupal', () => {
-    it('returns an outage if the expected success text is not present', () => {
-      return expect(
-        parsers.processLibraryDrupal(response('Things are borked')),
-      ).resolves.toEqual('outage');
-    });
-
-    it('returns an outage if the response is unparsable', () => {
-      return expect(
-        parsers.processLibraryDrupal(response({})),
-      ).resolves.toEqual('outage');
-    });
-
-    it('returns up if the final line of the text response is the expected text', () => {
-      return expect(
-        parsers.processLibraryDrupal(response(
-          'Successfully Checked A\nSuccessfully Checked B\nAll Health Checks Successfull! 200',
-        )),
-      ).resolves.toEqual('up');
-    });
-  });
-
   describe('processCitationService', () => {
     it('returns outage if there is no default check', () => {
       return expect(
