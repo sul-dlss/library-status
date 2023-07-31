@@ -28,15 +28,6 @@ export function processLiveAvailability(response) {
     return data.live_lookups.success ? 'up' : 'outage';
   }).catch(() => 'outage');
 }
-export function processLibraryDrupal(response) {
-  return response.text().then((data) => {
-    const lastLine = data.split('\n').pop();
-    if (lastLine.match(/^all health checks successfull/i)) {
-      return 'up';
-    }
-    return 'outage';
-  }).catch(() => 'outage');
-}
 export function processCitationService(response) {
   return response.json().then((data) => {
     if (typeof data.default === 'undefined') return 'outage';

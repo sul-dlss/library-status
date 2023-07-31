@@ -17,14 +17,6 @@ export const statusEndpoints = {
     position: 2,
     processor: 'processEbsco',
   },
-  libraryDrupal: {
-    displayName: 'Library website',
-    endpointUrl: 'https://library.stanford.edu/healthcheck.php',
-    serviceUrl: 'https://library.stanford.edu/',
-    status: 'pending',
-    position: 3,
-    processor: 'processLibraryDrupal',
-  },
   libraryHours: {
     displayName: 'Library hours',
     endpointUrl: 'https://library-hours.stanford.edu/status/all.json',
