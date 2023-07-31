@@ -22,13 +22,13 @@ describe('ServiceGrid', () => {
   it('renders a Status Item for each check in the config', () => {
     const wrapper = shallowWrapper({ endpoints });
 
-    expect(wrapper.find('div#services StatusItem').length).toEqual(9);
+    expect(wrapper.find('div#services StatusItem').length).toEqual(8);
   });
 
   it('passes the approrpiate props to the StatusItem', () => {
     const wrapper = shallowWrapper({ endpoints });
 
     expect(wrapper.find('div#services StatusItem').at(0).props().serviceStatus).toEqual('up'); // Stubbed success above
-    expect(wrapper.find('div#services StatusItem').at(5).props().serviceStatus).toEqual('outage');
+    expect(wrapper.find('div#services StatusItem').at(4).props().serviceStatus).toEqual('outage');
   });
 });

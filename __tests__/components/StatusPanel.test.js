@@ -56,7 +56,6 @@ describe('StatusPanel', () => {
       expect(Object.keys(groupedEndpoints)).toEqual([
         'https://searchworks.stanford.edu/status/all.json',
         'https://status.ebsco.com/index.json',
-        'https://library.stanford.edu/healthcheck.php',
         'https://library-hours.stanford.edu/status/all.json',
         'https://requests.stanford.edu/status/all.json',
         'https://embed.stanford.edu/status/all.json',
