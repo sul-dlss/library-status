@@ -55,7 +55,7 @@ const StatusPanel = () => {
         {Object.keys(statusEndpoints || {}).map((endpointName) => {
           // Return the element. Also pass key
           const endpoint = statusEndpoints[endpointName];
-          let status = responseStatuses[endpointName]?.status || 'pending';
+          let status = endpoint.status || responseStatuses[endpointName]?.status || 'pending';
 
           return (
             <StatusItem
