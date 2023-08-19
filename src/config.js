@@ -28,9 +28,9 @@ export const statusEndpoints = {
   requests: {
     displayName: 'Requests',
     endpointUrl: 'https://requests.stanford.edu/status/all.json',
-    status: 'pending',
+    status: 'maintenance',
     position: 5,
-    processor: 'processGenericOkComputer',
+    processor: 'processRequests',
   },
   embed: {
     displayName: 'SDR embedded content',
@@ -41,8 +41,8 @@ export const statusEndpoints = {
   },
   liveAvailability: {
     displayName: 'Live availability lookups',
-    endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
-    status: 'pending',
+    endpointUrl: 'https://mylibrary.stanford.edu/status/all.json',
+    status: 'planned_outage',
     position: 7,
     processor: 'processLiveAvailability',
   },
@@ -57,9 +57,9 @@ export const statusEndpoints = {
     displayName: 'My Library Account',
     endpointUrl: 'https://mylibrary.stanford.edu/status/all.json',
     serviceUrl: 'https://mylibrary.stanford.edu',
-    status: 'pending',
+    status: 'planned_outage',
     position: 9,
-    processor: 'processGenericOkComputer',
+    processor: 'processMyLibrary',
   },
 };
 
@@ -95,6 +95,11 @@ export const statuses = {
     icon: '🚫',
     legend: 'Outage',
     message: 'Service is down; operations team is aware',
+  },
+  planned_outage: {
+    icon: '🚫',
+    legend: 'Outage',
+    message: 'Unavailable due to system upgrade',
   },
   nonCritical: {
     icon: '⚠️',

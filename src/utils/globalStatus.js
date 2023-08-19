@@ -5,9 +5,14 @@ class GlobalStatus {
   }
 
   get status() {
-    if (this.allAreUp()) {
-      return this.statuses.up;
-    } if (this.anyMaintenance()) {
+    if(true) {
+      return {
+        icon: '⚠️',
+        legend: 'Stanford Libraries is undergoing a major system upgrade.',
+        global_message: 'SearchWorks is available, but item status may be out of date. Requests can be submitted, but materials may not be ready for use until after August 31. Live availability lookups and My Library Account are unavailable until August 28.'
+      }
+    }
+    if (this.anyMaintenance()) {
       return this.statuses.maintenance;
     } if (this.anyFatalOutages()) {
       return this.statuses.fatal;
@@ -17,6 +22,8 @@ class GlobalStatus {
       return this.statuses.performanceIssue;
     } if (this.anyIssues() || this.anyNonCriticalOutages()) {
       return this.statuses.nonCritical;
+    } if (this.allAreUp()) {
+      return this.statuses.up;
     }
     return this.statuses.pending;
   }

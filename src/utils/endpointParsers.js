@@ -25,12 +25,26 @@ export function processGenericOkComputer(response) {
 export function processLiveAvailability(response) {
   return response.json().then((data) => {
     if (typeof data.default === 'undefined') return 'outage';
-    return data.live_lookups.success ? 'up' : 'outage';
+    return data.default.success ? 'planned_outage' : 'outage';
   }).catch(() => 'outage');
 }
 export function processCitationService(response) {
   return response.json().then((data) => {
     if (typeof data.default === 'undefined') return 'outage';
     return data.oclc_citation_service.success ? 'up' : 'outage';
+  }).catch(() => 'outage');
+}
+
+export function processMyLibrary(response) {
+  return response.json().then((data) => {
+    if (typeof data.default === 'undefined') return 'outage';
+    return data.default.success ? 'planned_outage' : 'outage';
+  }).catch(() => 'outage');
+}
+
+export function processRequests(response) {
+  return response.json().then((data) => {
+    if (typeof data.default === 'undefined') return 'outage';
+    return data.default.success ? 'maintenance' : 'outage';
   }).catch(() => 'outage');
 }
