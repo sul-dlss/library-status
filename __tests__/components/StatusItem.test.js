@@ -39,12 +39,12 @@ describe('<StatusItem />', () => {
   it('displays the service name', () => {
     const wrapper = shallowWrapper({ serviceName:  'Great Service!' });
 
-    expect(wrapper.find('.service-name').text()).toEqual('Great Service!');
+    expect(wrapper.find('ServiceName').prop('serviceName')).toEqual('Great Service!');
   });
   it('adds a link to the service name if URL is provided', () => {
     const wrapper = shallowWrapper({ serviceName: 'Great Service!', serviceUrl: 'https://searchworks.stanford.edu' });
-    expect(wrapper.find('.service-name').text()).toEqual('Great Service!')
-    expect(wrapper.find('.status-text a').prop('href')).toEqual('https://searchworks.stanford.edu')
+    expect(wrapper.find('ServiceName').prop('serviceName')).toEqual('Great Service!')
+    expect(wrapper.find('ServiceName').prop('serviceUrl')).toEqual('https://searchworks.stanford.edu')
   });
   it('displays the status message', () => {
     const wrapper = shallowWrapper({ statusMessage: 'up' });
