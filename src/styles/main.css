@@ -5,7 +5,7 @@ body {
   width:100%;
 }
 
-#app {
+.container {
   margin: 0 auto;
 }
 
@@ -67,7 +67,7 @@ h3.service-name {
 }
 
 @media (max-width: 768px) {
-  #app {
+  .container {
     padding: 0 10px;
   }
   h1 {
@@ -84,14 +84,7 @@ h3.service-name {
   }
 }
 @media (min-width: 768px) {
-  #app {
-    width: 750px;
-  }
-  #header {
-    margin: 0 auto;
-    width: 750px;
-  }
-  #footer {
+  .container {
     width: 750px;
   }
   .display-large {
@@ -102,26 +95,12 @@ h3.service-name {
   }
 }
 @media (min-width: 980px) {
-  #app {
-    width: 970px;
-  }
-  #header {
-    margin: 0 auto;
-    width: 970px;
-  }
-  #footer {
+  .container {
     width: 970px;
   }
 }
 @media (min-width: 1200px) {
-  #app {
-    width: 1170px;
-  }
-  #header {
-    margin: 0 auto;
-    width: 1170px;
-  }
-  #footer {
+  .container {
     width: 1170px;
   }
 }
@@ -138,10 +117,11 @@ h3.service-name {
   border-style: solid;
   box-sizing: border-box;
   left:0;
+  margin-bottom: 3rem;
   max-height: 130px;
   min-height: 80px;
   padding: 0 30px;
-  position: fixed;
+  position: sticky;
   right:0;
   top:0;
   width:100%;
@@ -202,7 +182,6 @@ h3.service-name {
 }
 
 #status-header {
-  padding-top: 90px;
   text-align: center;
 }
 
@@ -278,6 +257,7 @@ p.status-message {
 
 .section {
   box-sizing: border-box;
+  margin-top: 4rem;
   text-align: center;
   width: 100%;
 }
@@ -289,16 +269,6 @@ p.status-message {
 .section .status-icon {
   font-size: 2.441em;
   font-weight: 300;
-}
-
-.anchored {
-  padding-top: 100px;
-}
-
-@media (max-width: 768px) {
-  .anchored {
-    padding-top: 120px;
-  }
 }
 
 .pending .status-message {

@@ -4,7 +4,7 @@ import SulRosette from '../styles/sul-rosette.svg';
 
 const Header = () => (
   <div id="header-container">
-    <div id="header">
+    <div id="header" className="container">
       <div className="brand-logo">
         <a href="https://library.stanford.edu">
           <img src={SulLogo} alt="Stanford Libraries" height="35px" className="display-large" />
