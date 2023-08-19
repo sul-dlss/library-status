@@ -16,7 +16,6 @@ const Header = () => (
       </div>
       <div className="nav-menu">
         <a href="#GlobalStatusSummary">Current</a>
-        <a href="#updates">Incidents</a>
         <a href="#graphs">Performance</a>
       </div>
     </div>

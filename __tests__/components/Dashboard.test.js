@@ -7,13 +7,7 @@ describe('Dashboard', () => {
   it('renders the StatusPanel', () => {
     const wrapper = shallow(<Dashboard />);
 
-    expect(wrapper.find('UpdatesPanel').length).toEqual(1);
-  });
-
-  it('renders the UpdatesPanel', () => {
-    const wrapper = shallow(<Dashboard />);
-
-    expect(wrapper.find('UpdatesPanel').length).toEqual(1);
+    expect(wrapper.find('StatusPanel').length).toEqual(1);
   });
 
   it('renders the GraphPanel', () => {
