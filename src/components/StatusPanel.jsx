@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import GlobalStatus from '../utils/globalStatus';
 import GlobalStatusSummary from './GlobalStatusSummary';
 import StatusHeader from './StatusHeader';
@@ -9,97 +9,68 @@ import {
 import * as processors from '../utils/endpointParsers';
 import areBeingMaintained from '../utils/maintenanceUtils';
 
-class StatusPanel extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { endpoints: statusEndpoints };
-  }
+const StatusPanel = () => {
+  const [responseStatuses, setResponseStatuses] = useState({});
 
-  componentDidMount() {
-    const { endpoints } = this.state;
-    const maintenanceWindow = areBeingMaintained(new Date(), maintenanceWindows);
-    const groupedEndpoints = this.groupedEndpoints();
+  const maintenanceWindow = areBeingMaintained(new Date(), maintenanceWindows);
 
-    Object.keys(groupedEndpoints).forEach((endpointUrl) => {
-      fetch(endpointUrl, {
-        mode: 'cors',
-      }).then((response) => {
-        Object.keys(groupedEndpoints[endpointUrl]).forEach((key) => {
-          if (response.status !== 200) {
-            const newState = endpoints;
-            if (maintenanceWindow) {
-              newState[key].status = 'maintenance';
-            } else {
-              newState[key].status = 'issue';
-            }
-            this.setState(newState);
-            return;
-          }
+  useEffect(() => { loadStatuses(); }, statusEndpoints);
 
-          processors[endpoints[key].processor](response.clone())
-            .then((status) => {
-              const newState = endpoints;
-              newState[key].status = status;
-              this.setState(newState);
-            });
-        });
-      }).catch(() => {
-        Object.keys(groupedEndpoints[endpointUrl]).forEach((key) => {
-          const newState = endpoints;
-          newState[key].status = 'outage';
-          this.setState(newState);
+  async function loadStatuses() {
+    const statusEndpointsByUrl = Object.keys(statusEndpoints).reduce((acc, key) => {
+      const endpoint = statusEndpoints[key];
+
+      acc[endpoint.endpointUrl] = acc[endpoint.endpointUrl] || [];
+      acc[endpoint.endpointUrl].push(key);
+
+      return acc;
+    }, {});
+
+    Object.keys(statusEndpointsByUrl).forEach((url) => {
+      fetch(url, { mode: 'cors' }).then((response) => {
+        statusEndpointsByUrl[url].forEach((key) => {
+          const endpoint = statusEndpoints[key];
+
+          processors[endpoint.processor](response.clone()).then((status) => {
+            setResponseStatuses(prevResponses => ({ ...prevResponses, [key]: { status: (status == 'outage' && maintenanceWindow) ? 'maintenance' : status } }));
+          });
+        })
+      }).catch((error) => {
+        statusEndpointsByUrl[url].forEach((key) => {
+          setResponseStatuses(prevResponses => ({ ...prevResponses, [key]: { status: null } }));
         });
       });
     });
-  }
+  };
 
-  groupedEndpoints() {
-    const { endpoints } = this.state;
-    const endpointCache = {};
+  const globalStatus = new GlobalStatus(statuses, responseStatuses).status;
 
-    Object.keys(endpoints).forEach((key) => {
-      const current = endpoints[key];
-      const { endpointUrl } = current;
+  return (
+    <>
+      <GlobalStatusSummary
+        status={globalStatus}
+      />
+      <StatusHeader />
+      <div id="services">
+        {Object.keys(statusEndpoints || {}).map((endpointName) => {
+          // Return the element. Also pass key
+          const endpoint = statusEndpoints[endpointName];
+          let status = responseStatuses[endpointName]?.status || 'pending';
 
-      if (endpointCache[endpointUrl]) {
-        endpointCache[endpointUrl][key] = current;
-      } else {
-        endpointCache[endpointUrl] = { [key]: current };
-      }
-    });
-    return endpointCache;
-  }
-
-  render() {
-    const { endpoints } = this.state;
-
-    const globalStatus = new GlobalStatus(statuses, endpoints).status;
-
-    return (
-      <>
-        <GlobalStatusSummary
-          status={globalStatus}
-        />
-        <StatusHeader />
-        <div id="services">
-          {Object.keys(endpoints || {}).map((endpointName) => {
-            // Return the element. Also pass key
-            const endpoint = endpoints[endpointName];
-            return (
-              <StatusItem
-                key={endpointName}
-                serviceName={endpoint.displayName}
-                serviceUrl={endpoint.serviceUrl}
-                serviceStatus={endpoint.status}
-                statusMessage={statuses[endpoint.status].message}
-                statusIcon={statuses[endpoint.status].icon}
-              />
-            );
-          })}
-        </div>
-      </>
-    );
-  }
+          return (
+            <StatusItem
+              key={endpointName}
+              serviceName={endpoint.displayName}
+              serviceUrl={endpoint.serviceUrl}
+              serviceStatus={status}
+              statusMessage={statuses[status]?.message}
+              statusIcon={statuses[status]?.icon}
+            />
+          );
+        })}
+      </div>
+    </>
+  );
 }
 
 export default StatusPanel;
