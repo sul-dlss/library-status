@@ -73,14 +73,14 @@ class StatusPanel extends React.Component {
   render() {
     const { endpoints } = this.state;
 
+    const globalStatus = new GlobalStatus(statuses, endpoints).status;
+
     return (
       <>
         <GlobalStatusSummary
-          status={new GlobalStatus(statuses, endpoints).status}
+          status={globalStatus}
         />
-        <StatusHeader
-          statuses={statuses}
-        />
+        <StatusHeader />
         <ServiceGrid endpoints={endpoints} />
       </>
     );
