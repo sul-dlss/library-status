@@ -2,7 +2,7 @@ import React from 'react';
 import GlobalStatus from '../utils/globalStatus';
 import GlobalStatusSummary from './GlobalStatusSummary';
 import StatusHeader from './StatusHeader';
-import ServiceGrid from './ServiceGrid';
+import StatusItem from './StatusItem';
 import {
   statusEndpoints, statuses, maintenanceWindows,
 } from '../config';
@@ -81,7 +81,22 @@ class StatusPanel extends React.Component {
           status={globalStatus}
         />
         <StatusHeader />
-        <ServiceGrid endpoints={endpoints} />
+        <div id="services">
+          {Object.keys(endpoints || {}).map((endpointName) => {
+            // Return the element. Also pass key
+            const endpoint = endpoints[endpointName];
+            return (
+              <StatusItem
+                key={endpointName}
+                serviceName={endpoint.displayName}
+                serviceUrl={endpoint.serviceUrl}
+                serviceStatus={endpoint.status}
+                statusMessage={statuses[endpoint.status].message}
+                statusIcon={statuses[endpoint.status].icon}
+              />
+            );
+          })}
+        </div>
       </>
     );
   }
