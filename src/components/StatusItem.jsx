@@ -9,7 +9,18 @@ const ServiceName = ({ serviceName, serviceUrl }) => {
   return (<h3 className="service-name">{serviceName}</h3>);
 };
 
-const StatusItem = ({ serviceStatus, serviceName, statusMessage, statusIcon, serviceUrl }) => (
+ServiceName.propTypes = {
+  serviceName: PropTypes.string.isRequired,
+  serviceUrl: PropTypes.string,
+};
+
+ServiceName.defaultProps = {
+  serviceUrl: null,
+};
+
+const StatusItem = ({
+  serviceStatus, serviceName, statusMessage, statusIcon, serviceUrl,
+}) => (
   <div className={`status-item ${serviceStatus}`}>
     <div className="status-icon">{statusIcon}</div>
     <div className="status-text">

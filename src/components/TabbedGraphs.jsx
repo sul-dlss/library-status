@@ -14,8 +14,8 @@ const TabbedGraphs = ({ graph }) => {
             <button
               type="button"
               role="tab"
-              className={activeIndex == i ? 'active' : ''}
-              aria-selected={activeIndex == i ? 'true' : 'false'}
+              className={activeIndex === i ? 'active' : ''}
+              aria-selected={activeIndex === i ? 'true' : 'false'}
               key={JSON.stringify(horizon)}
               onClick={() => updateActiveIndex(i)}
             >
@@ -26,7 +26,7 @@ const TabbedGraphs = ({ graph }) => {
       </div>
       <div aria-live="polite">
         {
-          graph.horizons.filter((horizon, i) => (activeIndex == i)).map(horizon => (
+          graph.horizons.filter((horizon, i) => (activeIndex === i)).map(horizon => (
             <Graph graph={horizon} key={JSON.stringify(horizon)} />
           ))
         }

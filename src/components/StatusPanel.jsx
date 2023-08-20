@@ -14,34 +14,35 @@ const StatusPanel = () => {
 
   const maintenanceWindow = areBeingMaintained(new Date(), maintenanceWindows);
 
-  useEffect(() => { loadStatuses(); }, [statusEndpoints]);
+  useEffect(() => {
+    async function loadStatuses() {
+      const statusEndpointsByUrl = Object.keys(statusEndpoints).reduce((acc, key) => {
+        const endpoint = statusEndpoints[key];
 
-  async function loadStatuses() {
-    const statusEndpointsByUrl = Object.keys(statusEndpoints).reduce((acc, key) => {
-      const endpoint = statusEndpoints[key];
+        acc[endpoint.endpointUrl] = acc[endpoint.endpointUrl] || [];
+        acc[endpoint.endpointUrl].push(key);
 
-      acc[endpoint.endpointUrl] = acc[endpoint.endpointUrl] || [];
-      acc[endpoint.endpointUrl].push(key);
+        return acc;
+      }, {});
 
-      return acc;
-    }, {});
+      Object.keys(statusEndpointsByUrl).forEach((url) => {
+        fetch(url, { mode: 'cors' }).then((response) => {
+          statusEndpointsByUrl[url].forEach((key) => {
+            const endpoint = statusEndpoints[key];
 
-    Object.keys(statusEndpointsByUrl).forEach((url) => {
-      fetch(url, { mode: 'cors' }).then((response) => {
-        statusEndpointsByUrl[url].forEach((key) => {
-          const endpoint = statusEndpoints[key];
-
-          processors[endpoint.processor](response.clone()).then((status) => {
-            setResponseStatuses(prevResponses => ({ ...prevResponses, [key]: { status: (status == 'outage' && maintenanceWindow) ? 'maintenance' : status } }));
+            processors[endpoint.processor](response.clone()).then((status) => {
+              setResponseStatuses(prevResponses => ({ ...prevResponses, [key]: { status: (status === 'outage' && maintenanceWindow) ? 'maintenance' : status } }));
+            });
           });
-        })
-      }).catch((error) => {
-        statusEndpointsByUrl[url].forEach((key) => {
-          setResponseStatuses(prevResponses => ({ ...prevResponses, [key]: { status: null } }));
+        }).catch((error) => {
+          statusEndpointsByUrl[url].forEach((key) => {
+            setResponseStatuses(prevResponses => ({ ...prevResponses, [key]: { status: null } }));
+          });
         });
       });
-    });
-  };
+    }
+    loadStatuses();
+  }, [setResponseStatuses, maintenanceWindow]);
 
   const globalStatus = new GlobalStatus(statuses, responseStatuses).status;
 
@@ -55,7 +56,7 @@ const StatusPanel = () => {
         {Object.keys(statusEndpoints || {}).map((endpointName) => {
           // Return the element. Also pass key
           const endpoint = statusEndpoints[endpointName];
-          let status = endpoint.status || responseStatuses[endpointName]?.status || 'pending';
+          const status = endpoint.status || responseStatuses[endpointName]?.status || 'pending';
 
           return (
             <StatusItem
@@ -71,6 +72,6 @@ const StatusPanel = () => {
       </div>
     </>
   );
-}
+};
 
 export default StatusPanel;
