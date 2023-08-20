@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Graph = ({ graph }) => (
-  <div>
+  <div role="figure">
     <h3>{ graph.title }</h3>
     {/* eslint-disable jsx-a11y/iframe-has-title */}
     <iframe src={graph.iframeSrc} width="100%" height="300" scrolling="no" frameBorder="no" />

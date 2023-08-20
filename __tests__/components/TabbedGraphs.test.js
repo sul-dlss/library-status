@@ -1,5 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom'
 import { graphs } from '../../src/config';
 // Component to be tested
 import TabbedGraphs from '../../src/components/TabbedGraphs';
@@ -7,60 +9,47 @@ import TabbedGraphs from '../../src/components/TabbedGraphs';
 describe('<TabbedGraphs />', () => {
   describe('Tabs', () => {
     it('are rendered for each horizon', () => {
-      const wrapper = shallow(<TabbedGraphs graph={graphs.swResponseTime} />);
+      render(<TabbedGraphs graph={graphs.swResponseTime} />);
 
-      const buttons = wrapper.find('.graphTabs button');
-
-      expect(buttons.length).toEqual(3)
-      expect(buttons.first().text()).toEqual('6 hours')
-      expect(buttons.last().text()).toEqual('30 days')
+      expect(screen.getAllByRole('tab')).toHaveLength(3);
+      expect(screen.getAllByRole('tab')[0]).toHaveTextContent('6 hours');
+      expect(screen.getAllByRole('tab')[2]).toHaveTextContent('30 days');
     });
 
-    it('active class is dependent on the component state', () => {
-      const wrapper = shallow(<TabbedGraphs graph={graphs.swResponseTime} />);
+    it('active class is dependent on the component state', async () => {
+      const user = userEvent.setup();
+
+      render(<TabbedGraphs graph={graphs.swResponseTime} />);
 
       // First button is active
-      var buttons = wrapper.find('.graphTabs button');
-      expect(wrapper.find('.graphTabs button.active').length).toEqual(1)
-      expect(buttons.first().hasClass('active')).toEqual(true)
+      expect(screen.getByRole('tab', { selected: true })).toHaveTextContent('6 hours');
+      expect(screen.getByRole('tab', { selected: true })).toHaveClass('active');
 
-      wrapper.setState({activeIndex: 2})
-
-      // Last button is active
-      buttons = wrapper.find('.graphTabs button');
-      expect(wrapper.find('.graphTabs button.active').length).toEqual(1)
-      expect(buttons.last().hasClass('active')).toEqual(true)
+      await user.click(screen.getByRole('tab', { name: '30 days' }));
+      expect(screen.getByRole('tab', { selected: true })).toHaveTextContent('30 days');
+      expect(screen.getByRole('tab', { selected: true })).toHaveClass('active');
     });
-
-    it('updates the component state when clicking on a tab button', () => {
-      const wrapper = shallow(<TabbedGraphs graph={graphs.swResponseTime} />);
-
-      expect(wrapper.state().activeIndex).toEqual(0)
-
-      wrapper.find('.graphTabs button').last().simulate('click')
-
-      expect(wrapper.state().activeIndex).toEqual(2)
-    });
-
   });
 
   describe('Graphs', () => {
     it('renders the first graph in the horizon', () => {
-      const wrapper = shallow(<TabbedGraphs graph={graphs.swResponseTime} />);
+      render(<TabbedGraphs graph={graphs.swResponseTime} />);
 
-      expect(wrapper.find('Graph').length).toEqual(1);
+      expect(screen.getAllByRole('figure')).toHaveLength(1);
     });
 
-    it('renders the specific graph given the compontent activeIndex state', () => {
-      const wrapper = shallow(<TabbedGraphs graph={graphs.swResponseTime} />);
+    it('renders the specific graph given the compontent activeIndex state', async () => {
+      const user = userEvent.setup();
 
-      expect(wrapper.find('Graph').prop('graph').iframeSrc).toEqual(
+      const { container } = render(<TabbedGraphs graph={graphs.swResponseTime} />);
+
+      expect(container.querySelector('iframe').src).toEqual(
         'https://rpm.newrelic.com/public/charts/47JE5FsWnMD'
       );
 
-      wrapper.setState({ activeIndex: 2 });
+      await user.click(screen.getByRole('tab', { name: '30 days' }));
 
-      expect(wrapper.find('Graph').prop('graph').iframeSrc).toEqual(
+      expect(container.querySelector('iframe').src).toEqual(
         'https://rpm.newrelic.com/public/charts/8RpiSIXjRBF'
       );
     });

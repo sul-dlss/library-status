@@ -1,16 +1,19 @@
 import React from 'react';
-import { hot } from 'react-hot-loader';
+import StatusPanel from './StatusPanel';
+import GraphPanel from './GraphPanel';
 import Header from './Header';
-import Dashboard from './Dashboard';
 import Footer from './Footer';
 import '../styles/main.css';
 
 const App = () => (
   <div id="app">
     <Header />
-    <Dashboard />
+    <div className="container">
+      <StatusPanel />
+      <GraphPanel />
+    </div>
     <Footer />
   </div>
 );
 
-export default hot(module)(App);
+export default (App);
