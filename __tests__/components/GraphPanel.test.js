@@ -1,11 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom'
 import GraphPanel from '../../src/components/GraphPanel';
 
 describe('GraphPanel', () => {
   it('renders TabbedGraphs for each configured graph', () => {
-    const wrapper = shallow(<GraphPanel />);
+    render(<GraphPanel />);
 
-    expect(wrapper.find('TabbedGraphs').length).toEqual(3);
+    expect(screen.getAllByRole('tablist')).toHaveLength(3);
   });
 });

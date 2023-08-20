@@ -8,7 +8,7 @@ const TabbedGraphs = ({ graph }) => {
   return (
     <div>
       <h3>{graph.title}</h3>
-      <div className="graphTabs">
+      <div className="graphTabs" role="tablist">
         {
           graph.horizons.map((horizon, i) => (
             <button

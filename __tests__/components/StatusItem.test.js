@@ -1,12 +1,13 @@
 // Test Utilities
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom'
 
 // Component to be tested
 import StatusItem from '../../src/components/StatusItem';
 
 function shallowWrapper(props) {
-  return shallow(
+  return render(
     <StatusItem
       serviceStatus="up"
       serviceName="SearchWorks catalog (Solr)"
@@ -18,42 +19,29 @@ function shallowWrapper(props) {
 }
 
 describe('<StatusItem />', () => {
-  it('renders the StatusItem component', () => {
-    const wrapper = shallowWrapper();
-
-    expect(wrapper.contains(
-      <div className="status-item">
-        <div className="status-icon"></div>
-        <div className="status-text">
-          <h3 className="service-name"></h3>
-          <p className="status-message"></p>
-        </div>
-      </div>
-    ))
-  });
   it('adds the service status class', () => {
-    const wrapper = shallowWrapper({ serviceStatus: 'test-class' });
+    const { container } = shallowWrapper({ serviceStatus: 'test-class' });
 
-    expect(wrapper.contains(<div className="status-item test-class"></div>));
+    expect(container.querySelector('.status-item')).toHaveClass('test-class');
   });
   it('displays the service name', () => {
-    const wrapper = shallowWrapper({ serviceName:  'Great Service!' });
+    shallowWrapper({ serviceName: 'Great Service!' });
 
-    expect(wrapper.find('ServiceName').prop('serviceName')).toEqual('Great Service!');
+    expect(screen.getByText('Great Service!')).toBeInTheDocument();
   });
   it('adds a link to the service name if URL is provided', () => {
-    const wrapper = shallowWrapper({ serviceName: 'Great Service!', serviceUrl: 'https://searchworks.stanford.edu' });
-    expect(wrapper.find('ServiceName').prop('serviceName')).toEqual('Great Service!')
-    expect(wrapper.find('ServiceName').prop('serviceUrl')).toEqual('https://searchworks.stanford.edu')
+    shallowWrapper({ serviceName: 'Great Service!', serviceUrl: 'https://searchworks.stanford.edu' });
+
+    expect(screen.getByRole('link', { name: 'Great Service!' })).toHaveAttribute('href', 'https://searchworks.stanford.edu');
   });
   it('displays the status message', () => {
-    const wrapper = shallowWrapper({ statusMessage: 'up' });
+    shallowWrapper({ statusMessage: 'up' });
 
-    expect(wrapper.find('.status-message').text()).toEqual('up');
+    expect(screen.getByText('up')).toBeInTheDocument();
   });
   it('displays the status icon', () => {
-    const wrapper = shallowWrapper({ statusIcon: '✅' });
+    shallowWrapper({ statusIcon: '✅' });
 
-    expect(wrapper.find('.status-icon').text()).toEqual('✅');
+    expect(screen.getByText('✅')).toHaveClass('status-icon');
   });
 });

@@ -2,17 +2,15 @@
 import { statusEndpoints, statuses } from '../../src/config';
 import GlobalStatus from '../../src/utils/globalStatus';
 
-const originalStatusEndpoints = statusEndpoints;
-
 describe('<GlobalStatus />', () => {
-  afterEach(() => {
+  beforeEach(() => {
     Object.keys(statusEndpoints).forEach((key) => {
       statusEndpoints[key].status = 'pending'
     });
   });
 
   it('renders a pending status', () => {
-    const status = new GlobalStatus(statuses, statusEndpoints).status;
+    const status = new GlobalStatus(statuses, statusEndpoints, false).status;
 
     expect(status.icon).toEqual('🔄');
   });
@@ -25,7 +23,7 @@ describe('<GlobalStatus />', () => {
     });
 
     it('renders the GlobalStatusSummary component as up', () => {
-      const status = new GlobalStatus(statuses, statusEndpoints).status;
+      const status = new GlobalStatus(statuses, statusEndpoints, false).status;
 
       expect(status.icon).toEqual('✅');
     });
@@ -39,7 +37,7 @@ describe('<GlobalStatus />', () => {
     });
 
     it('renders the GlobalStatusSummary component as in maintenance mode if any of the statuses are "maintenance"', () => {
-      const status = new GlobalStatus(statuses, statusEndpoints).status;
+      const status = new GlobalStatus(statuses, statusEndpoints, false).status;
 
       expect(status.icon).toEqual('🛠');
     });
@@ -53,7 +51,7 @@ describe('<GlobalStatus />', () => {
       });
 
       it('renders the component as fatal', () => {
-        const status = new GlobalStatus(statuses, statusEndpoints).status;
+        const status = new GlobalStatus(statuses, statusEndpoints, false).status;
 
         expect(status.icon).toEqual('🚫');
         expect(status.global_message).toEqual("We're on it. Check incidents for updates.");
@@ -69,7 +67,7 @@ describe('<GlobalStatus />', () => {
       });
 
       it('renders the component as an outage', () => {
-        const status = new GlobalStatus(statuses, statusEndpoints).status;
+        const status = new GlobalStatus(statuses, statusEndpoints, false).status;
 
         expect(status.icon).toEqual('🚫');
         expect(status.message).toEqual('Service is down; operations team is aware');
@@ -85,7 +83,7 @@ describe('<GlobalStatus />', () => {
       });
 
       it('renders the component as a performance issue', () => {
-        const status = new GlobalStatus(statuses, statusEndpoints).status;
+        const status = new GlobalStatus(statuses, statusEndpoints, false).status;
 
         expect(status.icon).toEqual('⚠️');
         expect(status.message).toEqual('Performance is slower than normal');
@@ -101,7 +99,7 @@ describe('<GlobalStatus />', () => {
       });
 
       it('renders the component as an issue', () => {
-        const status = new GlobalStatus(statuses, statusEndpoints).status;
+        const status = new GlobalStatus(statuses, statusEndpoints, false).status;
 
         expect(status.icon).toEqual('⚠️');
         expect(status.global_message).toEqual(
@@ -116,7 +114,7 @@ describe('<GlobalStatus />', () => {
       });
 
       it('renders the component as an issue', () => {
-        const status = new GlobalStatus(statuses, statusEndpoints).status;
+        const status = new GlobalStatus(statuses, statusEndpoints, false).status;
 
         expect(status.icon).toEqual('⚠️');
         expect(status.global_message).toEqual(

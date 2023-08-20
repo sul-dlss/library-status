@@ -14,7 +14,7 @@ const StatusPanel = () => {
 
   const maintenanceWindow = areBeingMaintained(new Date(), maintenanceWindows);
 
-  useEffect(() => { loadStatuses(); }, statusEndpoints);
+  useEffect(() => { loadStatuses(); }, [statusEndpoints]);
 
   async function loadStatuses() {
     const statusEndpointsByUrl = Object.keys(statusEndpoints).reduce((acc, key) => {
