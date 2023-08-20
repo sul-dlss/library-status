@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ServiceName = ({ serviceName, serviceUrl }) => {
   if (serviceUrl) {
-    return (<a href={serviceUrl}><h3 className="service-name">{serviceName}</h3></a>);
+    return (<h3 className="service-name"><a href={serviceUrl}>{serviceName}</a></h3>);
   }
 
   return (<h3 className="service-name">{serviceName}</h3>);
