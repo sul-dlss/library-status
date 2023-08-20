@@ -143,25 +143,25 @@ export const graphs = {
     title: 'Page load time',
     position: 1,
     horizons: [
-      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/47JE5FsWnMD' },
-      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/bTisUaCTW3z' },
-      { label: '30 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/8RpiSIXjRBF' },
+      { id: 'sw-6h', label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/47JE5FsWnMD' },
+      { id: 'sw-3d', label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/bTisUaCTW3z' },
+      { id: 'sw-30d', label: '30 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/8RpiSIXjRBF' },
     ],
   },
   solr: {
     title: 'Catalog index (Solr) response time',
     position: 2,
     horizons: [
-      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/fL0sJurf9eZ' },
-      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/4zYnObHnQij' },
+      { id: 'solr-6h', label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/fL0sJurf9eZ' },
+      { id: 'solr-3d', label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/4zYnObHnQij' },
     ],
   },
   ebsco: {
     title: 'Articles+ (EDS) response time',
     position: 3,
     horizons: [
-      { label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/eZp3HEze2w8' },
-      { label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/9GsYfLT6hlr' },
+      { id: 'ebsco-6h', label: '6 hours', iframeSrc: 'https://rpm.newrelic.com/public/charts/eZp3HEze2w8' },
+      { id: 'ebsco-3d', label: '3 days', iframeSrc: 'https://rpm.newrelic.com/public/charts/9GsYfLT6hlr' },
     ],
   },
 };

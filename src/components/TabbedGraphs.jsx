@@ -1,37 +1,36 @@
 import React, { useState } from 'react';
+import {
+  Tabs, TabList, Tab, TabPanel,
+} from 'react-aria-components';
 import PropTypes from 'prop-types';
-import Graph from './Graph';
 
 const TabbedGraphs = ({ graph }) => {
-  const [activeIndex, updateActiveIndex] = useState(0);
+  const [activeIndex, updateActiveIndex] = useState(graph.horizons[0].id);
 
   return (
-    <div>
+    <Tabs selectedKey={activeIndex} onSelectionChange={updateActiveIndex} keyboardActivation="manual">
       <h3>{graph.title}</h3>
-      <div className="graphTabs" role="tablist">
+      <TabList className="graphTabs">
         {
           graph.horizons.map((horizon, i) => (
-            <button
-              type="button"
-              role="tab"
-              className={activeIndex === i ? 'active' : ''}
-              aria-selected={activeIndex === i ? 'true' : 'false'}
-              key={JSON.stringify(horizon)}
-              onClick={() => updateActiveIndex(i)}
+            <Tab
+              id={`${horizon.id}`}
+              className={`tab ${activeIndex === horizon.id ? 'active' : ''}`}
+              key={horizon.id}
             >
               {horizon.label}
-            </button>
+            </Tab>
           ))
         }
-      </div>
-      <div aria-live="polite">
-        {
-          graph.horizons.filter((horizon, i) => (activeIndex === i)).map(horizon => (
-            <Graph graph={horizon} key={JSON.stringify(horizon)} />
-          ))
-        }
-      </div>
-    </div>
+      </TabList>
+      {
+        graph.horizons.map((horizon, i) => (
+          <TabPanel id={horizon.id} key={horizon.id}>
+            <iframe title={`Graph of ${graph.title} over the last ${horizon.label}}`} src={horizon.iframeSrc} width="100%" height="300" scrolling="no" frameBorder="no" />
+          </TabPanel>
+        ))
+      }
+    </Tabs>
   );
 };
 

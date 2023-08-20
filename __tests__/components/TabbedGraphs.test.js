@@ -35,7 +35,7 @@ describe('<TabbedGraphs />', () => {
     it('renders the first graph in the horizon', () => {
       render(<TabbedGraphs graph={graphs.swResponseTime} />);
 
-      expect(screen.getAllByRole('figure')).toHaveLength(1);
+      expect(screen.getAllByRole('tabpanel')).toHaveLength(1);
     });
 
     it('renders the specific graph given the compontent activeIndex state', async () => {
