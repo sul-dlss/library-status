@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader';
 import Header from './Header';
 import Dashboard from './Dashboard';
 import Footer from './Footer';
@@ -13,4 +12,4 @@ const App = () => (
   </div>
 );
 
-export default hot(module)(App);
+export default (App);
