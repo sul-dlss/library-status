@@ -1,5 +1,5 @@
-# SearchWorks Status Dashboard
-[![Build Status](https://travis-ci.org/sul-dlss/searchworks-status.svg?branch=master)](https://travis-ci.org/sul-dlss/searchworks-status) | [![codecov](https://codecov.io/gh/sul-dlss/searchworks-status/branch/master/graph/badge.svg)](https://codecov.io/gh/sul-dlss/searchworks-status)
+# Library Status Dashboard
+[![codecov](https://codecov.io/gh/sul-dlss/searchworks-status/branch/main/graph/badge.svg)](https://codecov.io/gh/sul-dlss/searchworks-status)
 
 A lightweight dashboard for displaying the status and performance of SearchWorks and related SUL services.
 
@@ -20,7 +20,7 @@ A lightweight dashboard for displaying the status and performance of SearchWorks
 
 ## Deploy to GH Pages
 1. `./bin/publish.sh` from the project root - This will install dependencies, build the static assets, and edit and push to the gh-pages branch.
-1. visit https://sul-dlss.github.io/searchworks-status/
+1. visit https://sul-dlss.github.io/library-status/
 
 ## Adding or Changing Checks and Graphs
-The items to be displayed here are listed in [`config.js`](https://github.com/sul-dlss/searchworks-status/blob/master/src/config.js)
+The items to be displayed here are listed in [`config.js`](https://github.com/sul-dlss/library-status/blob/main/src/config.js)

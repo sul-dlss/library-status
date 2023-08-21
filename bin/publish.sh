@@ -16,4 +16,4 @@ git commit -m 'Update sites' &&
 
 git push origin gh-pages &&
 
-git checkout master
+git checkout main
