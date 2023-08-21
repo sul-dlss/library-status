@@ -7,10 +7,6 @@ const Footer = () => (
       <a href="https://searchworks.stanford.edu/feedback">
         SearchWorks feedback
       </a>
-      <span> or </span>
-      <a href="https://library.stanford.edu/ask/email/feedback">
-        Library website feedback.
-      </a>
     </p>
   </div>
 );
