@@ -25,7 +25,6 @@ export const statusEndpoints = {
   requests: {
     displayName: 'Requests',
     endpointUrl: 'https://requests.stanford.edu/status/all.json',
-    status: 'maintenance',
     position: 5,
     processor: 'processGenericOkComputer',
   },
@@ -38,7 +37,6 @@ export const statusEndpoints = {
   liveAvailability: {
     displayName: 'Live availability lookups',
     endpointUrl: 'https://mylibrary.stanford.edu/status/all.json',
-    status: 'planned_outage',
     position: 7,
     processor: 'processLiveAvailability',
   },
@@ -52,7 +50,6 @@ export const statusEndpoints = {
     displayName: 'My Library Account',
     endpointUrl: 'https://mylibrary.stanford.edu/status/all.json',
     serviceUrl: 'https://mylibrary.stanford.edu',
-    status: 'planned_outage',
     position: 9,
     processor: 'processGenericOkComputer',
   },
