@@ -120,7 +120,7 @@ describe('enpointParsers', () => {
     it('returns outage if the live_lookups check is not successful', () => {
       const data = {
         default: { success: true },
-        live_lookups: { success: false },
+        okapi: { success: false },
       };
 
       return expect(
@@ -131,7 +131,7 @@ describe('enpointParsers', () => {
     it('returns outage if the live_lookups check is not parsable', () => {
       const data = {
         default: { success: true },
-        live_lookups: 'NOPE!',
+        okapi: 'NOPE!',
       };
 
       return expect(
@@ -142,7 +142,7 @@ describe('enpointParsers', () => {
     it('returns up if the live_lookups check is successful', () => {
       const data = {
         default: { success: true },
-        live_lookups: { success: true },
+        okapi: { success: true },
       };
 
       return expect(
