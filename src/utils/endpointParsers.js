@@ -25,7 +25,7 @@ export function processGenericOkComputer(response) {
 export function processLiveAvailability(response) {
   return response.json().then((data) => {
     if (typeof data.default === 'undefined') return 'outage';
-    return data.okapi.success ? 'up' : 'outage';
+    return data.live_lookups.success ? 'up' : 'outage';
   }).catch(() => 'outage');
 }
 export function processCitationService(response) {
