@@ -9,7 +9,7 @@ A lightweight dashboard for displaying the status and performance of SearchWorks
 ### Live Updating Development Build (using HMR+React)
 1. `npm install` (requires node.js 7+)
 1. `npm start` (This will run the development server and reflect your changes to the page as you save files)
-1. visit `localhost:8080` in your browser
+1. visit `localhost:4444` in your browser
 
 ### Static Build
 1. `npm run build:dev` # For Development build
