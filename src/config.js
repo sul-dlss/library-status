@@ -36,7 +36,7 @@ export const statusEndpoints = {
   },
   liveAvailability: {
     displayName: 'Live availability lookups',
-    endpointUrl: 'https://mylibrary.stanford.edu/status/all.json',
+    endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
     position: 7,
     processor: 'processLiveAvailability',
   },
