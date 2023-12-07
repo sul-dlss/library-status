@@ -314,6 +314,9 @@ p.status-message {
 #footer {
   margin: 90px 0 50px 0;
   text-align: center;
+  p {
+    max-width: 50em;
+  }
 }
 
 .twitterFeed {
