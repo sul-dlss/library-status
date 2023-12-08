@@ -9,7 +9,9 @@ const Footer = () => (
       </a>
     </p>
     <p>
-      If you cannot access content or use features on this website due to a disability, please
+      {/* eslint-disable max-len */}
+      <span>If you cannot access content or use features on this website due to a disability, please </span>
+      {/* eslint-enable max-len */}
       <a href="mailto:library-accessibility-contact@lists.stanford.edu">report your accessibility issue</a>
       .
     </p>
