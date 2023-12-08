@@ -8,6 +8,11 @@ const Footer = () => (
         SearchWorks feedback.
       </a>
     </p>
+    <p>
+      If you cannot access content or use features on this website due to a disability, please
+      <a href="mailto:library-accessibility-contact@lists.stanford.edu">report your accessibility issue</a>
+      .
+    </p>
   </div>
 );
 
