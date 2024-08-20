@@ -19,7 +19,11 @@ export function processEbsco(response) {
 export function processGenericOkComputer(response) {
   return response.json().then((data) => {
     if (typeof data.default === 'undefined') return 'outage';
-    return data.default.success ? 'up' : 'outage';
+    if (!data.default.success) return 'outage';
+
+    if (Object.values(data).some((service) => !service.success)) return 'issue';
+
+    return 'up';
   }).catch(() => 'outage');
 }
 export function processLiveAvailability(response) {
