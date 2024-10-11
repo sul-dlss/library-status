@@ -59,11 +59,10 @@ describe('enpointParsers', () => {
       ).resolves.toEqual('outage');
     });
 
-    it('returns an outage when there are not three operational components', () => {
+    it('returns an outage when there are not two operational components', () => {
       const components = [
         { name: 'EBSCO Discovery Service', status: 'borked' },
-        { name: 'EBSCO Discovery Service API', status: 'operational' },
-        { name: 'EBSCO Discovery Service - New UI', status: 'operational' }
+        { name: 'EBSCO Discovery Service API', status: 'operational' }
       ];
 
       return expect(
@@ -71,11 +70,10 @@ describe('enpointParsers', () => {
       ).resolves.toEqual('outage');
     });
 
-    it('returns as up when there are three operational components', () => {
+    it('returns as up when there are two operational components', () => {
       const components = [
         { name: 'EBSCO Discovery Service', status: 'operational' },
-        { name: 'EBSCO Discovery Service API', status: 'operational' },
-        { name: 'EBSCO Discovery Service - New UI', status: 'operational' }
+        { name: 'EBSCO Discovery Service API', status: 'operational' }
       ];
 
       return expect(
