@@ -12,8 +12,8 @@ export function processEbsco(response) {
     if (typeof data.components === 'undefined') return 'outage';
     let operationalServices = data.components.filter(service => service.name.includes('EBSCO Discovery Service'));
     operationalServices = operationalServices.filter(service => service.status === 'operational');
-    // Check that EDS is operational (service, API, UI)
-    return operationalServices.length === 3 ? 'up' : 'outage';
+    // Check that EDS is operational (service, API)
+    return operationalServices.length === 2 ? 'up' : 'outage';
   }).catch(() => 'outage');
 }
 export function processGenericOkComputer(response) {
