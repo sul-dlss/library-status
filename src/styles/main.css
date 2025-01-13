@@ -2,8 +2,10 @@
   --stanford-black: #2e2d29;
 }
 
+@import "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap";
+
 body {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -209,7 +211,6 @@ p.status-message {
   border-color: #4d4f53;
   border-right: none;
   cursor: pointer;
-  font-family: "Source Sans Pro", sans-serif;
   font-size: 1rem;
   margin: 0;
   padding: 10px 20px;
