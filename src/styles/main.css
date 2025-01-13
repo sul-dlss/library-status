@@ -1,8 +1,10 @@
+@import "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap";
+
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   margin: 0;
   padding: 0;
-  width:100%;
+  width: 100%;
 }
 
 .container {
@@ -15,13 +17,15 @@ p {
   max-width: 45em;
 }
 
-a, a h3.service-name {
+a,
+a h3.service-name {
   border-bottom: 1px solid transparent;
   color: #006cb8;
   text-decoration: none;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   border-bottom: 1px solid #00548f;
   color: #00548f;
   text-decoration: none;
@@ -47,7 +51,8 @@ h1 {
   line-height: 1em;
 }
 
-h2, .status-legend {
+h2,
+.status-legend {
   color: #544948;
   font-size: 2.441em;
   font-weight: 300;
@@ -73,7 +78,8 @@ h3.service-name {
   h1 {
     font-size: 1.563em;
   }
-  h2, .status-legend {
+  h2,
+  .status-legend {
     font-size: 1.953em;
   }
   .display-small {
@@ -106,8 +112,8 @@ h3.service-name {
 }
 
 #header {
-    align-items: center;
-    display: flex;
+  align-items: center;
+  display: flex;
 }
 
 #header-container {
@@ -116,15 +122,15 @@ h3.service-name {
   border-color: lightgray;
   border-style: solid;
   box-sizing: border-box;
-  left:0;
+  left: 0;
   margin-bottom: 3rem;
   max-height: 130px;
   min-height: 80px;
   padding: 0 30px;
   position: sticky;
-  right:0;
-  top:0;
-  width:100%;
+  right: 0;
+  top: 0;
+  width: 100%;
   z-index: 5;
 }
 
@@ -138,8 +144,8 @@ h3.service-name {
 }
 
 .nav-menu {
-  align-items:center;
-  display:flex;
+  align-items: center;
+  display: flex;
   flex: 1;
   justify-content: flex-end;
 }
@@ -186,7 +192,7 @@ h3.service-name {
 }
 
 p.status-message {
-    margin: 0;
+  margin: 0;
 }
 
 .graphTabs {
@@ -196,12 +202,11 @@ p.status-message {
 }
 
 .graphTabs .tab {
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   border: 1px solid #4d4f53;
   border-color: #4d4f53;
   border-right: none;
   cursor: pointer;
-  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1rem;
   margin: 0;
   padding: 10px 20px;
@@ -209,7 +214,7 @@ p.status-message {
 
 .graphTabs .tab.active {
   background-color: #4d4f53;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: default;
   font-weight: bold;
 }
@@ -287,28 +292,28 @@ p.status-message {
 }
 
 @keyframes fade {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    50% {
-        opacity: 1;
-    }
+  50% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes spin {
-    // should be good for all supported browsers:
+  // should be good for all supported browsers:
     // https://caniuse.com/#feat=css-animation
        from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 #footer {
