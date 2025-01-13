@@ -1,23 +1,14 @@
 import React from 'react';
-import SulLogo from '../styles/sul-logo.svg';
-import SulRosette from '../styles/sul-rosette.svg';
 
 const Header = () => (
   <div id="header-container">
     <div id="header" className="container">
-      <div className="brand-logo">
-        <a href="https://library.stanford.edu">
-          <img src={SulLogo} alt="Stanford Libraries" height="35px" className="display-large" />
-          <img src={SulRosette} alt="Stanford Libraries" height="35px" className="display-small" />
-        </a>
-      </div>
-      <div className="title">
-        <h1>System status</h1>
-      </div>
-      <div className="nav-menu">
+      <a className="brand-logo" href="https://library.stanford.edu">Stanford University Libraries</a>
+      <h1 className="title">System status</h1>
+      <nav className="nav-menu">
         <a href="#GlobalStatusSummary">Current</a>
         <a href="#graphs">Performance</a>
-      </div>
+      </nav>
     </div>
   </div>
 );
