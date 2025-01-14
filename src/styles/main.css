@@ -1,8 +1,12 @@
+:root {
+  --stanford-black: #2e2d29;
+}
+
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   margin: 0;
   padding: 0;
-  width:100%;
+  width: 100%;
 }
 
 .container {
@@ -15,13 +19,15 @@ p {
   max-width: 45em;
 }
 
-a, a h3.service-name {
+a,
+a h3.service-name {
   border-bottom: 1px solid transparent;
   color: #006cb8;
   text-decoration: none;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   border-bottom: 1px solid #00548f;
   color: #00548f;
   text-decoration: none;
@@ -33,21 +39,15 @@ a:active {
   text-decoration: none;
 }
 
-.brand-logo a:hover,
-.brand-logo a:focus,
-.brand-logo a:active {
-  border-bottom: none;
-  text-decoration: none;
-}
-
 h1 {
-  color: #3f3c30;
+  color: var(--stanford-black);
   font-size: 2.441em;
   font-weight: 300;
   line-height: 1em;
 }
 
-h2, .status-legend {
+h2,
+.status-legend {
   color: #544948;
   font-size: 2.441em;
   font-weight: 300;
@@ -73,25 +73,14 @@ h3.service-name {
   h1 {
     font-size: 1.563em;
   }
-  h2, .status-legend {
+  h2,
+  .status-legend {
     font-size: 1.953em;
-  }
-  .display-small {
-    display: inherit;
-  }
-  .display-large {
-    display: none;
   }
 }
 @media (min-width: 768px) {
   .container {
     width: 750px;
-  }
-  .display-large {
-    display: inherit;
-  }
-  .display-small {
-    display: none;
   }
 }
 @media (min-width: 980px) {
@@ -106,8 +95,43 @@ h3.service-name {
 }
 
 #header {
+  align-items: center;
+  display: flex;
+
+  .title {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .brand-logo {
+    flex: 1;
+    min-width: 15rem;
+    height: 2.441em;
+    display: inline-block;
+
+    background-color: var(--stanford-black);
+    mask-image: url("https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-12-16/styles/StanfordLibraries-logo.svg");
+    mask-repeat: no-repeat;
+    mask-position: 0 center;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-bottom: none;
+      text-decoration: none;
+    }
+  }
+
+  .nav-menu {
     align-items: center;
     display: flex;
+    flex: 1;
+    justify-content: flex-end;
+  }
 }
 
 #header-container {
@@ -116,37 +140,21 @@ h3.service-name {
   border-color: lightgray;
   border-style: solid;
   box-sizing: border-box;
-  left:0;
+  left: 0;
   margin-bottom: 3rem;
-  max-height: 130px;
-  min-height: 80px;
+  /* max-height: 130px;
+  min-height: 80px; */
   padding: 0 30px;
   position: sticky;
-  right:0;
-  top:0;
-  width:100%;
+  right: 0;
+  top: 0;
+  width: 100%;
   z-index: 5;
-}
-
-.title {
-  flex: 1;
-  text-align: center;
-}
-
-.brand-logo {
-  flex: 1;
-}
-
-.nav-menu {
-  align-items:center;
-  display:flex;
-  flex: 1;
-  justify-content: flex-end;
 }
 
 .nav-menu a {
   color: #4d4f53;
-  margin: 15px;
+  margin-inline: 15px;
   text-decoration: none;
 }
 
@@ -186,7 +194,7 @@ h3.service-name {
 }
 
 p.status-message {
-    margin: 0;
+  margin: 0;
 }
 
 .graphTabs {
@@ -196,12 +204,12 @@ p.status-message {
 }
 
 .graphTabs .tab {
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   border: 1px solid #4d4f53;
   border-color: #4d4f53;
   border-right: none;
   cursor: pointer;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 1rem;
   margin: 0;
   padding: 10px 20px;
@@ -209,7 +217,7 @@ p.status-message {
 
 .graphTabs .tab.active {
   background-color: #4d4f53;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: default;
   font-weight: bold;
 }
@@ -287,28 +295,28 @@ p.status-message {
 }
 
 @keyframes fade {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    50% {
-        opacity: 1;
-    }
+  50% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes spin {
-    // should be good for all supported browsers:
+  // should be good for all supported browsers:
     // https://caniuse.com/#feat=css-animation
        from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 #footer {
