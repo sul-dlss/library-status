@@ -40,17 +40,11 @@ export const statusEndpoints = {
     position: 7,
     processor: 'processLiveAvailability',
   },
-  citationService: {
-    displayName: 'OCLC citation service',
-    endpointUrl: 'https://searchworks.stanford.edu/status/all.json',
-    position: 8,
-    processor: 'processCitationService',
-  },
   myLibrary: {
     displayName: 'My Library Account',
     endpointUrl: 'https://mylibrary.stanford.edu/status/all.json',
     serviceUrl: 'https://mylibrary.stanford.edu',
-    position: 9,
+    position: 8,
     processor: 'processGenericOkComputer',
   },
 };

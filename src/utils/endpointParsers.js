@@ -32,9 +32,3 @@ export function processLiveAvailability(response) {
     return data.live_lookups.success ? 'up' : 'outage';
   }).catch(() => 'outage');
 }
-export function processCitationService(response) {
-  return response.json().then((data) => {
-    if (typeof data.default === 'undefined') return 'outage';
-    return data.oclc_citation_service.success ? 'up' : 'outage';
-  }).catch(() => 'outage');
-}

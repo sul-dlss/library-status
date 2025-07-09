@@ -148,45 +148,4 @@ describe('enpointParsers', () => {
       ).resolves.toEqual('up');
     });
   });
-
-  describe('processCitationService', () => {
-    it('returns outage if there is no default check', () => {
-      return expect(
-        parsers.processCitationService(response({})),
-      ).resolves.toEqual('outage');
-    });
-
-    it('returns outage if the oclc_citation_service check is not successful', () => {
-      const data = {
-        default: { success: true },
-        oclc_citation_service: { success: false },
-      };
-
-      return expect(
-        parsers.processCitationService(response(data)),
-      ).resolves.toEqual('outage');
-    });
-
-    it('returns outage if the oclc_citation_service check is not parsable', () => {
-      const data = {
-        default: { success: true },
-        oclc_citation_service: 'NOPE!',
-      };
-
-      return expect(
-        parsers.processCitationService(response(data)),
-      ).resolves.toEqual('outage');
-    });
-
-    it('returns up if the oclc_citation_service check is successful', () => {
-      const data = {
-        default: { success: true },
-        oclc_citation_service: { success: true },
-      };
-
-      return expect(
-        parsers.processCitationService(response(data)),
-      ).resolves.toEqual('up');
-    });
-  });
 });
