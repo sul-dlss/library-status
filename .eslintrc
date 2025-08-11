@@ -3,7 +3,6 @@
     "browser": true
   },
   "extends": [
-    "airbnb",
     "react-app",
     "plugin:jest-dom/recommended",
     "plugin:testing-library/react"
