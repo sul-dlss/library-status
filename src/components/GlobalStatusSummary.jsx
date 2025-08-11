@@ -13,7 +13,7 @@ const GlobalStatusSummary = ({ status }) => (
 );
 
 GlobalStatusSummary.propTypes = {
-  status: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  status: PropTypes.object.isRequired,
 };
 
 export default GlobalStatusSummary;
