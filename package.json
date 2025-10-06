@@ -39,7 +39,7 @@
     "babel-loader": "^10.0.0",
     "codecov": "^3.8.3",
     "css-loader": "^7.1.0",
-    "eslint": "^9.36.0",
+    "eslint": "^9.37.0",
     "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-jest-dom": "^5.0.2",
     "eslint-plugin-jsx-a11y": "^6.7.0",
