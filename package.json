@@ -60,7 +60,7 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
-    "react": "^19.0.0",
+    "react": "^19.2.0",
     "react-aria-components": "^1.12.2",
     "react-dom": "^19.0.0"
   },
