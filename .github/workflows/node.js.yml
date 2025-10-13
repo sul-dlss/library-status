@@ -5,29 +5,29 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v5
-    - name: Use Node.js 20.x
-      uses: actions/setup-node@v5
-      with:
-        node-version: 20.x
-    - uses: actions/cache@v4
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: npm install
-    - run: npm run lint
-    - run: npm run test
-    - run: npm run report-coverage
-      env:
-        CODECOV_TOKEN: f4e536ee-7ad3-4192-ab82-d8336e15dc0b
+      - uses: actions/checkout@v5
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24.x
+      - uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm install
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run report-coverage
+        env:
+          CODECOV_TOKEN: f4e536ee-7ad3-4192-ab82-d8336e15dc0b
