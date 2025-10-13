@@ -8,7 +8,7 @@ updates:
     directory: "/"
     groups:
       dependencies:
-        pattern:
+        patterns:
           - '*'
     schedule:
       interval: "weekly"
