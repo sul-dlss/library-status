@@ -23,4 +23,4 @@ A lightweight dashboard for displaying the status and performance of SearchWorks
 1. visit https://sul-dlss.github.io/library-status/
 
 ## Adding or Changing Checks and Graphs
-The items to be displayed here are listed in [`config.js`](https://github.com/sul-dlss/library-status/blob/main/src/config.js)
+The items to be displayed here are listed in [`src/config.js`](https://github.com/sul-dlss/library-status/blob/main/src/config.js)

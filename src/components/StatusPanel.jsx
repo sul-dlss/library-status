@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import GlobalStatus from '../utils/globalStatus';
-import GlobalStatusSummary from './GlobalStatusSummary';
-import StatusHeader from './StatusHeader';
-import StatusItem from './StatusItem';
-import {
-  statusEndpoints, statuses, maintenanceWindows,
-} from '../config';
-import * as processors from '../utils/endpointParsers';
-import areBeingMaintained from '../utils/maintenanceUtils';
+import { useEffect, useState } from "react";
+import GlobalStatus from "../utils/globalStatus";
+import GlobalStatusSummary from "./GlobalStatusSummary";
+import StatusHeader from "./StatusHeader";
+import StatusItem from "./StatusItem";
+import { statusEndpoints, statuses, maintenanceWindows } from "../config";
+import * as processors from "../utils/endpointParsers";
+import areBeingMaintained from "../utils/maintenanceUtils";
 
 const StatusPanel = () => {
   const [responseStatuses, setResponseStatuses] = useState({});
@@ -16,29 +14,47 @@ const StatusPanel = () => {
 
   useEffect(() => {
     async function loadStatuses() {
-      const statusEndpointsByUrl = Object.keys(statusEndpoints).reduce((acc, key) => {
-        const endpoint = statusEndpoints[key];
+      const statusEndpointsByUrl = Object.keys(statusEndpoints).reduce(
+        (acc, key) => {
+          const endpoint = statusEndpoints[key];
 
-        acc[endpoint.endpointUrl] = acc[endpoint.endpointUrl] || [];
-        acc[endpoint.endpointUrl].push(key);
+          acc[endpoint.endpointUrl] = acc[endpoint.endpointUrl] || [];
+          acc[endpoint.endpointUrl].push(key);
 
-        return acc;
-      }, {});
+          return acc;
+        },
+        {},
+      );
 
       Object.keys(statusEndpointsByUrl).forEach((url) => {
-        fetch(url, { mode: 'cors' }).then((response) => {
-          statusEndpointsByUrl[url].forEach((key) => {
-            const endpoint = statusEndpoints[key];
+        fetch(url, { mode: "cors" })
+          .then((response) => {
+            statusEndpointsByUrl[url].forEach((key) => {
+              const endpoint = statusEndpoints[key];
 
-            processors[endpoint.processor](response.clone()).then((status) => {
-              setResponseStatuses(prevResponses => ({ ...prevResponses, [key]: { status: (status === 'outage' && maintenanceWindow) ? 'maintenance' : status } }));
+              processors[endpoint.processor](response.clone()).then(
+                (status) => {
+                  setResponseStatuses((prevResponses) => ({
+                    ...prevResponses,
+                    [key]: {
+                      status:
+                        status === "outage" && maintenanceWindow
+                          ? "maintenance"
+                          : status,
+                    },
+                  }));
+                },
+              );
+            });
+          })
+          .catch(() => {
+            statusEndpointsByUrl[url].forEach((key) => {
+              setResponseStatuses((prevResponses) => ({
+                ...prevResponses,
+                [key]: { status: null },
+              }));
             });
           });
-        }).catch((error) => {
-          statusEndpointsByUrl[url].forEach((key) => {
-            setResponseStatuses(prevResponses => ({ ...prevResponses, [key]: { status: null } }));
-          });
-        });
       });
     }
     loadStatuses();
@@ -48,15 +64,16 @@ const StatusPanel = () => {
 
   return (
     <>
-      <GlobalStatusSummary
-        status={globalStatus}
-      />
+      <GlobalStatusSummary status={globalStatus} />
       <StatusHeader />
       <div id="services">
         {Object.keys(statusEndpoints || {}).map((endpointName) => {
           // Return the element. Also pass key
           const endpoint = statusEndpoints[endpointName];
-          const status = endpoint.status || responseStatuses[endpointName]?.status || 'pending';
+          const status =
+            endpoint.status ||
+            responseStatuses[endpointName]?.status ||
+            "pending";
 
           return (
             <StatusItem

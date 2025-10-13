@@ -1,31 +1,58 @@
-import { defineConfig } from "eslint/config";
-import { fixupConfigRules } from "@eslint/compat";
-import globals from "globals";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import jsxA11y from "eslint-plugin-jsx-a11y";
+import testingLibrary from "eslint-plugin-testing-library";
+import jestDom from "eslint-plugin-jest-dom";
+import globals from "globals";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
-});
-
-export default defineConfig([{
-    extends: fixupConfigRules(
-        compat.extends("plugin:react/recommended", "plugin:jest-dom/recommended", "plugin:testing-library/react"),
-    ),
-
+export default [
+  js.configs.recommended,
+  {
+    files: ["**/*.{js,jsx}"],
+    plugins: {
+      react,
+      "react-hooks": reactHooks,
+      "jsx-a11y": jsxA11y,
+      "testing-library": testingLibrary,
+      "jest-dom": jestDom,
+    },
     languageOptions: {
-        globals: {
-            ...globals.browser,
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.es2021,
+      },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
         },
+      },
     },
-
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
     rules: {
-        "arrow-parens": "off"
+      ...react.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "off",
+      "arrow-parens": "off",
     },
-}]);
+  },
+  {
+    files: [
+      "**/__tests__/**/*.{js,jsx}",
+      "**/*.test.{js,jsx}",
+      "**/*.spec.{js,jsx}",
+    ],
+    rules: {
+      ...testingLibrary.configs.react.rules,
+      ...jestDom.configs.recommended.rules,
+    },
+  },
+];

@@ -1,8 +1,8 @@
+@import "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap";
+
 :root {
   --stanford-black: #2e2d29;
 }
-
-@import "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap";
 
 body {
   font-family: "Source Sans 3", sans-serif;
@@ -310,9 +310,9 @@ p.status-message {
 }
 
 @keyframes spin {
-  // should be good for all supported browsers:
-    // https://caniuse.com/#feat=css-animation
-       from {
+  /* should be good for all supported browsers:
+     https://caniuse.com/#feat=css-animation */
+  from {
     transform: rotate(0deg);
   }
   to {

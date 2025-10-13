@@ -1,12 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const ServiceName = ({ serviceName, serviceUrl }) => {
   if (serviceUrl) {
-    return (<h3 className="service-name"><a href={serviceUrl}>{serviceName}</a></h3>);
+    return (
+      <h3 className="service-name">
+        <a href={serviceUrl}>{serviceName}</a>
+      </h3>
+    );
   }
 
-  return (<h3 className="service-name">{serviceName}</h3>);
+  return <h3 className="service-name">{serviceName}</h3>;
 };
 
 ServiceName.propTypes = {
@@ -19,7 +22,11 @@ ServiceName.defaultProps = {
 };
 
 const StatusItem = ({
-  serviceStatus, serviceName, statusMessage, statusIcon, serviceUrl,
+  serviceStatus,
+  serviceName,
+  statusMessage,
+  statusIcon,
+  serviceUrl,
 }) => (
   <div className={`status-item ${serviceStatus}`}>
     <div className="status-icon">{statusIcon}</div>

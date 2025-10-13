@@ -1,6 +1,6 @@
 npm i &&
 
-npm run build:prod &&
+npm run build &&
 
 # checkout to the gh-pages branch
 git checkout gh-pages &&
@@ -10,7 +10,7 @@ git pull origin gh-pages --rebase &&
 
 cp dist/* ./ &&
 
-git add index.html bundle.js *.svg &&
+git add index.html bundle.js &&
 
 git commit -m 'Update sites' &&
 
