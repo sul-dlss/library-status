@@ -26,7 +26,7 @@
     "@eslint/js": "^9.39.2",
     "@testing-library/dom": "^10.0.0",
     "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.0.0",
+    "@testing-library/react": "^16.3.1",
     "@testing-library/user-event": "^14.4.3",
     "@vitejs/plugin-react": "^5.1.2",
     "@babel/core": "^7.28.5",
@@ -40,19 +40,19 @@
     "eslint-plugin-jsx-a11y": "^6.7.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-testing-library": "^7.13.6",
-    "globals": "^16.4.0",
+    "eslint-plugin-testing-library": "^7.15.4",
+    "globals": "^17.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
     "prettier": "^3.7.4",
-    "vite": "^7.2.7"
+    "vite": "^7.3.0"
   },
   "dependencies": {
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
     "react": "^19.2.3",
-    "react-aria-components": "^1.13.0",
+    "react-aria-components": "^1.14.0",
     "react-dom": "^19.2.3"
   }
 }
